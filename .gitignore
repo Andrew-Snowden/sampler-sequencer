@@ -1,7 +1,11 @@
-build
 build/*
-bin/*
+!build/.gitkeep
+bin/a7/*
+!bin/a7/.gitkeep
+bin/m4/*
+!bin/m4/.gitkeep
 *~
 *.swp
 *.swo
-tools/
+tools/*
+!tools/.gitkeep

@@ -1,11 +1,12 @@
 #include <stdint.h>
-#include "../ModuleDefinitions/GPIO_Definitions.h"
-#include "../ModuleDefinitions/UART_Definitions.h"
+#include "GPIO_Definitions.h"
+#include "UART_Definitions.h"
 #include "../TestModule/testing.h"
+#include "stm32mp1xx.h"
 
 unsigned char * str = "Hello World!\n";
   
-void setup();
+//void setup();
 
 void print_char(unsigned char character);
 void print_string(unsigned char * string, unsigned int length);
@@ -13,9 +14,9 @@ inline void uart_wait();
 
 void main()
 {
-	setup();
+	//setup();
 
-	GPIOA_BRR = BRR13_MASK;	//Open Drain - GND
+	//GPIOA_BRR = BRR13_MASK;	//Open Drain - GND
 	
 	print_char('\n');
 	print_string(str, 13); 
@@ -23,11 +24,12 @@ void main()
 	int rand_number = random_function(5);
 	
 	print_char((char)(rand_number + 48));
+	RCC->MP_GCR = RCC_MP_GCR_BOOT_MCU;
 	
 	while(1);
 }
 
-void setup()
+/*void setup()
 {
 	//PA13 setup	
 	SET( GPIOA_MODER, 	(MODER13_MASK & (0x1 << MODER13_POS)) );
@@ -36,7 +38,7 @@ void setup()
 	CLR( GPIOA_PUPDR, 	(PUPDR13_MASK & (0x0 << PUPDR13_POS)) );
 	
 	GPIOA_BSRR = BSRR13_MASK;	//Make output HI-Z
-}
+}*/
 
 void print_char(unsigned char character)
 {

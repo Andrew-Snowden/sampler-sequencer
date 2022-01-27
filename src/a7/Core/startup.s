@@ -65,6 +65,7 @@ data_loop:
 	mov r0, #65
 	str r0, [r4]
 
-
+	CPSIE i
+	
 	bl main
 	b .
