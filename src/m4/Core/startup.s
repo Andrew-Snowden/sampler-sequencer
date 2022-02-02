@@ -46,9 +46,12 @@ LoopFillZerobss:
   	ldr  r3, = _ebss
   	cmp  r2, r3
   	bcc  FillZerobss
+
 	
 	bl SystemInit
 	bl __libc_init_array
+	
+	CPSIE i
 	bl main
 	
 	
