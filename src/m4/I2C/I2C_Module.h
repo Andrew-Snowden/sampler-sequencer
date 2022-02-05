@@ -6,7 +6,7 @@
 #include "stm32mp1xx_hal.h"
 
 
-
+void init_I2C();
 
 
 #endif

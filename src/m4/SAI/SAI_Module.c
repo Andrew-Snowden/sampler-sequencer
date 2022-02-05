@@ -44,7 +44,7 @@ void SAI_Init_BlockA() //Transmit Block
 	SAI_InitStruct.MckOverSampling	= SAI_MCK_OVERSAMPLING_ENABLE;
 	SAI_InitStruct.MonoStereoMode	= SAI_MONOMODE;
 	SAI_InitStruct.CompandingMode	= SAI_NOCOMPANDING;
-	SAI_InitStruct.TriState			= SAI_OUTPUT_RELEASED;
+	SAI_InitStruct.TriState			= SAI_OUTPUT_NOTRELEASED;
 
 
 	//Insert Init struct into Handle struct
@@ -91,7 +91,7 @@ void SAI_Init_BlockB() //Receive Block
 	SAI_InitStruct.MckOverSampling	= SAI_MCK_OVERSAMPLING_ENABLE;
 	SAI_InitStruct.MonoStereoMode	= SAI_MONOMODE;
 	SAI_InitStruct.CompandingMode	= SAI_NOCOMPANDING;
-	SAI_InitStruct.TriState			= SAI_OUTPUT_RELEASED;
+	SAI_InitStruct.TriState			= SAI_OUTPUT_NOTRELEASED;
 
 
 	//Insert Init struct into Handle struct
