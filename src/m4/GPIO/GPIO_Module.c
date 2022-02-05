@@ -61,8 +61,8 @@ static void I2C_GPIO_Config()
 	GPIO_InitStruct.Pin 		= GPIO_PIN_12;
 	GPIO_InitStruct.Mode 		= GPIO_MODE_AF_OD;
 	GPIO_InitStruct.Pull		= GPIO_PULLUP;
-	GPIO_InitStruct.Speed 		= GPIO_SPEED_FREQ_VERY_HIGH;
-	GPIO_InitStruct.Alternate	= GPIO_AF4_I2C1;
+	GPIO_InitStruct.Speed 		= GPIO_SPEED_FREQ_LOW;
+	GPIO_InitStruct.Alternate	= GPIO_AF5_I2C1;
 	
 	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 	
@@ -70,8 +70,8 @@ static void I2C_GPIO_Config()
 	GPIO_InitStruct.Pin			= GPIO_PIN_15;
 	GPIO_InitStruct.Mode		= GPIO_MODE_AF_OD;
 	GPIO_InitStruct.Pull		= GPIO_PULLUP;
-	GPIO_InitStruct.Speed		= GPIO_SPEED_FREQ_VERY_HIGH;
-	GPIO_InitStruct.Alternate	= GPIO_AF4_I2C1;
+	GPIO_InitStruct.Speed		= GPIO_SPEED_FREQ_LOW;
+	GPIO_InitStruct.Alternate	= GPIO_AF5_I2C1;
 	
 	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);	
 }

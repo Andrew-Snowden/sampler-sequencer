@@ -72,16 +72,16 @@
 /**
   * @brief This is the list of modules where register callback can be used
   */
-/*#define USE_HAL_ADC_REGISTER_CALLBACKS    0u
+#define USE_HAL_ADC_REGISTER_CALLBACKS    0u
 #define USE_HAL_CEC_REGISTER_CALLBACKS    0u
-#define USE_HAL_DAC_REGISTER_CALLBACKS    0u*/
-#define USE_HAL_I2C_REGISTER_CALLBACKS    1u
-/*#define USE_HAL_RNG_REGISTER_CALLBACKS    0u
+#define USE_HAL_DAC_REGISTER_CALLBACKS    0u
+#define USE_HAL_I2C_REGISTER_CALLBACKS    0u
+#define USE_HAL_RNG_REGISTER_CALLBACKS    0u
 #define USE_HAL_SPI_REGISTER_CALLBACKS    0u
 #define USE_HAL_SRAM_REGISTER_CALLBACKS   0U
 #define USE_HAL_UART_REGISTER_CALLBACKS   0u
 #define USE_HAL_USART_REGISTER_CALLBACKS  0u
-#define USE_HAL_WWDG_REGISTER_CALLBACKS   0u*/
+#define USE_HAL_WWDG_REGISTER_CALLBACKS   0u
 #define USE_HAL_SAI_REGISTER_CALLBACKS 	  1u
 
 /* ################## SPI peripheral configuration ########################## */
@@ -205,6 +205,7 @@
 
 #ifdef HAL_GPIO_MODULE_ENABLED
  #include "stm32mp1xx_hal_gpio.h"
+ #include "stm32mp1xx_hal_gpio_ex.h"
 #endif /* HAL_GPIO_MODULE_ENABLED */
 
 #ifdef HAL_HSEM_MODULE_ENABLED

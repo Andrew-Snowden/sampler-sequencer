@@ -11,7 +11,7 @@ typedef enum
 	SAI_INIT_I2S
 } SAI_Init_Mode;
 
-void init_SAI(SAI_Init_Mode init_mode);
+void init_SAI(SAI_Init_Mode init_mode, SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib);
 
 void SAI_Init_BlockA();
 

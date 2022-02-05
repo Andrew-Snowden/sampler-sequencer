@@ -500,6 +500,7 @@ HAL_StatusTypeDef HAL_I2C_Init(I2C_HandleTypeDef *hi2c)
   assert_param(IS_I2C_GENERAL_CALL(hi2c->Init.GeneralCallMode));
   assert_param(IS_I2C_NO_STRETCH(hi2c->Init.NoStretchMode));
 
+	
   if (hi2c->State == HAL_I2C_STATE_RESET)
   {
     /* Allocate lock resource and initialize it */
@@ -576,12 +577,11 @@ HAL_StatusTypeDef HAL_I2C_Init(I2C_HandleTypeDef *hi2c)
 
   /* Enable the selected I2C peripheral */
   __HAL_I2C_ENABLE(hi2c);
-
   hi2c->ErrorCode = HAL_I2C_ERROR_NONE;
   hi2c->State = HAL_I2C_STATE_READY;
   hi2c->PreviousState = I2C_STATE_NONE;
   hi2c->Mode = HAL_I2C_MODE_NONE;
-
+	
   return HAL_OK;
 }
 

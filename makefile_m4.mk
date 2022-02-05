@@ -11,7 +11,9 @@ SOURCES := $(wildcard src/m4/*/*.[cs]) \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_msp.c \
 					$(SHARED)/printfunc/myprint.c \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_sai.c \
-					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c.c 
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_sai_ex.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c_ex.c
 					
 
 INCLUDES = -I. \

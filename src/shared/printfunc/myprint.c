@@ -13,6 +13,16 @@ void print_char(unsigned char character)
 	}
 }
 
+void print_char_nl(unsigned char character)
+{
+	uart_wait();
+	UART4_TDR = character;
+	uart_wait();
+	UART4_TDR = '\n';
+	uart_wait();
+	UART4_TDR = '\r';
+}
+
 void print_string(unsigned char * string, unsigned int length)
 {
 	uint8_t newline = 0;
