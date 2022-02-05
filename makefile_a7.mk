@@ -1,9 +1,11 @@
 A7_DIR := src/a7
 SHARED_HAL_DIR := src/shared/HAL/Src
+SHARED := src/shared
 
 SOURCES := $(wildcard src/a7/*/*.[cs]) \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal.c \
-					$(SHARED_HAL_DIR)/stm32mp1xx_hal_gpio.c 
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_gpio.c \
+					$(SHARED)/printfunc/myprint.c
 					
 					
 
@@ -11,7 +13,8 @@ INCLUDES = -I. \
 				-Isrc/shared/HAL/Inc \
 				-Isrc/shared/CMSIS/Core_A/Include \
 				-Isrc/shared/CMSIS/Device/ST/STM32MP1xx/Include \
-				-Isrc/shared/ModuleDefinitions
+				-Isrc/shared/ModuleDefinitions \
+				-Isrc/shared/printfunc
 
 LINKSCR ?= linkscripta7.ld
 TOOLS ?= tools
