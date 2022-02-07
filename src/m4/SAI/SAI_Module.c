@@ -6,9 +6,9 @@ void init_SAI(SAI_Init_Mode init_mode, SAI_HandleTypeDef *hsaia, SAI_HandleTypeD
 {
 	if (init_mode == SAI_INIT_I2S)	//Init I2S operation of SAI Module
 	{
-		__HAL_RCC_SAI2_CLK_ENABLE();
 		SAI_Init_BlockA(hsaia);
-		SAI_Init_BlockB(hsaib);
+		//SAI_Init_BlockB(hsaib);
+		
 	}
 	else	//Init MCLK only for testing
 	{
@@ -26,11 +26,11 @@ void SAI_Init_BlockA(SAI_HandleTypeDef *hsaia) //Transmit Block
 	
 	//Populate Init struct with I2S properties
 	hsaia->Instance					= SAI2_Block_A;
-	hsaia->Init.AudioMode			= SAI_MODEMASTER_TX;
+	hsaia->Init.AudioMode			= SAI_MODESLAVE_TX;
 	hsaia->Init.Synchro 			= SAI_ASYNCHRONOUS; 
-	hsaia->Init.SynchroExt			= SAI_SYNCEXT_OUTBLOCKA_ENABLE;
+	hsaia->Init.SynchroExt			= SAI_SYNCEXT_DISABLE; //SAI_SYNCEXT_OUTBLOCKA_ENABLE
 	hsaia->Init.MckOutput			= SAI_MCK_OUTPUT_ENABLE;
-	hsaia->Init.OutputDrive			= SAI_OUTPUTDRIVE_DISABLE; //Possibly change!!!
+	hsaia->Init.OutputDrive			= SAI_OUTPUTDRIVE_ENABLE; //Possibly change!!!
 	hsaia->Init.NoDivider			= SAI_MASTERDIVIDER_ENABLE;
 	hsaia->Init.FIFOThreshold		= SAI_FIFOTHRESHOLD_EMPTY; //Interrupt when empty
 	hsaia->Init.AudioFrequency		= SAI_AUDIO_FREQUENCY_48K;
@@ -75,7 +75,7 @@ void SAI_Init_BlockB(SAI_HandleTypeDef *hsaib) //Receive Block
 	hsaib->Init.Synchro 			= SAI_SYNCHRONOUS; 
 	hsaib->Init.SynchroExt			= SAI_SYNCEXT_DISABLE;
 	hsaib->Init.MckOutput			= SAI_MCK_OUTPUT_DISABLE;
-	hsaib->Init.OutputDrive			= SAI_OUTPUTDRIVE_DISABLE; //Possibly Change
+	hsaib->Init.OutputDrive			= SAI_OUTPUTDRIVE_ENABLE; //Possibly Change
 	hsaib->Init.NoDivider			= SAI_MASTERDIVIDER_ENABLE;
 	hsaib->Init.FIFOThreshold		= SAI_FIFOTHRESHOLD_FULL; //Interrupt when full
 	hsaib->Init.AudioFrequency		= SAI_AUDIO_FREQUENCY_48K;

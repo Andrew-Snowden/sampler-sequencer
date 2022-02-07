@@ -31,17 +31,5 @@ void init_I2C(I2C_HandleTypeDef* hi2c1)
 	{
 		print_string("bad\n", 4);	
 	}
-/*	
-	if(HAL_I2CEx_ConfigAnalogFilter(hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
-	{
-		print_string("bad2\n", 5);
-	}
-	
-	if (HAL_I2CEx_ConfigDigitalFilter(hi2c1, 0) != HAL_OK)
-  	{
-    	print_string("bad3\n", 5);
-  	}
-*/
 
-	
 }

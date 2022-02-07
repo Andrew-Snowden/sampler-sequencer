@@ -81,6 +81,8 @@ static void SAI_GPIO_Config()
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
 	
+	__HAL_RCC_SAI2_CLK_ENABLE();
+	
 	//PE0 - MCLKA
 	GPIO_InitStruct.Pin			= GPIO_PIN_0;
 	GPIO_InitStruct.Mode		= GPIO_MODE_AF_PP;
@@ -92,7 +94,7 @@ static void SAI_GPIO_Config()
 	
 	//PI7 - FSA
 	GPIO_InitStruct.Pin			= GPIO_PIN_7;
-	GPIO_InitStruct.Mode		= GPIO_MODE_AF_PP;
+	GPIO_InitStruct.Mode		= GPIO_MODE_AF;
 	GPIO_InitStruct.Pull		= GPIO_NOPULL;
 	GPIO_InitStruct.Speed		= GPIO_SPEED_FREQ_VERY_HIGH;
 	GPIO_InitStruct.Alternate	= GPIO_AF10_SAI2;
@@ -101,7 +103,7 @@ static void SAI_GPIO_Config()
 	
 	//PI5 - SCKA
 	GPIO_InitStruct.Pin			= GPIO_PIN_5;
-	GPIO_InitStruct.Mode		= GPIO_MODE_AF_PP;
+	GPIO_InitStruct.Mode		= GPIO_MODE_AF;
 	GPIO_InitStruct.Pull		= GPIO_NOPULL;
 	GPIO_InitStruct.Speed		= GPIO_SPEED_FREQ_VERY_HIGH;
 	GPIO_InitStruct.Alternate	= GPIO_AF10_SAI2;
@@ -119,7 +121,7 @@ static void SAI_GPIO_Config()
 	
 	//PF11 - SDB
 	GPIO_InitStruct.Pin			= GPIO_PIN_11;
-	GPIO_InitStruct.Mode		= GPIO_MODE_AF;
+	GPIO_InitStruct.Mode		= GPIO_MODE_AF_PP;
 	GPIO_InitStruct.Pull		= GPIO_NOPULL;
 	GPIO_InitStruct.Speed		= GPIO_SPEED_FREQ_VERY_HIGH;
 	GPIO_InitStruct.Alternate	= GPIO_AF10_SAI2;
