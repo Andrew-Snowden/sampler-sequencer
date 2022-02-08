@@ -2,23 +2,22 @@
 #include "myprint.h"
 
 
-void init_SAI(SAI_Init_Mode init_mode, SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib)
+void init_SAI(SAI_Init_Mode mode, SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib)
 {
-	if (init_mode == SAI_INIT_I2S)	//Init I2S operation of SAI Module
+	if (mode == SAI_INIT_Master)
 	{
-		SAI_Init_BlockA(hsaia);
-		//SAI_Init_BlockB(hsaib);
-		
+		SAI_Init_BlockA_Master(hsaia);
 	}
-	else	//Init MCLK only for testing
+	else
 	{
-		
+		SAI_Init_BlockA_Slave(hsaia);
 	}
-	
+
+		//SAI_Init_BlockB(hsaib);	
 	
 }
 
-void SAI_Init_BlockA(SAI_HandleTypeDef *hsaia) //Transmit Block
+void SAI_Init_BlockA_Slave(SAI_HandleTypeDef *hsaia) //Transmit Block
 {
 	//Error Check Variable
 	HAL_StatusTypeDef SAI_Check;
@@ -30,24 +29,24 @@ void SAI_Init_BlockA(SAI_HandleTypeDef *hsaia) //Transmit Block
 	hsaia->Init.Synchro 			= SAI_ASYNCHRONOUS; 
 	hsaia->Init.SynchroExt			= SAI_SYNCEXT_DISABLE; //SAI_SYNCEXT_OUTBLOCKA_ENABLE
 	hsaia->Init.MckOutput			= SAI_MCK_OUTPUT_ENABLE;
-	hsaia->Init.OutputDrive			= SAI_OUTPUTDRIVE_ENABLE; //Possibly change!!!
+	hsaia->Init.OutputDrive			= SAI_OUTPUTDRIVE_DISABLE; //Possibly change!!!
 	hsaia->Init.NoDivider			= SAI_MASTERDIVIDER_ENABLE;
 	hsaia->Init.FIFOThreshold		= SAI_FIFOTHRESHOLD_EMPTY; //Interrupt when empty
 	hsaia->Init.AudioFrequency		= SAI_AUDIO_FREQUENCY_48K;
-	hsaia->Init.Mckdiv				= 0;
-	hsaia->Init.MckOverSampling		= SAI_MCK_OVERSAMPLING_ENABLE;
+	hsaia->Init.Mckdiv				= 2;
+	hsaia->Init.MckOverSampling		= SAI_MCK_OVERSAMPLING_DISABLE;
 	hsaia->Init.MonoStereoMode		= SAI_MONOMODE;
 	hsaia->Init.CompandingMode		= SAI_NOCOMPANDING;
 	hsaia->Init.TriState			= SAI_OUTPUT_NOTRELEASED;
 	
-	RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+	/*RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_SAI2;
 	PeriphClkInit.Sai2ClockSelection = RCC_SAI2CLKSOURCE_PLL3_Q;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
 		print_string("SAIA CLK FAIL\n", 14);
-    }
-	
+    }*/
+	__HAL_RCC_SAI2_CLK_ENABLE();
 	
 	//Initialize SAI with I2S protocol
 	SAI_Check = HAL_SAI_InitProtocol(	hsaia, 
@@ -56,11 +55,57 @@ void SAI_Init_BlockA(SAI_HandleTypeDef *hsaia) //Transmit Block
 										2
 									);
 
+
 	if (SAI_Check == HAL_ERROR)
 	{
 		print_string("SAIA ERROR\n", 11);
 	}
 	
+}
+
+void SAI_Init_BlockA_Master(SAI_HandleTypeDef *hsaia)
+{
+		//Error Check Variable
+	HAL_StatusTypeDef SAI_Check;
+
+	
+	//Populate Init struct with I2S properties
+	hsaia->Instance					= SAI2_Block_A;
+	hsaia->Init.AudioMode			= SAI_MODEMASTER_TX;
+	hsaia->Init.Synchro 			= SAI_ASYNCHRONOUS; 
+	hsaia->Init.SynchroExt			= SAI_SYNCEXT_DISABLE; //SAI_SYNCEXT_OUTBLOCKA_ENABLE
+	hsaia->Init.MckOutput			= SAI_MCK_OUTPUT_ENABLE;
+	hsaia->Init.OutputDrive			= SAI_OUTPUTDRIVE_DISABLE; //Possibly change!!!
+	hsaia->Init.NoDivider			= SAI_MASTERDIVIDER_ENABLE;
+	hsaia->Init.FIFOThreshold		= SAI_FIFOTHRESHOLD_EMPTY; //Interrupt when empty
+	hsaia->Init.AudioFrequency		= SAI_AUDIO_FREQUENCY_48K;
+	hsaia->Init.Mckdiv				= 2;
+	hsaia->Init.MckOverSampling		= SAI_MCK_OVERSAMPLING_DISABLE;
+	hsaia->Init.MonoStereoMode		= SAI_MONOMODE;
+	hsaia->Init.CompandingMode		= SAI_NOCOMPANDING;
+	hsaia->Init.TriState			= SAI_OUTPUT_NOTRELEASED;
+	
+	/*RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_SAI2;
+	PeriphClkInit.Sai2ClockSelection = RCC_SAI2CLKSOURCE_PLL3_Q;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+    {
+		print_string("SAIA CLK FAIL\n", 14);
+    }*/
+	__HAL_RCC_SAI2_CLK_ENABLE();
+	
+	//Initialize SAI with I2S protocol
+	SAI_Check = HAL_SAI_InitProtocol(	hsaia, 
+										SAI_I2S_STANDARD,
+										SAI_PROTOCOL_DATASIZE_24BIT, 
+										2
+									);
+
+
+	if (SAI_Check == HAL_ERROR)
+	{
+		print_string("SAIA ERROR\n", 11);
+	}
 }
 
 void SAI_Init_BlockB(SAI_HandleTypeDef *hsaib) //Receive Block

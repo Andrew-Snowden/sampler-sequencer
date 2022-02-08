@@ -7,13 +7,14 @@
 
 typedef enum 
 {
-	SAI_INIT_MCLK_ONLY,
-	SAI_INIT_I2S
+	SAI_INIT_Master,
+	SAI_INIT_Slave
 } SAI_Init_Mode;
 
-void init_SAI(SAI_Init_Mode init_mode, SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib);
+void init_SAI(SAI_Init_Mode mode, SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib);
 
-void SAI_Init_BlockA();
+void SAI_Init_BlockA_Slave();
+void SAI_Init_BlockA_Master();
 
 void SAI_Init_BlockB();
 
