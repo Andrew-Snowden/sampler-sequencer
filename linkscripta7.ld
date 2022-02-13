@@ -2,7 +2,7 @@ OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
 ENTRY(_Reset)
 
-__HEAP_SIZE 		= 0x1F400000;	/* 500 MB Heap Size */
+/*__HEAP_SIZE 		= 0x1F400000;	*/ /* 500 MB Heap Size */
 
 __USER_STACK_SIZE	= 0x00010000;	/* 64  KB */
 __AUX_STACK_SIZE	= 0x00010000;	/* 64  KB */
@@ -14,8 +14,7 @@ __SVC_STACK_SIZE	= 0x00002000;	/* 8   KB */
 MEMORY
 {
 	ROM 	(rx) 	: ORIGIN = 0xDFF00000, LENGTH = 1M
-	RAM 	(rxw)	: ORIGIN = 0xC0000000, LENGTH = 511M
-	
+	RAM 	(rxw)	: ORIGIN = 0xC0000000, LENGTH = 1M
 }
 
 
@@ -135,14 +134,14 @@ SECTIONS
 	} > RAM
 	
 
-	.heap(NOLOAD):
+/*	.heap(NOLOAD):
 	{
 		. = ALIGN(8);
 		_sheap = .;
 		. += __HEAP_SIZE;
 		_eheap = .;
-	} > RAM
-	
+	} > RAM 
+*/
 	
 	  /DISCARD/ :
 	  {

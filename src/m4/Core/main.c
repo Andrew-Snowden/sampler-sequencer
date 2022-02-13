@@ -28,7 +28,10 @@ uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cf
 							0x27821d,0x2a7065,0x2d6bf9,0x307303,0x3383a3,0x369bf7,0x39ba16,0x3cdc13
 						  };
 
+uint32_t recorded_audio[48000];
+
 void *sine_wave_ptr = sine_wave;
+void *record_ptr = recorded_audio;
 
 void init_interrupts(void);
 void _init(void){};
@@ -66,7 +69,7 @@ void main()
 	//Initialize SAI
 	SAI_HandleTypeDef hsaia;
 	SAI_HandleTypeDef hsaib;
-	init_SAI(SAI_INIT_Master, &hsaia, &hsaib);
+	init_SAI(&hsaia, &hsaib);
 	
 	//DMA Config
 	
@@ -81,7 +84,7 @@ void main()
 	
 	//Application
 	char str[10] = {0};
-	uint8_t id = 0;
+	uint8_t id;
 	
 	if (GetCODECid(&hi2c1, &id) == HAL_OK)
 	{
@@ -91,13 +94,30 @@ void main()
 		print_string(str, 10);
 		print_char('\n');
 	}
+
+	SendAudio(&hsaia);
 	
+	HAL_StatusTypeDef status = HAL_SAI_Receive(&hsaib, record_ptr, 48000, 1500);
+	if (status != HAL_OK)
+	{
+		print_string("Not Support!\n", 13);	
+	}
+	else
+	{
+		print_string("yes\n", 4);
+		HAL_SAI_Transmit(&hsaia, record_ptr, 48000, HAL_MAX_DELAY);
+	}
+
 	//SendAudio(&hsaia);
 	//hsaia.Instance->CR1 |=  SAI_xCR1_SAIEN;
 	while(1)
 	{
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
-		SendAudio(&hsaia);
+		for (int i = 0; i < 375; i++)
+		{
+			SendAudio(&hsaia);
+		}
+		HAL_Delay(1000);
 	}
 	
 }
@@ -107,6 +127,7 @@ HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai)
 	uint8_t data[4] = {0x40, 0x00, 0x00, 0x00};
 	HAL_StatusTypeDef status;
 	status = HAL_SAI_Transmit(hsai, sine_wave_ptr, 128, HAL_MAX_DELAY);	
+	
 	//status = HAL_SAI_Transmit(hsai, data, 4, HAL_MAX_DELAY);
 	if (status != HAL_OK)
 	{
@@ -114,7 +135,7 @@ HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai)
 	}
 	else
 	{
-		print_string("after SAI tx\n", 13);	
+		//print_string("after SAI tx\n", 13);	
 	}
 	
 	return status;
@@ -145,18 +166,18 @@ HAL_StatusTypeDef ConfigureCODEC(I2C_HandleTypeDef *hi2c1)
 	HAL_StatusTypeDef status;
 	
 	//Configuration Values
-	uint8_t config_data_codec_master[29] = { 0x82, 0x1F, 0x4E, 0x4C, 0x00, 0xA0, 0x20, 0x60, 0x02, 0x00,
+	uint8_t config_data_codec_master[29] = { 0x82, 0x1D, 0x4E, 0x4C, 0x00, 0xA0, 0x20, 0x60, 0x02, 0x00,
 									 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80, 
 									 0x88, 0x00, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00, 0x3F };
 	
-	uint8_t config_data_codec_slave[29] = { 0x82, 0x1F, 0xAE, 0x0C, 0x00, 0xA0, 0x20, 0x60, 0x02, 0x00,
+	uint8_t config_data_codec_slave[29] = { 0x82, 0x1D, 0xAE, 0x0C, 0x00, 0xA0, 0x20, 0x60, 0x02, 0x00,
 									 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80, 
 									 0x88, 0x00, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00, 0x3F };
 	
 	uint8_t status_address 	= 0x20;
 	uint8_t status_result	= 0;
 	
-	status = HAL_I2C_Master_Transmit(hi2c1, 0x94, config_data_codec_slave, 29, HAL_MAX_DELAY);
+	status = HAL_I2C_Master_Transmit(hi2c1, 0x94, config_data_codec_master, 29, HAL_MAX_DELAY);
 	if (status != HAL_OK)
 	{
 		print_string("Failed in CF tx\n", 16);	
@@ -192,7 +213,7 @@ HAL_StatusTypeDef StartCODEC(I2C_HandleTypeDef *hi2c1)
 	HAL_StatusTypeDef status;
 	uint8_t data[2];
 	data[0] = 0x02;
-	data[1] = 0x1E;
+	data[1] = 0x1C;
 	
 	//Send address of PDN register in CODEC
 	status = HAL_I2C_Master_Transmit(hi2c1, 0x94, data, 2, 500);

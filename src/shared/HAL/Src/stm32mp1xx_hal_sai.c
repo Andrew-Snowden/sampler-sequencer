@@ -214,6 +214,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32mp1xx_hal.h"
+#include "myprint.h"
 
 /** @addtogroup STM32MP1xx_HAL_Driver
   * @{
@@ -1199,6 +1200,7 @@ HAL_StatusTypeDef HAL_SAI_Receive(SAI_HandleTypeDef *hsai, uint8_t *pData, uint1
     {
       if ((hsai->Instance->SR & SAI_xSR_FLVL) != SAI_FIFOSTATUS_EMPTY)
       {
+		print_char_nl('t');
         if ((hsai->Init.DataSize == SAI_DATASIZE_8) && (hsai->Init.CompandingMode == SAI_NOCOMPANDING))
         {
           *hsai->pBuffPtr = (uint8_t)hsai->Instance->DR;
@@ -1225,6 +1227,7 @@ HAL_StatusTypeDef HAL_SAI_Receive(SAI_HandleTypeDef *hsai, uint8_t *pData, uint1
           hsai->pBuffPtr++;
         }
         hsai->XferCount--;
+		
       }
       else
       {
