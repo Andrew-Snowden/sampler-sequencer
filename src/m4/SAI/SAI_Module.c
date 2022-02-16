@@ -22,9 +22,8 @@ void SAI_Init_Master(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib)
 	hsaib->Init.AudioMode			= SAI_MODESLAVE_RX;
 	hsaib->Init.Synchro 			= SAI_SYNCHRONOUS; 
 	hsaib->Init.SynchroExt			= SAI_SYNCEXT_DISABLE;
-	hsaib->Init.MckOutput			= SAI_MCK_OUTPUT_ENABLE;
 	hsaib->Init.OutputDrive			= SAI_OUTPUTDRIVE_DISABLE; 
-	hsaib->Init.FIFOThreshold		= SAI_FIFOTHRESHOLD_EMPTY; 
+	hsaib->Init.FIFOThreshold		= SAI_FIFOTHRESHOLD_FULL; 
 	hsaib->Init.AudioFrequency		= SAI_AUDIO_FREQUENCY_48K;
 	hsaib->Init.MonoStereoMode		= SAI_MONOMODE;
 	hsaib->Init.CompandingMode		= SAI_NOCOMPANDING;
@@ -33,7 +32,7 @@ void SAI_Init_Master(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib)
 	
 	//Populate Init struct with I2S properties
 	hsaia->Instance					= SAI2_Block_A;
-	hsaia->Init.AudioMode			= SAI_MODESLAVE_TX;				//SAI_MODEMASTER_TX
+	hsaia->Init.AudioMode			= SAI_MODEMASTER_TX;				//SAI_MODEMASTER_TX
 	hsaia->Init.Synchro 			= SAI_ASYNCHRONOUS; 
 	hsaia->Init.SynchroExt			= SAI_SYNCEXT_DISABLE; 
 	hsaia->Init.MckOutput			= SAI_MCK_OUTPUT_ENABLE;

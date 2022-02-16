@@ -96,8 +96,8 @@ void main()
 	}
 
 	SendAudio(&hsaia);
-	
-	HAL_StatusTypeDef status = HAL_SAI_Receive(&hsaib, record_ptr, 48000, 1500);
+	HAL_SAI_Transmit(&hsaia, record_ptr, 128, 1500);
+	HAL_StatusTypeDef status = HAL_SAI_Receive(&hsaib, record_ptr, 128, 1500);
 	if (status != HAL_OK)
 	{
 		print_string("Not Support!\n", 13);	
@@ -105,7 +105,7 @@ void main()
 	else
 	{
 		print_string("yes\n", 4);
-		HAL_SAI_Transmit(&hsaia, record_ptr, 48000, HAL_MAX_DELAY);
+		HAL_SAI_Transmit(&hsaia, record_ptr, 128, HAL_MAX_DELAY);
 	}
 
 	//SendAudio(&hsaia);
@@ -166,18 +166,18 @@ HAL_StatusTypeDef ConfigureCODEC(I2C_HandleTypeDef *hi2c1)
 	HAL_StatusTypeDef status;
 	
 	//Configuration Values
-	uint8_t config_data_codec_master[29] = { 0x82, 0x1D, 0x4E, 0x4C, 0x00, 0xA0, 0x20, 0x60, 0x02, 0x00,
+	uint8_t config_data_codec_master[29] = { 0x82, 0x1D, 0x4E, 0x4C, 0x20, 0xA0, 0x20, 0x60, 0x02, 0x00,
 									 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80, 
 									 0x88, 0x00, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00, 0x3F };
 	
-	uint8_t config_data_codec_slave[29] = { 0x82, 0x1D, 0xAE, 0x0C, 0x00, 0xA0, 0x20, 0x60, 0x02, 0x00,
+	uint8_t config_data_codec_slave[29] = { 0x82, 0x1D, 0xAE, 0x0C, 0x20, 0xA0, 0x20, 0x60, 0x02, 0x00,
 									 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80, 
 									 0x88, 0x00, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00, 0x3F };
 	
 	uint8_t status_address 	= 0x20;
 	uint8_t status_result	= 0;
 	
-	status = HAL_I2C_Master_Transmit(hi2c1, 0x94, config_data_codec_master, 29, HAL_MAX_DELAY);
+	status = HAL_I2C_Master_Transmit(hi2c1, 0x94, config_data_codec_slave, 29, HAL_MAX_DELAY);
 	if (status != HAL_OK)
 	{
 		print_string("Failed in CF tx\n", 16);	
