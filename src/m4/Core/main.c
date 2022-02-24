@@ -66,12 +66,15 @@ void main()
 	I2C_HandleTypeDef hi2c1;
 	init_I2C(&hi2c1);
 
+	//DMA Config
+	DMA_HandleTypeDef hdmatx;
+	
 	//Initialize SAI
 	SAI_HandleTypeDef hsaia;
 	SAI_HandleTypeDef hsaib;
-	init_SAI(&hsaia, &hsaib);
+	init_SAI(&hsaia, &hsaib, &hdmatx);
 	
-	//DMA Config
+
 	
 	
 	

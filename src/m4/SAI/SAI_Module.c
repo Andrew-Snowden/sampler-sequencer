@@ -2,10 +2,11 @@
 #include "myprint.h"
 
 
-void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib)
+void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleTypeDef *hdmatx)
 {
 	
 	__HAL_RCC_SAI2_CLK_ENABLE();
+	__HAL_RCC_DMA1_CLK_ENABLE();
 
 	SAI_Init_Master(hsaia, hsaib);
 	

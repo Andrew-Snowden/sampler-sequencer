@@ -24,7 +24,8 @@ INCLUDES = -I. \
 				-Isrc/shared/printfunc \
 				-Isrc/m4/SAI \
 				-Isrc/m4/I2C \
-				-Isrc/m4/GPIO
+				-Isrc/m4/GPIO \
+				-Isrc/m4/Core
 
 LINKSCR ?= linkscriptm4.ld
 TOOLS ?= tools
