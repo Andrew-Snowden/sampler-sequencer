@@ -2,7 +2,7 @@
 
 void Audio_Processor_Run()
 {
-	if (audio_def.audio_status == AUDIO_STATUS_READY)
+	if (audio_status == AUDIO_STATUS_READY)
 	{
 		Audio_Processor_Master_Process();
 		Audio_Processor_Effects_Process();
@@ -12,7 +12,7 @@ void Audio_Processor_Run()
 void Audio_Processor_Master_Process()
 {
 	//Do audio processing
-	if(audio_def.active_buffer == BUFFER_1)
+	if(active_buffer == BUFFER_1)
 	{
 		memcpy(master_output_double_buffer, mix_output_buffer, 512 * sizeof(uint32_t));		//active_buffer == BUFFER_1 after 
 	}																						//ISR half transfer complete

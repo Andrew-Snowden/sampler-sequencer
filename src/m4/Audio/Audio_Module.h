@@ -10,6 +10,8 @@ static uint32_t mix_output_buffer[512];
 static uint32_t master_output_double_buffer[1024];
 static uint32_t effects_output_buffer[6][512];
 static uint8_t output_active;
+static ActiveBuffer active_buffer;
+static AudioStatus audio_status;
 
 static AudioClip *active_clips[6];
 

@@ -19,7 +19,7 @@ typedef struct AudioClip
 
     uint32_t    *start;                            //Where clip starts when played
     uint32_t    *end;                              //Where clip ends when played
-    uint32_t    *read_ptr                          //Current read location. Used by effects processor
+    uint32_t    *read_ptr;                          //Current read location. Used by effects processor
 
     uint8_t     is_repeating;                      //Indicates if clip should repeat when end is reached
     uint8_t     use_effects;
