@@ -1,14 +1,17 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include "UART_Definitions.h"
-#include "GPIO_Definitions.h"
+
 #include "stm32mp1xx.h"
 #include "system_stm32mp1xx.h"
-#include "stm32mp1xx_hal.h"
+//#include "stm32mp1xx_hal.h"
+
+#include "GPIO_Definitions.h"
+#include "GPIO_Module.h"
+#include "I2C_Module.h"
 #include "myprint.h"
 #include "SAI_Module.h"
-#include "I2C_Module.h"
-#include "GPIO_Module.h"
+#include "UART_Definitions.h"
+
 
 uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cfc,0x529406,0x558f9a,
 							0x587de2,0x5b5d0f,0x5e2b5c,0x60e70e,0x638e76,0x661fef,0x6899e5,0x6afad2,
@@ -38,6 +41,8 @@ void _init(void){};
 
 void print_clocks(uint32_t(*fp)(void));
 void print_clocks_val(uint32_t val);
+
+int8_t load_audio_in_memory(uint32_t * audio_start, uint32_t audio_length);
 
 HAL_StatusTypeDef GetCODECid(I2C_HandleTypeDef *hi2c1, uint8_t *id);
 HAL_StatusTypeDef BootCODEC(I2C_HandleTypeDef *hi2c1);
@@ -73,10 +78,6 @@ void main()
 	SAI_HandleTypeDef hsaia;
 	SAI_HandleTypeDef hsaib;
 	init_SAI(&hsaia, &hsaib, &hdmatx);
-	
-
-	
-	
 	
 	//CODEC Configure + Start
 	BootCODEC(&hi2c1);
@@ -174,7 +175,7 @@ HAL_StatusTypeDef ConfigureCODEC(I2C_HandleTypeDef *hi2c1)
 									 0x88, 0x00, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00, 0x3F };
 	
 	uint8_t config_data_codec_slave[29] = { 0x82, 0x1D, 0xAE, 0x0C, 0x20, 0xA0, 0x20, 0x60, 0x02, 0x00,
-									 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x00, 0x00, 0x80, 
+									 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0xF0, 0x00, 0x80, 
 									 0x88, 0x00, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00, 0x3F };
 	
 	uint8_t status_address 	= 0x20;

@@ -1,7 +1,5 @@
 #include "GPIO_Module.h"
 
-#include "stm32mp1xx.h"
-#include "system_stm32mp1xx.h"
 #include "stm32mp1xx_hal.h"
 
 static void CODEC_GPIO_Config();

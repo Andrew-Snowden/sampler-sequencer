@@ -1,8 +1,7 @@
 #include "I2C_Module.h"
 
-#include "stm32mp1xx.h"
-#include "system_stm32mp1xx.h"
 #include "stm32mp1xx_hal.h"
+
 #include "myprint.h"
 
 void init_I2C(I2C_HandleTypeDef* hi2c1)

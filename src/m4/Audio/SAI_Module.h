@@ -1,8 +1,8 @@
 #ifndef SAI_MODULE_H
 #define SAI_MODULE_H
 
-#include "stm32mp1xx.h"
-#include "system_stm32mp1xx.h"
+#include <stdint.h>
+
 #include "stm32mp1xx_hal.h"
 
 

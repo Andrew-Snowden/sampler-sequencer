@@ -9,8 +9,7 @@ MEMORY
 {
 	m_interrupts	(RX) 	: ORIGIN = 0x00000000, LENGTH = 0x00000440
 	m_text			(RX)	: ORIGIN = 0x10000000, LENGTH = 0x00040000
-	m_data			(RW)	: ORIGIN = 0xC0100000, LENGTH = 2M
-	m_audio			(RW)	: ORIGIN = 0xC0300000, LENGTH = 508M
+	m_data			(RW)	: ORIGIN = 0xC0100000, LENGTH = 510M
 }
 
 SECTIONS
