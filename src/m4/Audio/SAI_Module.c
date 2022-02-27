@@ -7,9 +7,41 @@ void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleType
 	
 	__HAL_RCC_SAI2_CLK_ENABLE();
 	__HAL_RCC_DMA1_CLK_ENABLE();
+	__HAL_RCC_DMAMUX_CLK_ENABLE();
 
 	SAI_Init_Master(hsaia, hsaib);
-	
+	SAI_Init_DMA(hsaia, hdmatx);
+}
+
+void SAI_Init_DMA(SAI_HandleTypeDef *hsaia, DMA_HandleTypeDef *hdma_tx)
+{
+	hdma_tx->Instance 					= DMA1_Stream0;
+	hdma_tx->Init.Request 				= DMA_REQUEST_SAI2_A;
+	hdma_tx->Init.Direction 			= DMA_MEMORY_TO_PERIPH;
+	hdma_tx->Init.PeriphInc 			= DMA_PINC_DISABLE;
+	hdma_tx->Init.MemInc 				= DMA_MINC_ENABLE;
+	hdma_tx->Init.PeriphDataAlignment	= DMA_PDATAALIGN_WORD;
+	hdma_tx->Init.MemDataAlignment 		= DMA_MDATAALIGN_WORD;
+	hdma_tx->Init.Mode 					= DMA_CIRCULAR;
+	hdma_tx->Init.Priority 				= DMA_PRIORITY_VERY_HIGH;
+	hdma_tx->Init.FIFOMode 				= DMA_FIFOMODE_DISABLE;
+	hdma_tx->Init.MemBurst 				= DMA_MBURST_SINGLE;
+	hdma_tx->Init.PeriphBurst 			= DMA_PBURST_SINGLE;
+
+	__HAL_LINKDMA(hsaia, hdmatx, *hdma_tx);
+	//hsaia->hdmatx = hdma_tx;
+	//hdma_tx->Parent = hsaia;
+
+	HAL_DMA_Init(hdma_tx);
+
+	/* DMA interrupt init */
+	HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+
+	/* Peripheral interrupt init */
+	HAL_NVIC_SetPriority(SAI2_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(SAI2_IRQn);
+
 }
 
 void SAI_Init_Master(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib)

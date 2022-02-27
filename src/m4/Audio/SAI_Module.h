@@ -9,6 +9,6 @@
 void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleTypeDef *hdmatx);
 
 void SAI_Init_Master();
-
+void SAI_Init_DMA();
 
 #endif

@@ -5,6 +5,8 @@
 
 #include "defines.h"
 
+static AudioClip audio_clips[17];
+
 void Audio_Clip_Copy(uint8_t index_destination, uint8_t index_source)
 {
     Audio_Clip_Load(index_destination, audio_clips[index_source].audio, audio_clips[index_source].length_32);
@@ -18,6 +20,13 @@ StatusType Audio_Clip_Load(uint8_t index_destination, uint32_t *source_address, 
         Audio_Clip_Delete(index_destination);
         memcpy(audio_clips[index_destination].audio, source_address, number_of_samples * sizeof(uint32_t));
 
+        //Set audio clip parameters
+        audio_clips[index_destination].length_32 = number_of_samples;
+        audio_clips[index_destination].end = audio_clips[index_destination].audio + number_of_samples;
+        audio_clips[index_destination].start = audio_clips[index_destination].audio;
+        audio_clips[index_destination].read_ptr = audio_clips[index_destination].start;
+
+
         //Set allocate bit
         audio_clips[index_destination].is_allocated = 1;
     }
@@ -25,6 +34,19 @@ StatusType Audio_Clip_Load(uint8_t index_destination, uint32_t *source_address, 
     {
         return Status_Fail;
     }
+}
+
+StatusType Audio_Load_Buffer(uint32_t *source, uint32_t number_of_samples, uint32_t sample_offset)
+{
+    if ((audio_clips[16].audio + sample_offset + number_of_samples) >= audio_clips[16].audio + 960000)
+    {
+        return Status_Fail;
+    }
+    else 
+    {
+        memcpy(audio_clips[16].audio + sample_offset, source, number_of_samples * 4);
+    }
+    return Status_Success;
 }
 
 void Audio_Clip_Delete(uint8_t index)
@@ -52,9 +74,19 @@ uint8_t Audio_Is_Slot_Free(uint8_t index)
     }
 }
 
-AudioClip *Get_Audio_Clip(uint8_t index)
+AudioClip *Audio_Get_Clip(uint8_t index)
 {
     return &audio_clips[index];
+}
+
+AudioClip *Audio_Get_Buffer()
+{
+    return &audio_clips[16];
+}
+
+uint8_t Audio_Get_Buffer_Index()
+{
+    return 16;
 }
 
 void Audio_Clip_Set_Repeating(uint8_t index, uint8_t is_repeating)

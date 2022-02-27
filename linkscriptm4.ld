@@ -3,7 +3,7 @@ ENTRY(Reset_Handler)
 _estack = 0x10040000;
 
 _Min_Heap_Size = 0x1000;
-_Min_Stack_Size = 0x400;
+_Min_Stack_Size = 0x1000;
 
 MEMORY
 {

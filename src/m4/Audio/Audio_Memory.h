@@ -19,7 +19,7 @@ typedef struct AudioClip
 
     uint32_t    *start;                            //Where clip starts when played
     uint32_t    *end;                              //Where clip ends when played
-    uint32_t    *read_ptr;                          //Current read location. Used by effects processor
+    uint32_t    *read_ptr;                         //Current read location. Used by effects processor
 
     uint8_t     is_repeating;                      //Indicates if clip should repeat when end is reached
     uint8_t     use_effects;
@@ -29,10 +29,9 @@ typedef struct AudioClip
 
 } AudioClip;
 
-static AudioClip audio_clips[17];
-
 //Access - Functions: Copy, Load, Delete, Move
 StatusType Audio_Clip_Load(uint8_t index_destination, uint32_t *source_address, uint32_t number_of_samples);
+StatusType Audio_Load_Buffer(uint32_t *source, uint32_t number_of_samples, uint32_t sample_offset);
 void Audio_Clip_Copy(uint8_t index_destination, uint8_t index_source);
 void Audio_Clip_Delete(uint8_t index);
 void Audio_Clip_Move(uint8_t index_destination, uint8_t index_source);
@@ -46,8 +45,11 @@ void Audio_Clip_Modify_Start(uint8_t index, uint32_t number_of_blocks, ClipModif
 void Audio_Clip_Modify_End(uint8_t index, uint32_t number_of_blocks, ClipModifyDirection direction);
 
 uint8_t Audio_Is_Slot_Free(uint8_t index);
+uint8_t Audio_Get_Buffer_Index();
 
-AudioClip *Get_Audio_Clip(uint8_t index);
+AudioClip *Audio_Get_Clip(uint8_t index);
+AudioClip *Audio_Get_Buffer();
+
 
 void Audio_Memory_Init();
 

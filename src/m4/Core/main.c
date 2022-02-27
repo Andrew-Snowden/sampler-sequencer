@@ -3,14 +3,14 @@
 
 #include "stm32mp1xx.h"
 #include "system_stm32mp1xx.h"
-//#include "stm32mp1xx_hal.h"
+#include "stm32mp1xx_hal.h"
 
 #include "GPIO_Definitions.h"
-#include "GPIO_Module.h"
-#include "I2C_Module.h"
 #include "myprint.h"
-#include "SAI_Module.h"
 #include "UART_Definitions.h"
+#include "Audio_Processor.h"
+#include "Periph_Init.h"
+#include "Audio_Memory.h"
 
 
 uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cfc,0x529406,0x558f9a,
@@ -31,7 +31,7 @@ uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cf
 							0x27821d,0x2a7065,0x2d6bf9,0x307303,0x3383a3,0x369bf7,0x39ba16,0x3cdc13
 						  };
 
-uint32_t recorded_audio[48000];
+uint32_t recorded_audio[32768];
 
 void *sine_wave_ptr = sine_wave;
 void *record_ptr = recorded_audio;
@@ -62,27 +62,21 @@ void main()
 	HAL_Init();
 	
 	//Initialize peripherals
-	init_GPIO();
-	
+	Peripherals_Init();
+	SAI_HandleTypeDef *hsaia = Handle_Get_SAIA();
+	SAI_HandleTypeDef *hsaib = Handle_Get_SAIB();
+	I2C_HandleTypeDef *hi2c1 = Handle_Get_I2C1();
+	DMA_HandleTypeDef *hdmatx = Handle_Get_DMATX();
+
+
 	//Initialize Interrupts
 	init_interrupts();
 	
-	//Initialize I2C
-	I2C_HandleTypeDef hi2c1;
-	init_I2C(&hi2c1);
-
-	//DMA Config
-	DMA_HandleTypeDef hdmatx;
-	
-	//Initialize SAI
-	SAI_HandleTypeDef hsaia;
-	SAI_HandleTypeDef hsaib;
-	init_SAI(&hsaia, &hsaib, &hdmatx);
 	
 	//CODEC Configure + Start
-	BootCODEC(&hi2c1);
-	ConfigureCODEC(&hi2c1);
-	StartCODEC(&hi2c1);
+	BootCODEC(hi2c1);
+	ConfigureCODEC(hi2c1);
+	StartCODEC(hi2c1);
 	
 
 	
@@ -90,7 +84,7 @@ void main()
 	char str[10] = {0};
 	uint8_t id;
 	
-	if (GetCODECid(&hi2c1, &id) == HAL_OK)
+	if (GetCODECid(hi2c1, &id) == HAL_OK)
 	{
 		itoa(id, str, 16);
 	
@@ -99,9 +93,21 @@ void main()
 		print_char('\n');
 	}
 
-	SendAudio(&hsaia);
-	HAL_SAI_Transmit(&hsaia, record_ptr, 128, 1500);
-	HAL_StatusTypeDef status = HAL_SAI_Receive(&hsaib, record_ptr, 128, 1500);
+	SendAudio(hsaia);
+	HAL_SAI_Transmit(hsaia, record_ptr, 128, 1500);
+
+	Audio_Processor_Init();
+
+	HAL_StatusTypeDef status;
+
+	for (int i = 0; i < 14; i++)
+	{
+		status = HAL_SAI_Receive(hsaib, record_ptr, 32768, HAL_MAX_DELAY);
+		Audio_Load_Buffer((uint32_t*)record_ptr, 32768, i * 32768);
+	}
+
+	
+	//HAL_StatusTypeDef status = HAL_SAI_Receive(hsaib, record_ptr, 32768, HAL_MAX_DELAY);
 	if (status != HAL_OK)
 	{
 		print_string("Not Support!\n", 13);	
@@ -109,19 +115,33 @@ void main()
 	else
 	{
 		print_string("yes\n", 4);
-		HAL_SAI_Transmit(&hsaia, record_ptr, 128, HAL_MAX_DELAY);
+		Audio_Clip_Load(0, Audio_Get_Buffer()->audio, 14*32768);
+		Audio_Clip_Set_Repeating(0, 1);
+		Audio_Clip_Set_UseEffects(0, 0);
+
+		Audio_Process_Add_Clip(0);
+		Audio_Processor_Start();
+		/*
+		for (int i = 0; i < 28; i++)
+		{
+			HAL_SAI_Transmit(hsaia, (uint8_t*)(Audio_Get_Clip(0)->audio + (i*32768)), 32768, HAL_MAX_DELAY);
+		}
+		*/
 	}
 
 	//SendAudio(&hsaia);
 	//hsaia.Instance->CR1 |=  SAI_xCR1_SAIEN;
 	while(1)
 	{
+		Audio_Processor_Run();
+		/*
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
 		for (int i = 0; i < 375; i++)
 		{
-			SendAudio(&hsaia);
+			SendAudio(hsaia);
 		}
 		HAL_Delay(1000);
+		*/
 	}
 	
 }
