@@ -23,10 +23,16 @@ SAI_HandleTypeDef *Get_SAIA_Handle()
 
 void Audio_Processor_Init()
 {
+	uint32_t dummy_send[4] = {0x55, 0x55, 0x55, 0x55};
+	void *record_ptr = dummy_send;
 	for (int i = 0; i < 6; i++)
 	{
 		active_clips[i] = NULL;
 	}
+
+	//Required to allow SAI Receive
+	//SendAudio(hsaia);								
+	HAL_SAI_Transmit(Handle_Get_SAIA(), record_ptr, 4, 1500);
 }
 
 void Audio_Processor_Start()
@@ -38,7 +44,6 @@ void Audio_Processor_Start()
 
 	Audio_Processor_Resume_Output();
 
-	print_char_nl('w');
 }
 
 void Audio_Processor_Run()
@@ -70,7 +75,6 @@ void Audio_Processor_Effects_Process()
 	int number_of_clips = 0;
 	if (output_active)
 	{
-		print_char_nl('w');
 		for (int i = 0; i < 6; i++)
 		{
 			if(active_clips[i] != NULL)  //Using Effects
@@ -82,7 +86,6 @@ void Audio_Processor_Effects_Process()
 				else
 				{
 					memcpy(effects_output_buffer[number_of_clips], active_clips[i]->read_ptr, 512 * sizeof(uint32_t));
-					print_char_nl('s');
 
 					active_clips[i]->read_ptr += 512;
 
@@ -93,7 +96,6 @@ void Audio_Processor_Effects_Process()
 						if (active_clips[i]->is_repeating == 0) active_clips[i] = NULL;
 					}
 				}
-
 
 				number_of_clips++;		//Should be at end of if statement
 			}
@@ -124,7 +126,7 @@ void Audio_Processor_Effects_Mix(uint8_t number_of_clips)
 	}
 }
 
-void Audio_Process_Add_Clip(uint8_t clip_index)
+void Audio_Processor_Add_Clip(uint8_t clip_index)
 {
 	uint8_t found = 0;
 	for (int i = 0; i < 6; i++)
@@ -139,10 +141,45 @@ void Audio_Process_Add_Clip(uint8_t clip_index)
 	}
 }
 
-void Audio_Process_Remove_Clip(uint8_t clip_index)
+void Audio_Processor_Remove_Clip(uint8_t clip_index)
 {
 	active_clips[clip_index] = NULL;
 }
+
+void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
+{
+	uint32_t iterations = 0;
+	uint8_t end_reached = 0;
+	AudioClip *audio_buffer = Audio_Get_Buffer();
+	SAI_HandleTypeDef *hsaib = Handle_Get_SAIB();
+	while (*continue_sampling != 0 && end_reached == 0)
+	{
+		HAL_SAI_Receive(Handle_Get_SAIB(), (void*)(audio_buffer->audio + (512 * iterations)), 512, HAL_MAX_DELAY);
+		iterations++;
+
+		if (iterations >= 1875)
+		{
+			end_reached = 1;
+		}
+	}
+	
+	audio_buffer->length_32 = iterations * 512;
+	audio_buffer->end = audio_buffer->audio + audio_buffer->length_32;
+	audio_buffer->start = audio_buffer->audio;
+	audio_buffer->read_ptr = audio_buffer->start;
+	audio_buffer->is_repeating = 0;
+	audio_buffer->use_effects = 0;
+
+	Audio_Clip_Copy(index, Audio_Get_Buffer_Index());
+}
+
+void Audio_Processor_Resample_Single(uint8_t clip_index)
+{
+	//Process clip effects into buffer
+
+	//Copy back from buffer to clip
+}
+
 
 void Audio_Processor_Pause_Output()
 {

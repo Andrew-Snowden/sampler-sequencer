@@ -31,7 +31,7 @@ uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cf
 							0x27821d,0x2a7065,0x2d6bf9,0x307303,0x3383a3,0x369bf7,0x39ba16,0x3cdc13
 						  };
 
-uint32_t recorded_audio[32768];
+uint32_t recorded_audio[960000];
 
 void *sine_wave_ptr = sine_wave;
 void *record_ptr = recorded_audio;
@@ -78,36 +78,14 @@ void main()
 	ConfigureCODEC(hi2c1);
 	StartCODEC(hi2c1);
 	
-
-	
-	//Application
-	char str[10] = {0};
-	uint8_t id;
-	
-	if (GetCODECid(hi2c1, &id) == HAL_OK)
-	{
-		itoa(id, str, 16);
-	
-		print_string("CODEC id: ", 10);
-		print_string(str, 10);
-		print_char('\n');
-	}
-
-	SendAudio(hsaia);
-	HAL_SAI_Transmit(hsaia, record_ptr, 128, 1500);
-
+	//Initialize Audio Processor
 	Audio_Processor_Init();
 
 	HAL_StatusTypeDef status;
 
-	for (int i = 0; i < 14; i++)
-	{
-		status = HAL_SAI_Receive(hsaib, record_ptr, 32768, HAL_MAX_DELAY);
-		Audio_Load_Buffer((uint32_t*)record_ptr, 32768, i * 32768);
-	}
-
+	uint8_t continue_recording = 1;
+	Audio_Processor_Sample(&continue_recording, 0);
 	
-	//HAL_StatusTypeDef status = HAL_SAI_Receive(hsaib, record_ptr, 32768, HAL_MAX_DELAY);
 	if (status != HAL_OK)
 	{
 		print_string("Not Support!\n", 13);	
@@ -115,33 +93,17 @@ void main()
 	else
 	{
 		print_string("yes\n", 4);
-		Audio_Clip_Load(0, Audio_Get_Buffer()->audio, 14*32768);
 		Audio_Clip_Set_Repeating(0, 1);
 		Audio_Clip_Set_UseEffects(0, 0);
 
-		Audio_Process_Add_Clip(0);
+		Audio_Processor_Add_Clip(0);
 		Audio_Processor_Start();
-		/*
-		for (int i = 0; i < 28; i++)
-		{
-			HAL_SAI_Transmit(hsaia, (uint8_t*)(Audio_Get_Clip(0)->audio + (i*32768)), 32768, HAL_MAX_DELAY);
-		}
-		*/
 	}
 
-	//SendAudio(&hsaia);
-	//hsaia.Instance->CR1 |=  SAI_xCR1_SAIEN;
+
 	while(1)
 	{
-		Audio_Processor_Run();
-		/*
-		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
-		for (int i = 0; i < 375; i++)
-		{
-			SendAudio(hsaia);
-		}
-		HAL_Delay(1000);
-		*/
+		Audio_Processor_Run();	//Audio Processor
 	}
 	
 }
@@ -152,7 +114,6 @@ HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai)
 	HAL_StatusTypeDef status;
 	status = HAL_SAI_Transmit(hsai, sine_wave_ptr, 128, HAL_MAX_DELAY);	
 	
-	//status = HAL_SAI_Transmit(hsai, data, 4, HAL_MAX_DELAY);
 	if (status != HAL_OK)
 	{
 		print_string("Failed audio tx\n", 16); 

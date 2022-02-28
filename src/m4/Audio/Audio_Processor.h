@@ -18,8 +18,11 @@ void Audio_Processor_Start();          //Should only be called after the audio m
 void Audio_Processor_Pause_Output();
 void Audio_Processor_Resume_Output();
 
-void Audio_Process_Add_Clip(uint8_t clip_index);
-void Audio_Process_Remove_Clip(uint8_t clip_index);
+void Audio_Processor_Add_Clip(uint8_t clip_index);
+void Audio_Processor_Remove_Clip(uint8_t clip_index);
+
+void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index);          //Records audio into buffer
+void Audio_Processor_Resample_Single(uint8_t clip_index);       //Resamples clip into itself with effects
 
 uint32_t *Get_Output_Buffer();
 SAI_HandleTypeDef *Get_SAIA_Handle();

@@ -9,7 +9,17 @@ static AudioClip audio_clips[17];
 
 void Audio_Clip_Copy(uint8_t index_destination, uint8_t index_source)
 {
-    Audio_Clip_Load(index_destination, audio_clips[index_source].audio, audio_clips[index_source].length_32);
+    //Audio_Clip_Load(index_destination, audio_clips[index_source].audio, audio_clips[index_source].length_32);
+
+    AudioClip *destination = &audio_clips[index_destination];
+    AudioClip *source = &audio_clips[index_source];
+
+    memcpy(destination->audio, source->audio, source->length_32 * sizeof(uint32_t));
+    destination->start = source->start;
+    destination->end = source->end;
+    destination->length_32 = source->length_32;
+    destination->read_ptr = destination->start;
+    destination->is_allocated = 1;
 }
 
 StatusType Audio_Clip_Load(uint8_t index_destination, uint32_t *source_address, uint32_t number_of_samples)
