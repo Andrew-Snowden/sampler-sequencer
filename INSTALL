@@ -5,4 +5,4 @@ Install arm-none-eabi
 
 The tools/ folder must contain U-Boots "mkimage" program
   - sudo apt install u-boot-tools
-  - Copy the executable to this projects "tools/" directory
+  - Copy the executable "mikimage" to this projects "tools/" directory
