@@ -3,13 +3,13 @@ ENTRY(Reset_Handler)
 _estack = 0x10040000;
 
 _Min_Heap_Size = 0x1000;
-_Min_Stack_Size = 0x400;
+_Min_Stack_Size = 0x1000;
 
 MEMORY
 {
 	m_interrupts	(RX) 	: ORIGIN = 0x00000000, LENGTH = 0x00000440
-	m_text			(RX)	: ORIGIN = 0x10000000, LENGTH = 0x00020000
-	m_data			(RW)	: ORIGIN = 0x10020000, LENGTH = 0x00020000
+	m_text			(RX)	: ORIGIN = 0x10000000, LENGTH = 0x00040000
+	m_data			(RW)	: ORIGIN = 0xC0100000, LENGTH = 510M
 }
 
 SECTIONS

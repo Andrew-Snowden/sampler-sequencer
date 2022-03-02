@@ -1,4 +1,5 @@
 SHARED_HAL_DIR := src/shared/HAL/Src
+SHARED := src/shared
 
 SOURCES := $(wildcard src/m4/*/*.[cs]) \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal.c \
@@ -7,13 +8,26 @@ SOURCES := $(wildcard src/m4/*/*.[cs]) \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_rcc.c \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_rcc_ex.c \
 					src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c \
-					$(SHARED_HAL_DIR)/stm32mp1xx_hal_msp.c
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_msp.c \
+					$(SHARED)/printfunc/myprint.c \
+					$(SHARED)/ModuleDefinitions/syscalls.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_sai.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_sai_ex.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c_ex.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_dma.c
+					
 
 INCLUDES = -I. \
 				-Isrc/shared/HAL/Inc \
 				-Isrc/shared/CMSIS/Core/Include \
 				-Isrc/shared/CMSIS/Device/ST/STM32MP1xx/Include \
-				-Isrc/shared/ModuleDefinitions
+				-Isrc/shared/ModuleDefinitions \
+				-Isrc/shared/printfunc \
+				-Isrc/m4/Audio \
+				-Isrc/m4/I2C \
+				-Isrc/m4/GPIO \
+				-Isrc/m4/Core
 
 LINKSCR ?= linkscriptm4.ld
 TOOLS ?= tools

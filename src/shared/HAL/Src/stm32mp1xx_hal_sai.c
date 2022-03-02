@@ -214,6 +214,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32mp1xx_hal.h"
+#include "myprint.h"
 
 /** @addtogroup STM32MP1xx_HAL_Driver
   * @{
@@ -1225,6 +1226,7 @@ HAL_StatusTypeDef HAL_SAI_Receive(SAI_HandleTypeDef *hsai, uint8_t *pData, uint1
           hsai->pBuffPtr++;
         }
         hsai->XferCount--;
+		
       }
       else
       {
@@ -1591,12 +1593,15 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
     /* Process Locked */
     __HAL_LOCK(hsai);
 
+    print_char_nl('n');
+
     hsai->pBuffPtr = pData;
     hsai->XferSize = Size;
     hsai->XferCount = Size;
     hsai->ErrorCode = HAL_SAI_ERROR_NONE;
     hsai->State = HAL_SAI_STATE_BUSY_TX;
 
+    print_char_nl('n');
     /* Set the SAI Tx DMA Half transfer complete callback */
     hsai->hdmatx->XferHalfCpltCallback = SAI_DMATxHalfCplt;
 
@@ -1609,6 +1614,8 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
     /* Set the DMA Tx abort callback */
     hsai->hdmatx->XferAbortCallback = NULL;
 
+    print_char_nl('n');
+
     /* Enable the Tx DMA Stream */
     if (HAL_DMA_Start_IT(hsai->hdmatx, (uint32_t)hsai->pBuffPtr, (uint32_t)&hsai->Instance->DR, hsai->XferSize) != HAL_OK)
     {
@@ -1616,8 +1623,10 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
       return  HAL_ERROR;
     }
 
+    print_char_nl('s');
+
     /* Enable the interrupts for error handling */
-    __HAL_SAI_ENABLE_IT(hsai, SAI_InterruptFlag(hsai, SAI_MODE_DMA));
+    //__HAL_SAI_ENABLE_IT(hsai, SAI_InterruptFlag(hsai, SAI_MODE_DMA));
 
     /* Enable SAI Tx DMA Request */
     hsai->Instance->CR1 |= SAI_xCR1_DMAEN;
@@ -1628,6 +1637,7 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
       /* Check for the Timeout */
       if ((HAL_GetTick() - tickstart) > SAI_LONG_TIMEOUT)
       {
+        print_char_nl('u');
         /* Update error code */
         hsai->ErrorCode |= HAL_SAI_ERROR_TIMEOUT;
 
@@ -1637,6 +1647,8 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
         return HAL_TIMEOUT;
       }
     }
+
+    print_char_nl('z');
 
     /* Check if the SAI is already enabled */
     if ((hsai->Instance->CR1 & SAI_xCR1_SAIEN) == 0U)
@@ -2456,6 +2468,7 @@ static uint32_t SAI_InterruptFlag(const SAI_HandleTypeDef *hsai, SAI_ModeTypedef
     /* hsai has been configured in master mode */
     tmpIT |= SAI_IT_WCKCFG;
   }
+
   return tmpIT;
 }
 

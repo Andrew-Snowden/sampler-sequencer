@@ -94,6 +94,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32mp1xx_hal.h"
+#include "myprint.h"
 
 /** @addtogroup STM32MP1xx_HAL_Driver
   * @{
@@ -561,6 +562,7 @@ HAL_StatusTypeDef HAL_DMA_Start_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress,
   /* Check the DMA peripheral handle */
   if (hdma == NULL)
   {
+    print_char_nl('u');
     return HAL_ERROR;
   }
 
