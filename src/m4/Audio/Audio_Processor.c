@@ -1,13 +1,15 @@
 #include "Audio_Processor.h"
 
+#include <stdlib.h>
+
 #include "stm32mp1xx_hal.h"
 
 #include "Periph_Init.h"
 #include "myprint.h"
 
-static uint32_t mix_output_buffer[512] = {0};
-static uint32_t master_output_double_buffer[1024] = {0};      //ISR Access
-static uint32_t effects_output_buffer[6][512];
+static int32_t mix_output_buffer[512] = {0};
+static int32_t master_output_double_buffer[1024] = {0};      //ISR Access
+static int32_t effects_output_buffer[6][512];
 static uint8_t output_active = 0;
 static volatile ActiveBuffer active_buffer = BUFFER_1;                      //ISR Status
 static volatile AudioStatus audio_status = AUDIO_STATUS_BUSY;
@@ -23,7 +25,7 @@ SAI_HandleTypeDef *Get_SAIA_Handle()
 
 void Audio_Processor_Init()
 {
-	uint32_t dummy_send[4] = {0x55, 0x55, 0x55, 0x55};
+	int32_t dummy_send[4] = {0x55, 0x55, 0x55, 0x55};
 	void *record_ptr = dummy_send;
 	for (int i = 0; i < 6; i++)
 	{
@@ -37,7 +39,7 @@ void Audio_Processor_Init()
 
 void Audio_Processor_Start()
 {
-	if(HAL_SAI_Transmit_DMA(Handle_Get_SAIA(), (uint8_t*)master_output_double_buffer, 1024) == HAL_OK)
+	if(HAL_SAI_Transmit_DMA(Handle_Get_SAIA(), (int8_t*)master_output_double_buffer, 1024) == HAL_OK)
 	{
 		print_string("DMA Succ\n", 9);
 	}
@@ -53,6 +55,7 @@ void Audio_Processor_Run()
 		Audio_Processor_Master_Process();
 		Audio_Processor_Effects_Process();
 		audio_status = AUDIO_STATUS_BUSY;
+		//print_char_nl('t');
 	}
 }
 
@@ -61,17 +64,18 @@ void Audio_Processor_Master_Process()
 	//Do audio processing
 	if(active_buffer == BUFFER_1)
 	{
-		memcpy(master_output_double_buffer, mix_output_buffer, 512 * sizeof(uint32_t));		//active_buffer == BUFFER_1 after 
+		memcpy(master_output_double_buffer, mix_output_buffer, 512 * sizeof(int32_t));		//active_buffer == BUFFER_1 after 
 	}																						//ISR half transfer complete
 	else 
 	{
-		memcpy(master_output_double_buffer + 512, mix_output_buffer, 512 * sizeof(uint32_t));
+		memcpy(master_output_double_buffer + 512, mix_output_buffer, 512 * sizeof(int32_t));
 	}
 
 }
 
 void Audio_Processor_Effects_Process()
 {
+
 	int number_of_clips = 0;
 	if (output_active)
 	{
@@ -85,7 +89,19 @@ void Audio_Processor_Effects_Process()
 				}
 				else
 				{
-					memcpy(effects_output_buffer[number_of_clips], active_clips[i]->read_ptr, 512 * sizeof(uint32_t));
+					memcpy(effects_output_buffer[number_of_clips], active_clips[i]->read_ptr, 512 * sizeof(int32_t));
+
+					
+					
+					for (int sample = 0; sample < 512; sample++)
+					{
+		
+						effects_output_buffer[number_of_clips][sample] *= active_clips[i]->volume;
+
+
+						//if (effects_output_buffer[number_of_clips][sample] > 0 && effects_output_buffer[number_of_clips][sample] < 300) print_char_nl('n');
+					}
+					
 
 					active_clips[i]->read_ptr += 512;
 
@@ -105,25 +121,39 @@ void Audio_Processor_Effects_Process()
 	}
 	else	//Populate buffer with 0 values which will output no sound while SAI module runs
 	{
-		memset(mix_output_buffer, 0, 512 * sizeof(uint32_t));
+		memset(mix_output_buffer, 0, 512 * sizeof(int32_t));
 	}
 }
 
 void Audio_Processor_Effects_Mix(uint8_t number_of_clips)
 {
 	//Mix the audio effects clips together
-	if (number_of_clips == 0)
+	if (number_of_clips != 1)
 	{
-		memset(mix_output_buffer, 0, 512 * sizeof(uint32_t));
+		memset(mix_output_buffer, 0, 512 * sizeof(int32_t));
+
+		for (int i = 0; i < number_of_clips; i++)
+		{
+			for (int k = 0; k < 512; k++)
+			{
+				mix_output_buffer[k] += effects_output_buffer[i][k];
+			}
+		}
 	}
 	else if (number_of_clips == 1)
 	{
-		memcpy(mix_output_buffer, effects_output_buffer[0], 512 * sizeof(uint32_t));
+		memcpy(mix_output_buffer, effects_output_buffer[0], 512 * sizeof(int32_t));
 	}
-	else
+
+
+	for (int i = 0; i < 512; i++)
 	{
-		//Do mixing
+		if (mix_output_buffer[i] > 8388607) mix_output_buffer[i] = 8388607;
+		if (mix_output_buffer[i] < -8388608) mix_output_buffer[i] = -8388608;
+		//print_char_nl('h');
+		//mix_output_buffer[i] += 8388608;
 	}
+	
 }
 
 void Audio_Processor_Add_Clip(uint8_t clip_index)
@@ -148,7 +178,7 @@ void Audio_Processor_Remove_Clip(uint8_t clip_index)
 
 void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
 {
-	uint32_t iterations = 0;
+	int32_t iterations = 0;
 	uint8_t end_reached = 0;
 	AudioClip *audio_buffer = Audio_Get_Buffer();
 	SAI_HandleTypeDef *hsaib = Handle_Get_SAIB();
@@ -169,6 +199,19 @@ void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
 	audio_buffer->read_ptr = audio_buffer->start;
 	audio_buffer->is_repeating = 0;
 	audio_buffer->use_effects = 0;
+	audio_buffer->volume = 1.0f;
+
+	int32_t max_value = 0;
+	int32_t max_value2 = 0;
+
+	for (int i = 0; i < audio_buffer->length_32; i++)
+	{
+		if (audio_buffer->audio[i] & 0x800000)		//Check if value is negative 24-bit
+		{
+			audio_buffer->audio[i] |= 0xFF000000;
+		}
+	}
+
 
 	Audio_Clip_Copy(index, Audio_Get_Buffer_Index());
 }
@@ -192,7 +235,7 @@ void Audio_Processor_Resume_Output()
 
 void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsaia)
 {
-	print_char_nl('z');
+	//print_char_nl('z');
 	//Change active buffer
 	active_buffer = BUFFER_1;
 	//Change Audio Processor state to ready
@@ -201,7 +244,7 @@ void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsaia)
 
 void HAL_SAI_TxCpltCallback(SAI_HandleTypeDef *hsaia)
 {
-	print_char_nl('y');
+	//print_char_nl('y');
 	//Change active buffer
 	active_buffer = BUFFER_2;
 	//Change Audio Processor state to ready

@@ -13,7 +13,7 @@
 #include "Audio_Memory.h"
 
 
-uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cfc,0x529406,0x558f9a,
+int32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cfc,0x529406,0x558f9a,
 							0x587de2,0x5b5d0f,0x5e2b5c,0x60e70e,0x638e76,0x661fef,0x6899e5,0x6afad2,
 							0x6d413c,0x6f6bbd,0x717900,0x7367c0,0x7536cb,0x76e506,0x787165,0x79daf5,
 							0x7b20d7,0x7c4241,0x7d3e82,0x7e14fd,0x7ec52f,0x7f4eaa,0x7fb11a,0x7fec43,
@@ -31,7 +31,7 @@ uint32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cf
 							0x27821d,0x2a7065,0x2d6bf9,0x307303,0x3383a3,0x369bf7,0x39ba16,0x3cdc13
 						  };
 
-uint32_t recorded_audio[960000];
+int32_t recorded_audio[960000];
 
 void *sine_wave_ptr = sine_wave;
 void *record_ptr = recorded_audio;
@@ -85,6 +85,18 @@ void main()
 
 	uint8_t continue_recording = 1;
 	Audio_Processor_Sample(&continue_recording, 0);
+
+	print_string("First Done\n", 11);
+	
+
+	/*for (int i = 0; i < Audio_Get_Clip(0)->length_32; i++)
+	{
+		if (Audio_Get_Clip(0)->audio[i] > 0 && Audio_Get_Clip(0)->audio[i] < 300) print_char_nl('3');
+	}*/
+
+	HAL_Delay(5000);
+	
+	Audio_Processor_Sample(&continue_recording, 1);
 	
 	if (status != HAL_OK)
 	{
@@ -95,8 +107,14 @@ void main()
 		print_string("yes\n", 4);
 		Audio_Clip_Set_Repeating(0, 1);
 		Audio_Clip_Set_UseEffects(0, 0);
+		Audio_Clip_Set_Volume(0, 0.5f);
+		
+		Audio_Clip_Set_Repeating(1, 1);
+		Audio_Clip_Set_UseEffects(1, 0);
+		Audio_Clip_Set_Volume(1, 0.5f);
 
 		Audio_Processor_Add_Clip(0);
+		Audio_Processor_Add_Clip(1);
 		Audio_Processor_Start();
 	}
 
