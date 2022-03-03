@@ -11,6 +11,9 @@
 #include "Audio_Processor.h"
 #include "Periph_Init.h"
 #include "Audio_Memory.h"
+#include "Audio_Display.h"
+#include "Func_Display.h"
+#include "Timer_Module.h"
 #include "State_Machine.h"
 
 void init_interrupts(void);
@@ -48,7 +51,14 @@ void main()
 
 	//Initialize Interrupts
 	init_interrupts();
-	
+
+	//Initialize Trellis boards
+	Audio_Display_Init();
+	Func_Display_Init();
+
+	//Initialize Timers
+	init_Timers();
+	while (1);
 	
 	//CODEC Configure + Start
 	BootCODEC(hi2c1);

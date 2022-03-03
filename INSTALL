@@ -1,0 +1,8 @@
+Install arm-none-eabi
+  - https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+  - sudo tar xjf gcc-arm-none-eabi-your-version.bz2 -C /usr/share/
+  - sudo ln -s /usr/share/gcc-arm-none-eabi-your-version/bin/* /usr/bin/
+
+The tools/ folder must contain U-Boots "mkimage" program
+  - sudo apt install u-boot-tools
+  - Copy the executable to this projects "tools/" directory
