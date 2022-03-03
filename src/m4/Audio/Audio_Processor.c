@@ -11,7 +11,7 @@ static int32_t mix_output_buffer[512] = {0};
 static int32_t master_output_double_buffer[1024] = {0};      //ISR Access
 static int32_t effects_output_buffer[6][512];
 static uint8_t output_active = 0;
-static volatile ActiveBuffer active_buffer = BUFFER_1;                      //ISR Status
+static volatile ActiveBuffer active_buffer = BUFFER_1;       //ISR Status
 static volatile AudioStatus audio_status = AUDIO_STATUS_BUSY;
 
 static SAI_HandleTypeDef hsaia;
