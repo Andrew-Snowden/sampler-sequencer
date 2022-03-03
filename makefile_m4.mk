@@ -32,7 +32,8 @@ INCLUDES = -I. \
 				-Isrc/m4/Core \
 				-Isrc/m4/Display \
 				-Isrc/m4/Timer \
-				-Isrc/m4/Trellis
+				-Isrc/m4/Trellis \
+				-Isrc/m4/States
 
 LINKSCR ?= linkscriptm4.ld
 TOOLS ?= tools
