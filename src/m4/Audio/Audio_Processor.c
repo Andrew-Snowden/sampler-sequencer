@@ -48,6 +48,14 @@ void Audio_Processor_Start()
 
 }
 
+void Audio_Processor_Stop()
+{
+	HAL_SAI_DMAStop(Handle_Get_SAIA());
+	memset(mix_output_buffer, 0, 512 * sizeof(int32_t));
+	memset(master_output_double_buffer, 0, 1024 * sizeof(int32_t));
+	Audio_Processor_Pause_Output();
+}
+
 void Audio_Processor_Run()
 {
 	if (audio_status == AUDIO_STATUS_READY)
@@ -176,6 +184,19 @@ void Audio_Processor_Remove_Clip(uint8_t clip_index)
 	active_clips[clip_index] = NULL;
 }
 
+uint8_t Audio_Processor_Is_Clip_Queued(uint8_t clip_index)
+{
+	AudioClip *audio_clip = Audio_Get_Clip(clip_index);
+	for (int i = 0; i < 6; i++)
+	{
+		if (audio_clip == active_clips[clip_index])
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
 void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
 {
 	int32_t iterations = 0;
@@ -199,6 +220,7 @@ void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
 	audio_buffer->read_ptr = audio_buffer->start;
 	audio_buffer->is_repeating = 0;
 	audio_buffer->use_effects = 0;
+	audio_buffer->play_through = 0;
 	audio_buffer->volume = 1.0f;
 
 	int32_t max_value = 0;

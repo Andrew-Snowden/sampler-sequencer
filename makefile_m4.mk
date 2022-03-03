@@ -27,7 +27,8 @@ INCLUDES = -I. \
 				-Isrc/m4/Audio \
 				-Isrc/m4/I2C \
 				-Isrc/m4/GPIO \
-				-Isrc/m4/Core
+				-Isrc/m4/Core \
+				-Isrc/m4/States
 
 LINKSCR ?= linkscriptm4.ld
 TOOLS ?= tools

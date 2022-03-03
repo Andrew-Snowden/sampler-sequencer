@@ -23,6 +23,7 @@ typedef struct AudioClip
 
     uint8_t     is_repeating;                      //Indicates if clip should repeat when end is reached
     uint8_t     use_effects;
+    uint8_t     play_through;                       //Indicates that a sample should play to the end (play_through = 1)
 
     float       volume;
     /* Effects object containing multiple effects that can be allocated */
@@ -40,6 +41,7 @@ void Audio_Clip_Move(uint8_t index_destination, uint8_t index_source);
 
 void Audio_Clip_Set_Repeating(uint8_t index, uint8_t is_repeating);
 void Audio_Clip_Set_UseEffects(uint8_t index, uint8_t use_effects);
+void Audio_Clip_Set_Playthrough(uint8_t index, uint8_t play_through);
 void Audio_Clip_Set_Volume(uint8_t index, float volume);
 
 void Audio_Clip_Reset_Start(uint8_t index);

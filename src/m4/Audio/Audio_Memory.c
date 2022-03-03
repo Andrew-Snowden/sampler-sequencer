@@ -112,6 +112,11 @@ void Audio_Clip_Set_UseEffects(uint8_t index, uint8_t use_effects)
     audio_clips[index].use_effects = use_effects;
 }
 
+void Audio_Clip_Set_Playthrough(uint8_t index, uint8_t play_through)
+{
+    audio_clips[index].play_through = play_through;
+}
+
 void Audio_Clip_Set_Volume(uint8_t index, float volume)
 {
     audio_clips[index].volume = volume;
