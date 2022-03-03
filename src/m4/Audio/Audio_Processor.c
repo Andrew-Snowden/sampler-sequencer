@@ -14,6 +14,8 @@ static uint8_t output_active = 0;
 static volatile ActiveBuffer active_buffer = BUFFER_1;       //ISR Status
 static volatile AudioStatus audio_status = AUDIO_STATUS_BUSY;
 
+static uint8_t queued_index[6] = {25, 25, 25, 25, 25, 25};
+
 static SAI_HandleTypeDef hsaia;
 
 static AudioClip *active_clips[6];
@@ -181,6 +183,7 @@ void Audio_Processor_Add_Clip(uint8_t clip_index)
 				audio_clip->read_ptr = audio_clip->start;
 				active_clips[i] = audio_clip;
 				found = 1;
+				queued_index[i] = clip_index;
 			}
 		}
 	}
@@ -188,15 +191,22 @@ void Audio_Processor_Add_Clip(uint8_t clip_index)
 
 void Audio_Processor_Remove_Clip(uint8_t clip_index)
 {
-	active_clips[clip_index] = NULL;
+	for (int i = 0; i < 6; i++)
+	{
+		if (queued_index[i] == clip_index)
+		{
+			active_clips[i] = NULL;
+			queued_index[i] = 25;
+		}
+	}
 }
 
 uint8_t Audio_Processor_Is_Clip_Queued(uint8_t clip_index)
 {
-	AudioClip *audio_clip = Audio_Get_Clip(clip_index);
+	//AudioClip *audio_clip = Audio_Get_Clip(clip_index);
 	for (int i = 0; i < 6; i++)
 	{
-		if (audio_clip == active_clips[clip_index])
+		if (queued_index[i] == clip_index)
 		{
 			return 1;
 		}
