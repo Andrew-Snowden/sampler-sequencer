@@ -15,7 +15,9 @@ SOURCES := $(wildcard src/m4/*/*.[cs]) \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_sai_ex.c \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c.c \
 					$(SHARED_HAL_DIR)/stm32mp1xx_hal_i2c_ex.c \
-					$(SHARED_HAL_DIR)/stm32mp1xx_hal_dma.c
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_dma.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_tim.c \
+					$(SHARED_HAL_DIR)/stm32mp1xx_hal_tim_ex.c
 					
 
 INCLUDES = -I. \
@@ -27,7 +29,10 @@ INCLUDES = -I. \
 				-Isrc/m4/Audio \
 				-Isrc/m4/I2C \
 				-Isrc/m4/GPIO \
-				-Isrc/m4/Core
+				-Isrc/m4/Core \
+				-Isrc/m4/Display \
+				-Isrc/m4/Timer \
+				-Isrc/m4/Trellis
 
 LINKSCR ?= linkscriptm4.ld
 TOOLS ?= tools

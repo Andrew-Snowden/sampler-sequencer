@@ -121,6 +121,12 @@ static void Misc_GPIO_Config()
 	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
 	
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	//Trellis Int
+	GPIO_InitStruct.Pin = GPIO_PIN_12;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 	
 	//LED Enable
 	GPIO_InitStruct.Pin 	= GPIO_PIN_13;

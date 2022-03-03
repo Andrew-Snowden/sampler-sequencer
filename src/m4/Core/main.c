@@ -11,6 +11,9 @@
 #include "Audio_Processor.h"
 #include "Periph_Init.h"
 #include "Audio_Memory.h"
+#include "Audio_Display.h"
+#include "Func_Display.h"
+#include "Timer_Module.h"
 
 
 int32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cfc,0x529406,0x558f9a,
@@ -71,7 +74,14 @@ void main()
 
 	//Initialize Interrupts
 	init_interrupts();
-	
+
+	//Initialize Trellis boards
+	Audio_Display_Init();
+	Func_Display_Init();
+
+	//Initialize Timers
+	init_Timers();
+	while (1);
 	
 	//CODEC Configure + Start
 	BootCODEC(hi2c1);
