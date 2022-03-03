@@ -56,7 +56,6 @@ void main()
 
 	//Initialize Timers
 	init_Timers();
-	while (1);
 	
 	//CODEC Configure + Start
 	BootCODEC(hi2c1);
@@ -66,46 +65,33 @@ void main()
 	//Initialize Audio Processor
 	Audio_Processor_Init();
 
-	//Initialize Display
-	
-
-	HAL_StatusTypeDef status;
 
 	uint8_t continue_recording = 1;
 	Audio_Processor_Sample(&continue_recording, 0);
 
 	print_string("First Done\n", 11);
-	
 
-	/*for (int i = 0; i < Audio_Get_Clip(0)->length_32; i++)
-	{
-		if (Audio_Get_Clip(0)->audio[i] > 0 && Audio_Get_Clip(0)->audio[i] < 300) print_char_nl('3');
-	}*/
 
 	HAL_Delay(5000);
 	
 	Audio_Processor_Sample(&continue_recording, 1);
+
+	Audio_Clip_Set_Repeating(0, 0);
+	Audio_Clip_Set_UseEffects(0, 0);
+	Audio_Clip_Set_Volume(0, 0.5f);
+	Audio_Clip_Set_Playthrough(0, 1);
 	
-	if (status != HAL_OK)
-	{
-		print_string("Not Support!\n", 13);	
-	}
-	else
-	{
-		print_string("yes\n", 4);
-		Audio_Clip_Set_Repeating(0, 1);
-		Audio_Clip_Set_UseEffects(0, 0);
-		Audio_Clip_Set_Volume(0, 0.5f);
+	
+	//Audio_Clip_Set_Repeating(1, 1);
+	//Audio_Clip_Set_UseEffects(1, 0);
+	Audio_Clip_Set_Volume(1, 0.5f);
+
+	//Audio_Processor_Add_Clip(0);
+	//Audio_Processor_Add_Clip(1);
 		
-		Audio_Clip_Set_Repeating(1, 1);
-		Audio_Clip_Set_UseEffects(1, 0);
-		Audio_Clip_Set_Volume(1, 0.5f);
+		
 
-		Audio_Processor_Add_Clip(0);
-		Audio_Processor_Add_Clip(1);
-		Audio_Processor_Start();
-	}
-
+	Audio_Processor_Start();
 
 	while(1)
 	{

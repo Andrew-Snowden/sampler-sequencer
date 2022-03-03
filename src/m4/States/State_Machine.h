@@ -1,6 +1,8 @@
 #ifndef STATE_MACHINE_H
 #define STATE_MACHINE_H
 
+#include <stdint.h>
+
 typedef enum States
 {
     PLAY_MODE,
@@ -21,6 +23,8 @@ typedef struct StateMachine
 {
     States current_state;
     Operations operation;
+    uint8_t source_index;
+    uint8_t destination_index;
 } StateMachine;
 
 void State_Machine_Run();

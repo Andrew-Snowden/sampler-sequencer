@@ -53,6 +53,10 @@ void Audio_Processor_Stop()
 	HAL_SAI_DMAStop(Handle_Get_SAIA());
 	memset(mix_output_buffer, 0, 512 * sizeof(int32_t));
 	memset(master_output_double_buffer, 0, 1024 * sizeof(int32_t));
+	for (int i = 0; i < 6; i++)
+	{
+		active_clips[i] = NULL;
+	}
 	Audio_Processor_Pause_Output();
 }
 
@@ -167,14 +171,17 @@ void Audio_Processor_Effects_Mix(uint8_t number_of_clips)
 void Audio_Processor_Add_Clip(uint8_t clip_index)
 {
 	uint8_t found = 0;
-	for (int i = 0; i < 6; i++)
+	if (Audio_Processor_Is_Clip_Queued(clip_index) == 0)
 	{
-		if (active_clips[i] == NULL && found == 0)
+		for (int i = 0; i < 6; i++)
 		{
-			AudioClip* audio_clip = Audio_Get_Clip(clip_index);
-			audio_clip->read_ptr = audio_clip->start;
-			active_clips[i] = audio_clip;
-			found = 1;
+			if (active_clips[i] == NULL && found == 0)
+			{
+				AudioClip* audio_clip = Audio_Get_Clip(clip_index);
+				audio_clip->read_ptr = audio_clip->start;
+				active_clips[i] = audio_clip;
+				found = 1;
+			}
 		}
 	}
 }

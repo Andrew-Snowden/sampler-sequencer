@@ -1,7 +1,12 @@
 #include "State_Machine.h"
 
 #include "Audio_Processor.h"
+#include "Audio_Memory.h"
 #include "State_Functions.h"
+#include "Func_Display.h"
+#include "Audio_Display.h"
+#include "defines.h"
+#include "myprint.h"
 
 //Include State functions
 
@@ -15,9 +20,7 @@ void State_Machine_Run()
     switch(State_Machine_Get_State())
     {
         case PLAY_MODE:
-        {
             Play_Mode_Function();
-        }
         break;
 
         case SELECT_MODE:
@@ -32,28 +35,129 @@ void State_Machine_Run()
 
 static void Play_Mode_Function()
 {
+    Default_Play_Mode_Read_Audio_Buttons();
+
     Default_Play_Mode();
-    //Read Buttons and operate based on that
 
-    //If audio button is pressed (and allocated), audio is added to Audio Processor queue
+    //Read function buttons
+    if (Func_Display_Read_Button(SELECT_FUNC))
+    {
+        //Stop audio processing/output
+        Audio_Processor_Stop();
 
-    //If select button is pressed, switch to select mode state
+        //switch state to select mode
+        state_machine.current_state = SELECT_MODE;
+    }
+
 }
 
 static void Select_Mode_Function()
 {
     //Flash available pads
+    Audio_Display_Show_Allocated();
 
-    //If user makes valid selection, flash the available operations/functions
+    //Read user selection and flash the available operations/functions
+    uint8_t selection_made = 0;
+    uint8_t selection_index = 0;
+    uint8_t is_not_allocated = 0;
 
-    //If user selects valid operation, set the operation in state_machine and switch state to operation mode
+    while(selection_made == 0)
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (selection_made == 0 && Audio_Display_Read_Button(i))
+            {
+                selection_made = 1;
+                selection_index = i;
+                is_not_allocated = Audio_Is_Slot_Free(i);
+                state_machine.source_index = i;
+            }
+        }
+    }
+
+    selection_made = 0;
+    selection_index = 0;
+
+    if (is_not_allocated)   //Flash sample button
+    {
+        Func_Display_Flash_NotAllocated();
+    }
+    else    //Flash operations for allocated audio clip operations
+    {
+        Func_Display_Flash_Allocated();
+    }
+
+
+    //Read operation selection
+    while(selection_made == 0)
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (selection_made == 0 && Func_Display_Read_Button(i))
+            {
+                selection_made = 1;
+                selection_index = i;
+            }
+        }
+        if (selection_made)
+        {
+            if (is_not_allocated && selection_index == SAMPLE_FUNC) //Run sample operation
+            {
+                state_machine.operation = SAMPLE_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
+            else if (is_not_allocated == 0 && selection_index == DELETE_FUNC)   //Run delete operation
+            {
+                state_machine.operation = DELETE_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
+            else if (is_not_allocated == 0 && selection_index == COPY_FUNC) //Run copy operation
+            {
+                state_machine.operation = COPY_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
+            else if (is_not_allocated == 0 && selection_index == MOVE_FUNC) //Run copy operation
+            {
+                state_machine.operation = MOVE_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
+            else
+            {
+                selection_made = 0;
+            }
+        }
+    }
+
+    
 }
 
 static void Operation_Mode_Function()
 {
     //Based on state_machine.operation, do the correct functionality
+    switch(state_machine.operation)
+    {
+        case SAMPLE_OPERATION:
+            print_string("Sampling...\n", 12);
+        break;
+
+        case COPY_OPERATION:
+
+        break;
+
+        case MOVE_OPERATION:
+
+        break;
+
+        case DELETE_OPERATION:
+
+        break;
+    }
+
 
     //When operation is complete, go back to Play Mode state
+    state_machine.operation = NO_OPERATION;
+    state_machine.current_state = PLAY_MODE;
+    Audio_Processor_Start();
 }
 
 void State_Machine_Set_State(States next_state)
