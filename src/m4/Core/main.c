@@ -29,8 +29,6 @@ HAL_StatusTypeDef BootCODEC(I2C_HandleTypeDef *hi2c1);
 HAL_StatusTypeDef ConfigureCODEC(I2C_HandleTypeDef *hi2c1);
 HAL_StatusTypeDef StartCODEC(I2C_HandleTypeDef *hi2c1);
 
-HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai);
-
 
 void main()
 {
@@ -114,24 +112,6 @@ void main()
 		State_Machine_Run();
 	}
 	
-}
-
-HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai)
-{
-	uint8_t data[4] = {0x40, 0x00, 0x00, 0x00};
-	HAL_StatusTypeDef status;
-	status = HAL_SAI_Transmit(hsai, sine_wave_ptr, 128, HAL_MAX_DELAY);	
-	
-	if (status != HAL_OK)
-	{
-		print_string("Failed audio tx\n", 16); 
-	}
-	else
-	{
-		//print_string("after SAI tx\n", 13);	
-	}
-	
-	return status;
 }
 
 HAL_StatusTypeDef BootCODEC(I2C_HandleTypeDef *hi2c1)
