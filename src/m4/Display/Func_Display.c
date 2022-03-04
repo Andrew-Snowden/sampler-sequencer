@@ -55,7 +55,15 @@ void Func_Display_Flash_Allocated(void)
 	TrellisBoard_SetLEDs(funcBoard, 0x1 << COPY_FUNC);
 	TrellisBoard_SetLEDs(funcBoard, 0x1 << DELETE_FUNC);
 	TrellisBoard_SetLEDs(funcBoard, 0x1 << MOVE_FUNC);
+	TrellisBoard_SetLEDs(funcBoard, 0x1 << REPEATING_FUNC);
+	TrellisBoard_SetLEDs(funcBoard, 0x1 << PLAYTHROUGH_FUNC);
 	TrellisBoard_SetBrightness(funcBoard, 8);
 	TrellisBoard_SendLEDs(funcBoard);
 	TrellisBoard_SetBlinking(funcBoard, 1);
+}
+
+void Func_Display_Clear()
+{
+	TrellisBoard_ClrLEDs(funcBoard, 0xFFFF);
+	TrellisBoard_SendLEDs(funcBoard);
 }

@@ -107,6 +107,18 @@ void Audio_Clip_Set_Repeating(uint8_t index, uint8_t is_repeating)
     audio_clips[index].is_repeating = is_repeating;
 }
 
+void Audio_Clip_Toggle_Repeating(uint8_t index)
+{
+    if (audio_clips[index].is_repeating)
+    {
+        Audio_Clip_Set_Repeating(index, 0);
+    }
+    else
+    {
+        Audio_Clip_Set_Repeating(index, 1);
+    }
+}
+
 void Audio_Clip_Set_UseEffects(uint8_t index, uint8_t use_effects)
 {
     audio_clips[index].use_effects = use_effects;

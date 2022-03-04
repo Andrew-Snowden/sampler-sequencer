@@ -37,10 +37,12 @@ static void Play_Mode_Function()
 {
     Default_Play_Mode_Read_Audio_Buttons();
 
+    //print_char_nl(Audio_Get_Clip(0)->is_repeating + 48);
+
     Default_Play_Mode();
 
     //Read function buttons
-    if (Func_Display_Read_Button(SELECT_FUNC))
+    if (Func_Display_Read_Button(SELECT_FUNC) == 2)
     {
         //Stop audio processing/output
         Audio_Processor_Stop();
@@ -65,10 +67,9 @@ static void Select_Mode_Function()
     {
         for (int i = 0; i < 16; i++)
         {
-            if (selection_made == 0 && Audio_Display_Read_Button(i))
+            if (selection_made == 0 && Audio_Display_Read_Button(i) == 2)
             {
                 selection_made = 1;
-                selection_index = i;
                 is_not_allocated = Audio_Is_Slot_Free(i);
                 state_machine.source_index = i;
             }
@@ -93,7 +94,7 @@ static void Select_Mode_Function()
     {
         for (int i = 0; i < 16; i++)
         {
-            if (selection_made == 0 && Func_Display_Read_Button(i))
+            if (selection_made == 0 && Func_Display_Read_Button(i) == 2)
             {
                 selection_made = 1;
                 selection_index = i;
@@ -121,6 +122,30 @@ static void Select_Mode_Function()
                 state_machine.operation = MOVE_OPERATION;
                 state_machine.current_state = OPERATION_MODE;
             }
+            else if (selection_index == SELECT_FUNC)
+            {
+                state_machine.operation = SELECT_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
+            else if (is_not_allocated == 0 && selection_index == REPEATING_FUNC)
+            {
+                Audio_Clip_Toggle_Repeating(state_machine.source_index);
+                state_machine.operation = SELECT_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
+            else if (is_not_allocated == 0 && selection_index == PLAYTHROUGH_FUNC)
+            {
+                if (Audio_Get_Clip(state_machine.source_index)->play_through == 0)
+                {
+                    Audio_Clip_Set_Playthrough(state_machine.source_index, 1);
+                }
+                else
+                {
+                    Audio_Clip_Set_Playthrough(state_machine.source_index, 0);
+                }
+                state_machine.operation = SELECT_OPERATION;
+                state_machine.current_state = OPERATION_MODE;
+            }
             else
             {
                 selection_made = 0;
@@ -142,14 +167,21 @@ static void Operation_Mode_Function()
         break;
 
         case COPY_OPERATION:
-
+            print_string("Copying...\n", 11);
+            Copy_Function(state_machine.source_index);
         break;
 
         case MOVE_OPERATION:
-
+            print_string("Moving...\n", 10);
+            Move_Function(state_machine.source_index);
         break;
 
         case DELETE_OPERATION:
+            print_string("Deleting...\n", 12);
+            Delete_Function(state_machine.source_index);
+        break;
+
+        case SELECT_OPERATION:
 
         break;
     }
@@ -158,6 +190,8 @@ static void Operation_Mode_Function()
     //When operation is complete, go back to Play Mode state
     state_machine.operation = NO_OPERATION;
     state_machine.current_state = PLAY_MODE;
+    Audio_Display_Show_Allocated();
+    Func_Display_Clear();
     Audio_Processor_Start();
 }
 

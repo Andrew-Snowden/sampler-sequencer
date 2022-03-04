@@ -10,6 +10,67 @@ void Default_Play_Mode()
 
 }
 
+uint8_t Read_Allocated_Button_Press()
+{
+    uint8_t selection_made = 0;
+    uint8_t result = 0;
+
+    while (selection_made == 0)
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (Audio_Display_Read_Button(i) == 2 && Audio_Is_Slot_Free(i) == 0 && selection_made == 0)
+            {
+                selection_made = 1;
+                result = i;
+            }
+        }
+    }
+
+    return result;
+}
+
+uint8_t Read_Unallocated_Button_Press()
+{
+    uint8_t selection_made = 0;
+    uint8_t result = 0;
+
+    while (selection_made == 0)
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (Audio_Display_Read_Button(i) == 2 && Audio_Is_Slot_Free(i) == 1 && selection_made == 0)
+            {
+                selection_made = 1;
+                result = i;
+            }
+        }
+    }
+
+    return result;
+}
+
+uint8_t Read_Audio_Button_Press()
+{
+    uint8_t selection_made = 0;
+    uint8_t result = 0;
+
+    while (selection_made == 0)
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (Audio_Display_Read_Button(i) == 2 && selection_made == 0)
+            {
+                selection_made = 1;
+                result = i;
+            }
+        }
+    }
+
+    return result;
+}
+
+
 void Default_Play_Mode_Read_Audio_Buttons(void)
 {
     for (int i = 0; i < 16; i++)
@@ -37,7 +98,7 @@ void Default_Play_Mode_Read_Audio_Buttons(void)
         }
         else if (Audio_Display_Read_Button(i) == 0 && Audio_Processor_Is_Clip_Queued(i) == 1)
         {
-            if (Audio_Get_Clip(i)->is_repeating == 0 && Audio_Get_Clip(i)->play_through == 0)
+            if (Audio_Get_Clip(i)->play_through == 0)
             {
                 Audio_Processor_Remove_Clip(i);
                 print_char_nl('7');
@@ -75,4 +136,27 @@ void Sample_Function(uint8_t pad_index)
     
 
     //Display allocated pads
+}
+
+void Copy_Function(uint8_t source_index)
+{
+    Audio_Display_Flash_Available();
+
+    uint8_t destination_index = Read_Unallocated_Button_Press();
+
+    Audio_Clip_Copy(destination_index, source_index);
+}
+
+void Delete_Function(uint8_t source_index)
+{
+    Audio_Clip_Delete(source_index);
+}
+
+void Move_Function(uint8_t source_index)
+{
+    Audio_Display_Flash_Available();
+
+    uint8_t destination_index = Read_Unallocated_Button_Press();
+
+    Audio_Clip_Move(destination_index, source_index);
 }

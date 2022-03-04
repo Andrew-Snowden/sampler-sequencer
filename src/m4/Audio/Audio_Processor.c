@@ -130,7 +130,7 @@ void Audio_Processor_Effects_Process()
 					{																//	and remove clip from active_clips 
 						active_clips[i]->read_ptr = active_clips[i]->start;	
 
-						if (active_clips[i]->is_repeating == 0) active_clips[i] = NULL;
+						if (active_clips[i]->is_repeating == 0) Audio_Processor_Remove_Clip(i);
 					}
 				}
 

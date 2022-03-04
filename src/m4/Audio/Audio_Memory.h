@@ -40,6 +40,7 @@ void Audio_Clip_Delete(uint8_t index);
 void Audio_Clip_Move(uint8_t index_destination, uint8_t index_source);
 
 void Audio_Clip_Set_Repeating(uint8_t index, uint8_t is_repeating);
+void Audio_Clip_Toggle_Repeating(uint8_t index);
 void Audio_Clip_Set_UseEffects(uint8_t index, uint8_t use_effects);
 void Audio_Clip_Set_Playthrough(uint8_t index, uint8_t play_through);
 void Audio_Clip_Set_Volume(uint8_t index, float volume);

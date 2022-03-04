@@ -16,7 +16,8 @@ typedef enum Operations
     SAMPLE_OPERATION,
     COPY_OPERATION,
     MOVE_OPERATION,
-    DELETE_OPERATION
+    DELETE_OPERATION,
+    SELECT_OPERATION
 } Operations;
 
 typedef struct StateMachine

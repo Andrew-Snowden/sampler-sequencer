@@ -36,7 +36,18 @@ typedef enum FunctionButtons
     COPY_FUNC = 1,
     DELETE_FUNC = 2,
     SAMPLE_FUNC = 3,
-    MOVE_FUNC = 4
+    MOVE_FUNC = 4,
+    NA0 = 5,
+    NA1 = 6,
+    NA2 = 7,
+    NA3 = 8,
+    NA4 = 9,
+    NA5 = 10,
+    NA6 = 11,
+    REPEATING_FUNC = 12,
+    PLAYTHROUGH_FUNC = 13,
+    NA7 = 14,
+    NA8 = 15
 } FunctionButtons;
 
 #endif
