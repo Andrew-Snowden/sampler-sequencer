@@ -21,6 +21,11 @@ typedef enum status_s
 	AUDIO_STATUS_BUSY
 } AudioStatus;
 
+typedef enum ReceiveStatus
+{
+	RECEIVE_READY,
+	RECEIVE_BUSY
+} ReceiveStatus;
 
 
 #endif

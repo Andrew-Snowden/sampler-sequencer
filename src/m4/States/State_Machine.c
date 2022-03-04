@@ -138,6 +138,7 @@ static void Operation_Mode_Function()
     {
         case SAMPLE_OPERATION:
             print_string("Sampling...\n", 12);
+            Sample_Function(state_machine.source_index);
         break;
 
         case COPY_OPERATION:

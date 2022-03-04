@@ -67,14 +67,28 @@ void main()
 
 
 	uint8_t continue_recording = 1;
-	Audio_Processor_Sample(&continue_recording, 0);
+	//Audio_Processor_Sample(&continue_recording, 0);
+
+/*
+	Audio_Processor_Sample_Start();
+
+	while(Audio_Processor_Get_Receive_Status() == RECEIVE_BUSY);
+
+	Audio_Processor_Sample_Stop(0);
 
 	print_string("First Done\n", 11);
 
 
 	HAL_Delay(5000);
-	
-	Audio_Processor_Sample(&continue_recording, 1);
+	Audio_Processor_Start();
+	Audio_Processor_Stop();
+	//Audio_Processor_Sample(&continue_recording, 1);
+
+	Audio_Processor_Sample_Start();
+
+	while(Audio_Processor_Get_Receive_Status() == RECEIVE_BUSY);
+
+	Audio_Processor_Sample_Stop(1);
 
 	Audio_Clip_Set_Repeating(0, 0);
 	Audio_Clip_Set_UseEffects(0, 0);
@@ -89,7 +103,7 @@ void main()
 	//Audio_Processor_Add_Clip(0);
 	//Audio_Processor_Add_Clip(1);
 		
-		
+		*/
 
 	Audio_Processor_Start();
 

@@ -13,6 +13,11 @@ static int32_t effects_output_buffer[6][512];
 static uint8_t output_active = 0;
 static volatile ActiveBuffer active_buffer = BUFFER_1;       //ISR Status
 static volatile AudioStatus audio_status = AUDIO_STATUS_BUSY;
+static volatile ReceiveStatus receive_status = RECEIVE_READY;
+
+static volatile uint32_t receive_samples = 0;
+static volatile uint32_t receive_blocks = 0;
+static volatile uint8_t number_of_transfers = 0;
 
 static uint8_t queued_index[6] = {25, 25, 25, 25, 25, 25};
 
@@ -60,6 +65,8 @@ void Audio_Processor_Stop()
 		active_clips[i] = NULL;
 	}
 	Audio_Processor_Pause_Output();
+
+	Audio_Processor_Start();
 }
 
 void Audio_Processor_Run()
@@ -238,10 +245,8 @@ void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
 	audio_buffer->is_repeating = 0;
 	audio_buffer->use_effects = 0;
 	audio_buffer->play_through = 0;
-	audio_buffer->volume = 1.0f;
+	audio_buffer->volume = 0.25f;
 
-	int32_t max_value = 0;
-	int32_t max_value2 = 0;
 
 	for (int i = 0; i < audio_buffer->length_32; i++)
 	{
@@ -251,6 +256,70 @@ void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index)
 		}
 	}
 
+
+	Audio_Clip_Copy(index, Audio_Get_Buffer_Index());
+}
+
+void Audio_Processor_Sample_Start()
+{
+	if (receive_status == RECEIVE_READY)
+	{
+		AudioClip *audio_buffer = Audio_Get_Buffer();
+
+		//Start DMA transfer into buffer
+		receive_samples = 0;
+		receive_status = RECEIVE_BUSY;
+		number_of_transfers = 0;
+		receive_blocks = 0;
+
+		memset(audio_buffer->audio, 0, 960000 * sizeof(int32_t));
+		HAL_SAI_Receive_DMA(Handle_Get_SAIB(), (void*)audio_buffer->audio, 64000);			//Add parameters (buffer)
+		print_string("Receive Yes\n", 12);
+	}
+	else
+	{
+		print_string("DMA NO\n", 7);
+	}
+}
+
+void Audio_Processor_Sample_Stop(uint8_t index)
+{
+	AudioClip *audio_buffer = Audio_Get_Buffer();
+	if (receive_status = RECEIVE_BUSY)
+	{
+		HAL_SAI_DMAStop(Handle_Get_SAIB());
+
+		if ((number_of_transfers + 1) * 64000 > 960000)
+		{
+			audio_buffer->length_32 = 960000;
+		}
+		else
+		{
+			audio_buffer->length_32 = (number_of_transfers + 1) * 64000;
+		}
+
+		receive_status = RECEIVE_READY;
+	}
+	else
+	{
+		audio_buffer->length_32 = 960000;
+	}
+
+	audio_buffer->end = audio_buffer->audio + audio_buffer->length_32;
+	audio_buffer->start = audio_buffer->audio;
+	audio_buffer->read_ptr = audio_buffer->start;
+	audio_buffer->is_repeating = 0;
+	audio_buffer->use_effects = 0;
+	audio_buffer->play_through = 0;
+	audio_buffer->volume = 0.25f;
+
+	for (int i = 0; i < audio_buffer->length_32; i++)
+	{
+		if (audio_buffer->audio[i] & 0x800000)		//Check if value is negative 24-bit
+		{
+			audio_buffer->audio[i] |= 0xFF000000;
+		}
+	}
 
 	Audio_Clip_Copy(index, Audio_Get_Buffer_Index());
 }
@@ -270,6 +339,11 @@ void Audio_Processor_Pause_Output()
 void Audio_Processor_Resume_Output()
 {
 	output_active = 1;
+}
+
+ReceiveStatus Audio_Processor_Get_Receive_Status()
+{
+	return receive_status;
 }
 
 void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsaia)
@@ -295,3 +369,27 @@ void DMA1_Stream0_IRQHandler(void)
 	HAL_DMA_IRQHandler(Handle_Get_DMATX());	
 }
 
+void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef *hsaib)
+{
+	//If number (n) of 64000 sample transfer is less than 15, start another transfer at (n*64000 + buffer->audio)
+	number_of_transfers++;
+
+	if (number_of_transfers < 15)
+	{
+		HAL_SAI_Receive_DMA(Handle_Get_SAIB(), (void*)(Audio_Get_Buffer()->audio + (64000*number_of_transfers)), 64000);
+		print_char_nl('+');
+	}
+	else 
+	{
+		receive_status = RECEIVE_READY;
+		receive_samples = 960000;
+		print_char_nl('-');
+	}
+
+	
+}
+
+void DMA1_Stream1_IRQHandler(void)
+{
+	HAL_DMA_IRQHandler(Handle_Get_DMARX());
+}

@@ -24,6 +24,10 @@ void Audio_Processor_Remove_Clip(uint8_t clip_index);
 uint8_t Audio_Processor_Is_Clip_Queued(uint8_t clip_index);
 
 void Audio_Processor_Sample(uint8_t *continue_sampling, uint8_t index);          //Records audio into buffer
+void Audio_Processor_Sample_Start();
+void Audio_Processor_Sample_Stop(uint8_t index);
+ReceiveStatus Audio_Processor_Get_Receive_Status();
+
 void Audio_Processor_Resample_Single(uint8_t clip_index);       //Resamples clip into itself with effects
 
 int32_t *Get_Output_Buffer();

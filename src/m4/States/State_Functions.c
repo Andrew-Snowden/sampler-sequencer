@@ -51,3 +51,28 @@ void Default_Play_Mode_Read_Audio_Buttons(void)
         //print_char_nl(Audio_Processor_Is_Clip_Queued(1) + 48);
     }
 }
+
+void Sample_Function(uint8_t pad_index)
+{
+    //Start sampling onto pad_index
+    Audio_Processor_Sample_Start();
+
+    uint8_t stopped = 0;
+    //If user presses sample button again, stop sampling
+    while(Audio_Processor_Get_Receive_Status() == RECEIVE_BUSY)
+    {
+        if (Func_Display_Read_Button(SAMPLE_FUNC) == 2)
+        {
+            Audio_Processor_Sample_Stop(pad_index);
+            stopped = 1;
+        }
+    }
+
+    if (stopped == 0)
+    {
+        Audio_Processor_Sample_Stop(pad_index);
+    }
+    
+
+    //Display allocated pads
+}
