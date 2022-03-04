@@ -7,8 +7,8 @@
 
 typedef enum ClipModifyDirection
 {
-    FORWARD,
-    BACKWARD
+    BACKWARD,
+    FORWARD
 } ClipModifyDirection;
 
 typedef struct AudioClip
@@ -44,6 +44,7 @@ void Audio_Clip_Toggle_Repeating(uint8_t index);
 void Audio_Clip_Set_UseEffects(uint8_t index, uint8_t use_effects);
 void Audio_Clip_Set_Playthrough(uint8_t index, uint8_t play_through);
 void Audio_Clip_Set_Volume(uint8_t index, float volume);
+void Audio_Clip_Adjust_Volume(uint8_t index, float value, ClipModifyDirection direction);
 
 void Audio_Clip_Reset_Start(uint8_t index);
 void Audio_Clip_Reset_End(uint8_t index);

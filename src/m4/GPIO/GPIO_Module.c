@@ -5,6 +5,7 @@
 static void CODEC_GPIO_Config();
 static void I2C_GPIO_Config();
 static void SAI_GPIO_Config();
+static void Rotary_GPIO_Config();
 static void Misc_GPIO_Config();
 static void Enable_Clocks();
 
@@ -14,7 +15,7 @@ void init_GPIO()
 	
 	Misc_GPIO_Config();
 	CODEC_GPIO_Config();
-		
+	Rotary_GPIO_Config();
 }
 
 static void Enable_Clocks()
@@ -108,6 +109,67 @@ static void SAI_GPIO_Config()
 	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 }
 
+static void Rotary_GPIO_Config()
+{
+	GPIO_InitTypeDef GPIO_InitStruct;
+
+	//R0UP - PF8
+	GPIO_InitStruct.Pin 	= GPIO_PIN_8;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+	//R0DOWN - PF6
+	GPIO_InitStruct.Pin 	= GPIO_PIN_6;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+	//R1UP - PD7
+	GPIO_InitStruct.Pin 	= GPIO_PIN_7;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+	//R1DOWN - PG15
+	GPIO_InitStruct.Pin 	= GPIO_PIN_15;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+
+	//R2UP - PF1
+	GPIO_InitStruct.Pin 	= GPIO_PIN_1;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+	//R2DOWN - PF0
+	GPIO_InitStruct.Pin 	= GPIO_PIN_0;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+	//R3UP - PF4
+	GPIO_InitStruct.Pin 	= GPIO_PIN_4;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+	//R3DOWN - PF5
+	GPIO_InitStruct.Pin 	= GPIO_PIN_5;
+	GPIO_InitStruct.Mode 	= GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull 	= GPIO_NOPULL;
+	
+	HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+}
+
 static void Misc_GPIO_Config()
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
@@ -136,6 +198,8 @@ static void Misc_GPIO_Config()
 	
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
+
+
 
 
 

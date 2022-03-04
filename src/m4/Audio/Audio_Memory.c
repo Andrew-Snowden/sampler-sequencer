@@ -134,6 +134,32 @@ void Audio_Clip_Set_Volume(uint8_t index, float volume)
     audio_clips[index].volume = volume;
 }
 
+void Audio_Clip_Adjust_Volume(uint8_t index, float value, ClipModifyDirection direction)
+{
+    switch (direction)
+    {
+        case FORWARD:
+        {
+            audio_clips[index].volume += value;
+        }
+        break;
+
+        case BACKWARD:
+        {
+            if (audio_clips[index].volume - value < 0)
+            {
+                audio_clips[index].volume = 0;
+            }
+            else
+            {
+                audio_clips[index].volume -= value;
+            }
+        }
+        break;
+    }
+    
+}
+
 void Audio_Clip_Reset_Start(uint8_t index)
 {
     audio_clips[index].start = audio_clips[index].audio;

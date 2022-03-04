@@ -113,6 +113,18 @@ void Default_Play_Mode_Read_Audio_Buttons(void)
     }
 }
 
+void Select_Play_Mode_Read_Buttons(uint8_t clip_index)
+{
+    if (Func_Display_Read_Button(SAMPLE_FUNC) == 2)
+    {
+        Audio_Processor_Add_Clip(clip_index);
+    }
+    else if (Func_Display_Read_Button(SAMPLE_FUNC) == 0 && Audio_Processor_Is_Clip_Queued(clip_index) == 1)
+    {
+        Audio_Processor_Remove_Clip(clip_index);
+    }
+}
+
 void Sample_Function(uint8_t pad_index)
 {
     //Start sampling onto pad_index

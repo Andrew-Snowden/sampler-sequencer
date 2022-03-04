@@ -7,6 +7,7 @@
 #include "Audio_Display.h"
 #include "defines.h"
 #include "myprint.h"
+#include "Rotary_Module.h"
 
 //Include State functions
 
@@ -86,12 +87,21 @@ static void Select_Mode_Function()
     else    //Flash operations for allocated audio clip operations
     {
         Func_Display_Flash_Allocated();
+        Rotary_Register_Item(state_machine.source_index, 0, START_PARAM);
+        Rotary_Register_Item(state_machine.source_index, 1, END_PARAM);
+        //Rotary_Register_Item(state_machine.source_index, 2, VOLUME_PARAM);
     }
 
 
     //Read operation selection
     while(selection_made == 0)
     {
+        Select_Play_Mode_Read_Buttons(state_machine.source_index);
+
+        Default_Play_Mode();
+
+
+
         for (int i = 0; i < 16; i++)
         {
             if (selection_made == 0 && Func_Display_Read_Button(i) == 2)
@@ -102,6 +112,11 @@ static void Select_Mode_Function()
         }
         if (selection_made)
         {
+            if (Audio_Processor_Is_Clip_Queued(state_machine.source_index) == 1)
+            {
+                Audio_Processor_Remove_Clip(state_machine.source_index);
+            }
+
             if (is_not_allocated && selection_index == SAMPLE_FUNC) //Run sample operation
             {
                 state_machine.operation = SAMPLE_OPERATION;
@@ -153,7 +168,9 @@ static void Select_Mode_Function()
         }
     }
 
-    
+    Rotary_Unregister(0);
+    Rotary_Unregister(1);
+    //Rotary_Unregister(2);
 }
 
 static void Operation_Mode_Function()

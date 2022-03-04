@@ -15,6 +15,7 @@
 #include "Func_Display.h"
 #include "Timer_Module.h"
 #include "State_Machine.h"
+#include "Rotary_Module.h"
 
 void init_interrupts(void);
 void _init(void){};
@@ -234,7 +235,7 @@ void SysTick_Handler(void)
 void EXTI14_IRQHandler(void)
 {
 	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
+	Rotary_Toggle_Granularity();
 }
 
 void NMI_Handler(void)
