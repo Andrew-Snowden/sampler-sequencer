@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar  1 15:40:20 2022
+# Make data base, printed on Thu Mar  3 14:57:33 2022
 
 # Variables
 
@@ -71,7 +71,7 @@ VSCODE_CWD = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/randy/.vscode-server/bin/f80445acd5a3dadef24aa209168452a3d97cc326/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Microchip/xc8/v2.31/bin:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+PATH = /home/randy/.vscode-server/bin/f80445acd5a3dadef24aa209168452a3d97cc326/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Microchip/xc8/v2.31/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
 # makefile (from 'makefile_a7.mk', line 84)
 LD = $(ARCH)-g++
 # environment
@@ -79,7 +79,7 @@ XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ba4c50a7-0b10-4979-9a3b-5eb678e5d63d.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ee0267d2-6842-4988-a800-6f79f6eaf77b.sock
 # environment
 BUILDDIR_M4 = build/corem4
 # default
@@ -274,10 +274,10 @@ build/corea7/obj/%.o: %.c[cp]* build/corea7/obj/%.d
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CXX) -c $(DEPFLAGS) $(OPTFLAG) $(CXXFLAGS) $< -o $@
+ 
 
 %.d:
 #  recipe to execute (from 'makefile_a7.mk', line 129):
- 
 	
 
 # 4 implicit rules, 0 (0.0%) terminal.
@@ -297,6 +297,12 @@ build/corea7/obj/src/shared/printfunc/myprint.d:
 src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h:
 #  Implicit rule search has been done.
 #  Last modified 2022-02-23 15:42:52.510102544
+#  File has been updated.
+#  Successfully updated.
+
+src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.520102544
 #  File has been updated.
 #  Successfully updated.
 
@@ -380,7 +386,7 @@ src/shared/HAL/Inc/stm32mp1xx_hal_uart.h:
 
 bin/a7/main.bin: bin/a7/main.elf
 #  Implicit rule search has not been done.
-#  Last modified 2022-02-27 02:59:50.677210548
+#  Last modified 2022-03-02 18:42:03.133811303
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 119):
@@ -413,11 +419,11 @@ src/shared/CMSIS/Core_A/Include/cmsis_compiler.h:
 #  File has been updated.
 #  Successfully updated.
 
-build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o: src/shared/HAL/Src/stm32mp1xx_hal_gpio.c build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d src/shared/HAL/Src/stm32mp1xx_hal_gpio.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_ca7.h src/shared/CMSIS/Core_A/Include/core_ca.h src/shared/CMSIS/Core_A/Include/cmsis_compiler.h src/shared/CMSIS/Core_A/Include/cmsis_gcc.h src/shared/CMSIS/Core_A/Include/cmsis_cp15.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx_A7.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o: src/shared/HAL/Src/stm32mp1xx_hal_gpio.c build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d src/shared/HAL/Src/stm32mp1xx_hal_gpio.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_ca7.h src/shared/CMSIS/Core_A/Include/core_ca.h src/shared/CMSIS/Core_A/Include/cmsis_compiler.h src/shared/CMSIS/Core_A/Include/cmsis_gcc.h src/shared/CMSIS/Core_A/Include/cmsis_cp15.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx_A7.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_gpio'
-#  Last modified 2022-02-27 02:59:50.597210548
+#  Last modified 2022-03-02 18:42:02.983811303
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 105):
@@ -428,18 +434,18 @@ build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o: src/shared/HAL/Src/st
 bin/a7/main.elf: build/corea7/obj/src/a7/Core/main.o build/corea7/obj/src/a7/Core/startup.o build/corea7/obj/src/a7/TestModule/testing.o build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal.o build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o build/corea7/obj/src/shared/printfunc/myprint.o linkscripta7.ld
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has not been done.
-#  Last modified 2022-02-27 02:59:50.667210548
+#  Last modified 2022-03-02 18:42:03.133811303
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 115):
 	$(info Linking...)
 	@$(LD) $(LFLAGS) -o $@ $(OBJECTS) 
 
-build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal.o: src/shared/HAL/Src/stm32mp1xx_hal.c build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal.d src/shared/HAL/Src/stm32mp1xx_hal.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_ca7.h src/shared/CMSIS/Core_A/Include/core_ca.h src/shared/CMSIS/Core_A/Include/cmsis_compiler.h src/shared/CMSIS/Core_A/Include/cmsis_gcc.h src/shared/CMSIS/Core_A/Include/cmsis_cp15.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx_A7.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/ModuleDefinitions/UART_Definitions.h
+build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal.o: src/shared/HAL/Src/stm32mp1xx_hal.c build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal.d src/shared/HAL/Src/stm32mp1xx_hal.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_ca7.h src/shared/CMSIS/Core_A/Include/core_ca.h src/shared/CMSIS/Core_A/Include/cmsis_compiler.h src/shared/CMSIS/Core_A/Include/cmsis_gcc.h src/shared/CMSIS/Core_A/Include/cmsis_cp15.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx_A7.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/ModuleDefinitions/UART_Definitions.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal'
-#  Last modified 2022-02-27 02:59:50.517210548
+#  Last modified 2022-03-02 18:42:02.913811303
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 105):
@@ -456,6 +462,12 @@ src/shared/HAL/Inc/stm32mp1xx_hal_sai.h:
 src/shared/HAL/Inc/stm32mp1xx_hal_adc.h:
 #  Implicit rule search has been done.
 #  Last modified 2022-02-23 15:42:52.510102544
+#  File has been updated.
+#  Successfully updated.
+
+src/shared/HAL/Inc/stm32mp1xx_hal_tim.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.520102544
 #  File has been updated.
 #  Successfully updated.
 
@@ -516,7 +528,7 @@ src/shared/CMSIS/Core_A/Include/core_ca.h:
 
 src/shared/HAL/Inc/stm32mp1xx_hal_conf.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-23 16:06:58.110105145
+#  Last modified 2022-03-02 18:21:42.393815959
 #  File has been updated.
 #  Successfully updated.
 
@@ -536,6 +548,7 @@ src/shared/HAL/Inc/stm32mp1xx_hal_cec.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h:
 #  Implicit rule search has been done.
@@ -551,7 +564,6 @@ src/shared/HAL/Inc/stm32mp1xx_hal_dma.h:
 
 src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-02-23 15:42:52.510102544
 #  File has been updated.
 #  Successfully updated.
@@ -570,7 +582,7 @@ build/corea7/obj/src/a7/Core/main.o: src/a7/Core/main.c build/corea7/obj/src/a7/
 
 build/corea7/a7-main.uimg: bin/a7/main.bin tools/mkimage
 #  Implicit rule search has not been done.
-#  Last modified 2022-02-27 02:59:50.687210548
+#  Last modified 2022-03-02 18:42:03.143811302
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 126):
@@ -730,7 +742,7 @@ build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio'
-#  Last modified 2022-02-27 02:59:50.587210548
+#  Last modified 2022-03-02 18:42:02.983811303
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 129):
@@ -740,7 +752,7 @@ build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corea7/obj/src/shared/HAL/Src/stm32mp1xx_hal'
-#  Last modified 2022-02-27 02:59:50.517210548
+#  Last modified 2022-03-02 18:42:02.893811303
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile_a7.mk', line 129):
@@ -776,20 +788,20 @@ tools/mkimage:
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=68/1024=7%, Rehash=0, Collisions=14/313=4%
+# Load=70/1024=7%, Rehash=0, Collisions=19/323=6%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 198 / storage = 5165 B / avg = 26 B
-# current buf: size = 8162 B / used = 5165 B / count = 198 / avg = 26 B
+# strcache buffers: 1 (0) / strings = 200 / storage = 5248 B / avg = 26 B
+# current buf: size = 8162 B / used = 5248 B / count = 200 / avg = 26 B
 
-# strcache performance: lookups = 478 / hit rate = 58%
+# strcache performance: lookups = 490 / hit rate = 59%
 # hash-table stats:
-# Load=198/8192=2%, Rehash=0, Collisions=9/478=2%
-# Finished Make data base on Tue Mar  1 15:40:20 2022
+# Load=200/8192=2%, Rehash=0, Collisions=15/490=3%
+# Finished Make data base on Thu Mar  3 14:57:33 2022
 
  
 # GNU Make 4.2.1
@@ -799,7 +811,7 @@ tools/mkimage:
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar  1 15:40:20 2022
+# Make data base, printed on Thu Mar  3 14:57:33 2022
 
 # Variables
 
@@ -813,15 +825,15 @@ WSLENV = ELECTRON_RUN_AS_NODE/w:
 .SHELLFLAGS := -c
 # environment
 BINARYNAME = main
-# makefile (from 'makefile_m4.mk', line 99)
+# makefile (from 'makefile_m4.mk', line 105)
 OBJCPY = $(ARCH)-objcopy
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'makefile_m4.mk', line 21)
-INCLUDES = -I. -Isrc/shared/HAL/Inc -Isrc/shared/CMSIS/Core/Include -Isrc/shared/CMSIS/Device/ST/STM32MP1xx/Include -Isrc/shared/ModuleDefinitions -Isrc/shared/printfunc -Isrc/m4/Audio -Isrc/m4/I2C -Isrc/m4/GPIO -Isrc/m4/Core
-# makefile (from 'makefile_m4.mk', line 104)
+# makefile (from 'makefile_m4.mk', line 23)
+INCLUDES = -I. -Isrc/shared/HAL/Inc -Isrc/shared/CMSIS/Core/Include -Isrc/shared/CMSIS/Device/ST/STM32MP1xx/Include -Isrc/shared/ModuleDefinitions -Isrc/shared/printfunc -Isrc/m4/Audio -Isrc/m4/I2C -Isrc/m4/GPIO -Isrc/m4/Core -Isrc/m4/Display -Isrc/m4/Timer -Isrc/m4/Trellis -Isrc/m4/States
+# makefile (from 'makefile_m4.mk', line 110)
 SZOPTS = -d
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -831,31 +843,31 @@ SZOPTS = -d
 CURDIR := /home/randy/Documents/sampler-sequencer
 # makefile
 SHELL = /bin/sh
-# makefile (from 'makefile_m4.mk', line 108)
+# makefile (from 'makefile_m4.mk', line 114)
 BIN = $(BINDIR)/$(BINARYNAME).bin
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
-# makefile (from 'makefile_m4.mk', line 102)
+# makefile (from 'makefile_m4.mk', line 108)
 SZ = $(ARCH)-size
 # environment
 _ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
-# makefile (from 'makefile_m4.mk', line 58)
+# makefile (from 'makefile_m4.mk', line 64)
 CFLAGS = -g2 -fno-common $(ARCH_CFLAGS) $(MCU) $(INCLUDES) -fdata-sections -ffunction-sections -nostartfiles -ffreestanding $(EXTRACFLAGS) 
-# makefile (from 'makefile_m4.mk', line 92)
+# makefile (from 'makefile_m4.mk', line 98)
 DEPFLAGS = -MMD -MP -MF $(OBJDIR)/$(basename $<).d
-# makefile (from 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d', line 1)
-MAKEFILE_LIST :=  makefile_m4.mk build/corem4/obj/src/m4/I2C/I2C_Module.d build/corem4/obj/src/m4/Core/Periph_Init.d build/corem4/obj/src/m4/Core/main.d build/corem4/obj/src/m4/Audio/SAI_Module.d build/corem4/obj/src/m4/Audio/Audio_Processor.d build/corem4/obj/src/m4/Audio/Audio_Memory.d build/corem4/obj/src/m4/GPIO/GPIO_Module.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d build/corem4/obj/src/shared/printfunc/myprint.d build/corem4/obj/src/shared/ModuleDefinitions/syscalls.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d
+# makefile (from 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.d', line 1)
+MAKEFILE_LIST :=  makefile_m4.mk build/corem4/obj/src/m4/I2C/I2C_Module.d build/corem4/obj/src/m4/Core/Periph_Init.d build/corem4/obj/src/m4/Core/main.d build/corem4/obj/src/m4/Audio/SAI_Module.d build/corem4/obj/src/m4/Audio/Audio_Processor.d build/corem4/obj/src/m4/Audio/Audio_Memory.d build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.d build/corem4/obj/src/m4/Trellis/trellis_board.d build/corem4/obj/src/m4/States/State_Machine.d build/corem4/obj/src/m4/States/State_Functions.d build/corem4/obj/src/m4/Timer/Timer_Module.d build/corem4/obj/src/m4/GPIO/GPIO_Module.d build/corem4/obj/src/m4/Display/Audio_Display.d build/corem4/obj/src/m4/Display/Func_Display.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d build/corem4/obj/src/shared/printfunc/myprint.d build/corem4/obj/src/shared/ModuleDefinitions/syscalls.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.d
 # 'override' directive
 GNUMAKEFLAGS := 
 # makefile (from 'makefile_m4.mk', line 4)
-SOURCES := src/m4/I2C/I2C_Module.c src/m4/Core/Periph_Init.c src/m4/Core/main.c src/m4/Core/startup.s src/m4/Audio/SAI_Module.c src/m4/Audio/Audio_Processor.c src/m4/Audio/Audio_Memory.c src/m4/GPIO/GPIO_Module.c src/shared/HAL/Src/stm32mp1xx_hal.c src/shared/HAL/Src/stm32mp1xx_hal_gpio.c src/shared/HAL/Src/stm32mp1xx_hal_cortex.c src/shared/HAL/Src/stm32mp1xx_hal_rcc.c src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.c src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c src/shared/HAL/Src/stm32mp1xx_hal_msp.c src/shared/printfunc/myprint.c src/shared/ModuleDefinitions/syscalls.c src/shared/HAL/Src/stm32mp1xx_hal_sai.c src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c src/shared/HAL/Src/stm32mp1xx_hal_i2c.c src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c src/shared/HAL/Src/stm32mp1xx_hal_dma.c
-# makefile (from 'makefile_m4.mk', line 68)
+SOURCES := src/m4/I2C/I2C_Module.c src/m4/Core/Periph_Init.c src/m4/Core/main.c src/m4/Core/startup.s src/m4/Audio/SAI_Module.c src/m4/Audio/Audio_Processor.c src/m4/Audio/Audio_Memory.c src/m4/Trellis/Trellis_Read_Buttons.c src/m4/Trellis/trellis_board.c src/m4/States/State_Machine.c src/m4/States/State_Functions.c src/m4/Timer/Timer_Module.c src/m4/GPIO/GPIO_Module.c src/m4/Display/Audio_Display.c src/m4/Display/Func_Display.c src/shared/HAL/Src/stm32mp1xx_hal.c src/shared/HAL/Src/stm32mp1xx_hal_gpio.c src/shared/HAL/Src/stm32mp1xx_hal_cortex.c src/shared/HAL/Src/stm32mp1xx_hal_rcc.c src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.c src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c src/shared/HAL/Src/stm32mp1xx_hal_msp.c src/shared/printfunc/myprint.c src/shared/ModuleDefinitions/syscalls.c src/shared/HAL/Src/stm32mp1xx_hal_sai.c src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c src/shared/HAL/Src/stm32mp1xx_hal_i2c.c src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c src/shared/HAL/Src/stm32mp1xx_hal_dma.c src/shared/HAL/Src/stm32mp1xx_hal_tim.c src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.c 
+# makefile (from 'makefile_m4.mk', line 74)
 CXXFLAGS = $(CFLAGS) -std=c++2a -fno-rtti -fno-exceptions -fno-unwind-tables -ffreestanding -fno-threadsafe-statics -Werror=return-type -Wdouble-promotion -Wno-register -Wno-volatile $(EXTRACXXFLAGS) 
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
 VSCODE_VERBOSE_LOGGING = true
-# makefile (from 'makefile_m4.mk', line 34)
+# makefile (from 'makefile_m4.mk', line 40)
 BUILDDIR = $(BUILDDIR_M4)
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
@@ -864,15 +876,15 @@ VSCODE_CWD = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/randy/.vscode-server/bin/f80445acd5a3dadef24aa209168452a3d97cc326/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Microchip/xc8/v2.31/bin:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
-# makefile (from 'makefile_m4.mk', line 97)
+PATH = /home/randy/.vscode-server/bin/f80445acd5a3dadef24aa209168452a3d97cc326/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Microchip/xc8/v2.31/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# makefile (from 'makefile_m4.mk', line 103)
 LD = $(ARCH)-g++
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ba4c50a7-0b10-4979-9a3b-5eb678e5d63d.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ee0267d2-6842-4988-a800-6f79f6eaf77b.sock
 # environment
 BUILDDIR_M4 = build/corem4
 # default
@@ -887,7 +899,7 @@ DISPLAY = :0
 VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/randy/Documents/sampler-sequencer
-# makefile (from 'makefile_m4.mk', line 41)
+# makefile (from 'makefile_m4.mk', line 47)
 ENTRYPOINT = 0xDFF00000
 # default
 .LOADED := 
@@ -901,7 +913,7 @@ BUILDDIR_A7 = build/corea7
 VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
 # environment
 HOME = /home/randy
-# makefile (from 'makefile_m4.mk', line 48)
+# makefile (from 'makefile_m4.mk', line 54)
 ARCH_CFLAGS = -DUSE_FULL_LL_DRIVER -DSTM32MP157Cxx -DSTM32MP1 -DCORE_CM4 -DARM_MATH_CM4 
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
@@ -923,45 +935,45 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# makefile (from 'makefile_m4.mk', line 32)
+# makefile (from 'makefile_m4.mk', line 38)
 LINKSCR = linkscriptm4.ld
-# makefile (from 'makefile_m4.mk', line 35)
+# makefile (from 'makefile_m4.mk', line 41)
 BINDIR = bin/m4
-# makefile (from 'makefile_m4.mk', line 107)
+# makefile (from 'makefile_m4.mk', line 113)
 HEX = $(BINDIR)/$(BINARYNAME).hex
-# makefile (from 'makefile_m4.mk', line 95)
+# makefile (from 'makefile_m4.mk', line 101)
 CC = $(ARCH)-gcc
 # default
 MAKE_VERSION := 4.2.1
 # environment
 USER = randy
-# makefile (from 'makefile_m4.mk', line 106)
+# makefile (from 'makefile_m4.mk', line 112)
 ELF = $(BINDIR)/$(BINARYNAME).elf
 # makefile
 .DEFAULT_GOAL := all
-# makefile (from 'makefile_m4.mk', line 100)
+# makefile (from 'makefile_m4.mk', line 106)
 OBJDMP = $(ARCH)-objdump
-# makefile (from 'makefile_m4.mk', line 37)
+# makefile (from 'makefile_m4.mk', line 43)
 UIMAGENAME = $(BUILDDIR)/m4-main.uimg
 # environment
 NAME = Code
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# makefile (from 'makefile_m4.mk', line 83)
+# makefile (from 'makefile_m4.mk', line 89)
 LFLAGS = -Wl,--gc-sections -Wl,-Map,$(BUILDDIR)/$(BINARYNAME).map,--cref $(MCU) -T $(LINKSCR) $(LINK_STDLIB) -nostartfiles -ffreestanding $(EXTRALDFLAGS) 
 # environment
 VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/andre/.vscode/extensions/ms-vscode-remote.remote-wsl-0.64.2
 # default
 MAKE_COMMAND := make
-# makefile (from 'makefile_m4.mk', line 33)
+# makefile (from 'makefile_m4.mk', line 39)
 TOOLS = tools
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
-# makefile (from 'makefile_m4.mk', line 81)
+# makefile (from 'makefile_m4.mk', line 87)
 LINK_STDLIB = -nostdlib
-# makefile (from 'makefile_m4.mk', line 94)
+# makefile (from 'makefile_m4.mk', line 100)
 ARCH = arm-none-eabi
 # makefile
 MAKEFLAGS = pqrR --no-print-directory
@@ -969,53 +981,53 @@ MAKEFLAGS = pqrR --no-print-directory
 MFLAGS = -pqrR --no-print-directory
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# makefile (from 'makefile_m4.mk', line 40)
+# makefile (from 'makefile_m4.mk', line 46)
 LOADADDR = 0xDFF00000
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
-# makefile (from 'makefile_m4.mk', line 98)
+# makefile (from 'makefile_m4.mk', line 104)
 AS = $(ARCH)-as
-# makefile (from 'makefile_m4.mk', line 46)
+# makefile (from 'makefile_m4.mk', line 52)
 MCU = -mcpu=cortex-m7 -mthumb -mfpu=fpv4-sp-d16 -mlittle-endian -mfloat-abi=hard
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
-# makefile (from 'makefile_m4.mk', line 39)
+# makefile (from 'makefile_m4.mk', line 45)
 OBJDIR = $(BUILDDIR)/obj
-# makefile (from 'makefile_m4.mk', line 96)
+# makefile (from 'makefile_m4.mk', line 102)
 CXX = $(ARCH)-g++
 # makefile (from 'makefile_m4.mk', line 2)
 SHARED := src/shared
 # environment
 LC_ALL = C
-# makefile (from 'makefile_m4.mk', line 101)
+# makefile (from 'makefile_m4.mk', line 107)
 GDB = $(ARCH)-gdb
 # environment
 HOSTTYPE = x86_64
 # automatic
 ^F = $(notdir $^)
-# makefile (from 'makefile_m4.mk', line 44)
+# makefile (from 'makefile_m4.mk', line 50)
 DEPS = $(addprefix $(OBJDIR)/, $(addsuffix .d, $(basename $(SOURCES))))
 # default
 SUFFIXES := 
 # environment
 WAYLAND_DISPLAY = wayland-0
-# makefile (from 'makefile_m4.mk', line 54)
+# makefile (from 'makefile_m4.mk', line 60)
 OPTFLAG = -O0
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # default
 .RECIPEPREFIX := 
-# makefile (from 'makefile_m4.mk', line 43)
+# makefile (from 'makefile_m4.mk', line 49)
 OBJECTS = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(basename $(SOURCES))))
 # environment
 LANG = C
 # environment
 TERM = xterm-256color
-# makefile (from 'makefile_m4.mk', line 56)
+# makefile (from 'makefile_m4.mk', line 62)
 AFLAGS = $(MCU)
 # environment
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
@@ -1024,7 +1036,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=110/1024=11%, Rehash=0, Collisions=20/268=7%
+# Load=110/1024=11%, Rehash=0, Collisions=20/288=7%
 
 # Pattern-specific Variable Values
 
@@ -1034,49 +1046,57 @@ MOTD_SHOWN = update-motd
 
 # src/m4/Core (device 2080, inode 40145): 7 files, no impossibilities.
 # src/shared/printfunc (device 2080, inode 48119): 4 files, no impossibilities.
-# build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates (device 2080, inode 51766): No files, no impossibilities so far.
+# build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates (device 2080, inode 51766): 4 files, no impossibilities.
 # src/m4/I2C (device 2080, inode 48007): 4 files, no impossibilities.
+# src/m4/Display (device 2080, inode 71061): 6 files, no impossibilities.
 # src/shared/ModuleDefinitions (device 2080, inode 40376): 5 files, no impossibilities.
 # . (device 2080, inode 40074): 18 files, no impossibilities.
+# build/corem4/obj/src/m4/Timer (device 2080, inode 70920): No files, no impossibilities so far.
 # src/m4/GPIO (device 2080, inode 47805): 4 files, no impossibilities.
-# src/m4 (device 2080, inode 40144): 6 files, no impossibilities.
+# build/corem4/obj/src/m4/States (device 2080, inode 70897): No files, no impossibilities so far.
+# src/m4 (device 2080, inode 40144): 10 files, no impossibilities.
+# src/m4/Trellis (device 2080, inode 71070): 6 files, no impossibilities.
 # src/m4/Audio (device 2080, inode 48079): 9 files, no impossibilities.
 # build/corem4/obj (device 2080, inode 47718): No files, no impossibilities so far.
-# build/corem4/obj/src/shared/HAL/Src (device 2080, inode 47797): No files, no impossibilities so far.
+# build/corem4/obj/src/shared/HAL/Src (device 2080, inode 47797): 28 files, no impossibilities.
 # build/corem4/obj/src/m4/Core (device 2080, inode 47723): No files, no impossibilities so far.
-# build/corem4/obj/src/shared/printfunc (device 2080, inode 51768): No files, no impossibilities so far.
+# build/corem4/obj/src/shared/printfunc (device 2080, inode 51768): 4 files, no impossibilities.
 # build/corem4/obj/src/m4/I2C (device 2080, inode 47722): No files, no impossibilities so far.
-# build/corem4/obj/src/shared/ModuleDefinitions (device 2080, inode 51774): No files, no impossibilities so far.
+# build/corem4/obj/src/m4/Display (device 2080, inode 71062): No files, no impossibilities so far.
+# build/corem4/obj/src/shared/ModuleDefinitions (device 2080, inode 51774): 4 files, no impossibilities.
 # src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates (device 2080, inode 40203): 6 files, no impossibilities.
 # build/corem4/obj/src/m4/GPIO (device 2080, inode 47733): No files, no impossibilities so far.
+# src/m4/Timer (device 2080, inode 71067): 4 files, no impossibilities.
+# build/corem4/obj/src/m4/Trellis (device 2080, inode 70917): No files, no impossibilities so far.
 # build/corem4/obj/src/m4/Audio (device 2080, inode 47732): No files, no impossibilities so far.
+# src/m4/States (device 2080, inode 70903): 6 files, no impossibilities.
 # src/shared/HAL/Src (device 2080, inode 40303): 74 files, no impossibilities.
 
-# 137 files, no impossibilities in 19 directories.
+# 203 files, no impossibilities in 27 directories.
 
 # Implicit Rules
 
 build/corem4/obj/%.o: %.s
-#  recipe to execute (from 'makefile_m4.mk', line 113):
+ 
+#  recipe to execute (from 'makefile_m4.mk', line 119):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(AS) $(AFLAGS) $< -o $@ 
 
 build/corem4/obj/%.o: %.c build/corem4/obj/%.d
-#  recipe to execute (from 'makefile_m4.mk', line 118):
- 
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
 
 build/corem4/obj/%.o: %.c[cp]* build/corem4/obj/%.d
-#  recipe to execute (from 'makefile_m4.mk', line 123):
+#  recipe to execute (from 'makefile_m4.mk', line 129):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CXX) -c $(DEPFLAGS) $(OPTFLAG) $(CXXFLAGS) $< -o $@
 
 %.d:
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 # 4 implicit rules, 0 (0.0%) terminal.
@@ -1087,10 +1107,10 @@ build/corem4/obj/src/m4/Audio/Audio_Memory.o: src/m4/Audio/Audio_Memory.c build/
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/Audio/Audio_Memory'
-#  Last modified 2022-02-28 01:37:35.998688135
+#  Last modified 2022-03-02 21:55:13.06376709
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1105,20 +1125,20 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex'
-#  Last modified 2022-02-27 02:59:51.817210543
+#  Last modified 2022-03-02 18:42:45.79381114
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma'
-#  Last modified 2022-02-27 02:59:52.107210542
+#  Last modified 2022-03-02 18:42:46.133811138
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 src/shared/CMSIS/Core/Include/cmsis_compiler.h:
@@ -1127,9 +1147,21 @@ src/shared/CMSIS/Core/Include/cmsis_compiler.h:
 #  File has been updated.
 #  Successfully updated.
 
+build/corem4/obj/src/m4/Trellis/trellis_board.o: src/m4/Trellis/trellis_board.c build/corem4/obj/src/m4/Trellis/trellis_board.d src/m4/Trellis/trellis_board.c src/m4/Trellis/trellis_board.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Core/Periph_Init.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/m4/Trellis/trellis_board'
+#  Last modified 2022-03-02 18:42:44.483811145
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
 src/m4/Audio/Audio_Processor.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-28 01:36:19.408688428
+#  Last modified 2022-03-02 15:26:26.463856074
 #  File has been updated.
 #  Successfully updated.
 
@@ -1145,7 +1177,7 @@ compile_commands:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'makefile_m4.mk', line 156):
+#  recipe to execute (from 'makefile_m4.mk', line 162):
 	compiledb make
 	compdb -p ./ list > compile_commands.tmp 2>/dev/null
 	rm compile_commands.json
@@ -1154,7 +1186,7 @@ compile_commands:
 # Not a target:
 makefile_m4.mk:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-26 16:01:59.07736112
+#  Last modified 2022-03-02 18:41:17.673811476
 #  File has been updated.
 #  Successfully updated.
 
@@ -1162,15 +1194,15 @@ build/corem4/obj/src/m4/Core/main.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Core/main'
-#  Last modified 2022-02-28 19:16:14.605257133
+#  Last modified 2022-03-02 23:07:25.763750563
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 src/shared/HAL/Inc/stm32mp1xx_hal_conf.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-23 16:06:58.110105145
+#  Last modified 2022-03-02 18:21:42.393815959
 #  File has been updated.
 #  Successfully updated.
 
@@ -1187,27 +1219,40 @@ src/m4/I2C/I2C_Module.c:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.o: src/shared/HAL/Src/stm32mp1xx_hal_sai.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d src/shared/HAL/Src/stm32mp1xx_hal_sai.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.o: src/shared/HAL/Src/stm32mp1xx_hal_sai.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d src/shared/HAL/Src/stm32mp1xx_hal_sai.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_sai'
-#  Last modified 2022-02-27 02:59:51.757210544
+#  Last modified 2022-03-02 22:41:40.713756456
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+# Not a target:
+src/m4/Core/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 23:07:19.113750588
+#  File has been updated.
+#  Successfully updated.
 
 build/corem4/obj/src/m4/GPIO/GPIO_Module.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/GPIO/GPIO_Module'
-#  Last modified 2022-02-27 02:59:51.107210546
+#  Last modified 2022-03-02 18:42:44.763811144
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
+
+src/m4/Display/Audio_Display.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.583811797
+#  File has been updated.
+#  Successfully updated.
 
 all: Makefile bin/m4/main.elf
 #  Phony target (prerequisite of .PHONY).
@@ -1224,8 +1269,14 @@ build/corem4/obj/src/shared/printfunc/myprint.d:
 #  Last modified 2022-02-27 02:59:51.647210544
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
+
+src/m4/Trellis/Trellis_Read_Buttons.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.593811797
+#  File has been updated.
+#  Successfully updated.
 
 src/shared/ModuleDefinitions/UART_Definitions.h:
 #  Implicit rule search has been done.
@@ -1246,14 +1297,20 @@ src/shared/ModuleDefinitions/syscalls.c:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+src/m4/Display/Func_Display.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 21:54:32.823767244
+#  File has been updated.
+#  Successfully updated.
+
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex'
-#  Last modified 2022-02-27 02:59:52.027210542
+#  Last modified 2022-03-02 18:42:46.043811139
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1269,10 +1326,10 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex'
-#  Last modified 2022-02-27 02:59:51.307210545
+#  Last modified 2022-03-02 18:42:45.173811142
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 # Not a target:
@@ -1282,22 +1339,45 @@ src/m4/Core/startup.s:
 #  File has been updated.
 #  Successfully updated.
 
-.PRECIOUS: build/corem4/obj/src/m4/I2C/I2C_Module.d build/corem4/obj/src/m4/Core/Periph_Init.d build/corem4/obj/src/m4/Core/main.d build/corem4/obj/src/m4/Core/startup.d build/corem4/obj/src/m4/Audio/SAI_Module.d build/corem4/obj/src/m4/Audio/Audio_Processor.d build/corem4/obj/src/m4/Audio/Audio_Memory.d build/corem4/obj/src/m4/GPIO/GPIO_Module.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d build/corem4/obj/src/shared/printfunc/myprint.d build/corem4/obj/src/shared/ModuleDefinitions/syscalls.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d build/corem4/obj/src/m4/I2C/I2C_Module.o build/corem4/obj/src/m4/Core/Periph_Init.o build/corem4/obj/src/m4/Core/main.o build/corem4/obj/src/m4/Core/startup.o build/corem4/obj/src/m4/Audio/SAI_Module.o build/corem4/obj/src/m4/Audio/Audio_Processor.o build/corem4/obj/src/m4/Audio/Audio_Memory.o build/corem4/obj/src/m4/GPIO/GPIO_Module.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.o build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o build/corem4/obj/src/shared/printfunc/myprint.o build/corem4/obj/src/shared/ModuleDefinitions/syscalls.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.o bin/m4/main.elf
+.PRECIOUS: build/corem4/obj/src/m4/I2C/I2C_Module.d build/corem4/obj/src/m4/Core/Periph_Init.d build/corem4/obj/src/m4/Core/main.d build/corem4/obj/src/m4/Core/startup.d build/corem4/obj/src/m4/Audio/SAI_Module.d build/corem4/obj/src/m4/Audio/Audio_Processor.d build/corem4/obj/src/m4/Audio/Audio_Memory.d build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.d build/corem4/obj/src/m4/Trellis/trellis_board.d build/corem4/obj/src/m4/States/State_Machine.d build/corem4/obj/src/m4/States/State_Functions.d build/corem4/obj/src/m4/Timer/Timer_Module.d build/corem4/obj/src/m4/GPIO/GPIO_Module.d build/corem4/obj/src/m4/Display/Audio_Display.d build/corem4/obj/src/m4/Display/Func_Display.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d build/corem4/obj/src/shared/printfunc/myprint.d build/corem4/obj/src/shared/ModuleDefinitions/syscalls.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.d build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.d build/corem4/obj/src/m4/I2C/I2C_Module.o build/corem4/obj/src/m4/Core/Periph_Init.o build/corem4/obj/src/m4/Core/main.o build/corem4/obj/src/m4/Core/startup.o build/corem4/obj/src/m4/Audio/SAI_Module.o build/corem4/obj/src/m4/Audio/Audio_Processor.o build/corem4/obj/src/m4/Audio/Audio_Memory.o build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.o build/corem4/obj/src/m4/Trellis/trellis_board.o build/corem4/obj/src/m4/States/State_Machine.o build/corem4/obj/src/m4/States/State_Functions.o build/corem4/obj/src/m4/Timer/Timer_Module.o build/corem4/obj/src/m4/GPIO/GPIO_Module.o build/corem4/obj/src/m4/Display/Audio_Display.o build/corem4/obj/src/m4/Display/Func_Display.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.o build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o build/corem4/obj/src/shared/printfunc/myprint.o build/corem4/obj/src/shared/ModuleDefinitions/syscalls.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.o bin/m4/main.elf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 src/m4/Core/Periph_Init.h:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-02-26 16:05:39.427360279
 #  File has been updated.
 #  Successfully updated.
+
+build/corem4/obj/src/m4/States/State_Machine.o: src/m4/States/State_Machine.c build/corem4/obj/src/m4/States/State_Machine.d src/m4/States/State_Machine.c src/m4/States/State_Machine.h src/m4/Audio/Audio_Processor.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Audio/Audio_Structs.h src/m4/Core/defines.h src/m4/Audio/Audio_Memory.h src/m4/Audio/Audio_Memory.h src/m4/States/State_Functions.h src/m4/Display/Func_Display.h src/m4/Display/Audio_Display.h src/shared/printfunc/myprint.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/m4/States/State_Machine'
+#  Last modified 2022-03-02 22:04:03.283765068
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+build/corem4/obj/src/m4/States/State_Functions.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/States/State_Functions'
+#  Last modified 2022-03-02 22:41:40.603756457
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
 
 bin/m4/main.bin: bin/m4/main.elf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile_m4.mk', line 132):
+#  recipe to execute (from 'makefile_m4.mk', line 138):
 	$(OBJCPY) -O binary $< $@
 
 src/m4/I2C/I2C_Module.h:
@@ -1318,12 +1398,35 @@ src/shared/HAL/Inc/stm32mp1xx_hal_adc.h:
 #  File has been updated.
 #  Successfully updated.
 
+src/shared/HAL/Inc/stm32mp1xx_hal_tim.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.520102544
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/m4/Trellis/trellis_board.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.593811797
+#  File has been updated.
+#  Successfully updated.
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-02-23 15:42:52.490102544
 #  File has been updated.
 #  Successfully updated.
+
+build/corem4/obj/src/m4/Timer/Timer_Module.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Timer/Timer_Module'
+#  Last modified 2022-03-02 18:42:44.693811144
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
 
 src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h:
 #  Implicit rule search has been done.
@@ -1334,12 +1437,11 @@ src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h:
 build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
- 
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp'
-#  Last modified 2022-02-27 02:59:51.627210544
+#  Last modified 2022-03-02 18:42:45.593811141
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h:
@@ -1358,32 +1460,44 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio'
-#  Last modified 2022-02-27 02:59:51.237210546
+#  Last modified 2022-03-02 18:42:45.093811142
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.d src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_sai_ex'
-#  Last modified 2022-02-27 02:59:51.817210543
+#  Last modified 2022-03-02 18:42:45.79381114
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.o: src/shared/HAL/Src/stm32mp1xx_hal_dma.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d src/shared/HAL/Src/stm32mp1xx_hal_dma.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.o: src/shared/HAL/Src/stm32mp1xx_hal_dma.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.d src/shared/HAL/Src/stm32mp1xx_hal_dma.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_dma'
-#  Last modified 2022-02-27 02:59:52.107210542
+#  Last modified 2022-03-02 18:42:46.133811138
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.d src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_tim_ex'
+#  Last modified 2022-03-02 18:42:46.423811137
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1392,20 +1506,27 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal'
-#  Last modified 2022-02-27 02:59:51.167210546
+#  Last modified 2022-03-02 18:42:45.013811143
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
-build/corem4/obj/src/m4/Core/main.o: src/m4/Core/main.c build/corem4/obj/src/m4/Core/main.d src/m4/Core/main.c src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/ModuleDefinitions/GPIO_Definitions.h src/shared/printfunc/myprint.h src/shared/ModuleDefinitions/UART_Definitions.h src/m4/Audio/Audio_Processor.h src/m4/Audio/Audio_Structs.h src/m4/Core/defines.h src/m4/Audio/Audio_Memory.h src/m4/Core/Periph_Init.h src/m4/Audio/Audio_Memory.h
+# Not a target:
+src/shared/HAL/Src/stm32mp1xx_hal_tim.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.530102544
+#  File has been updated.
+#  Successfully updated.
+
+build/corem4/obj/src/m4/Core/main.o: src/m4/Core/main.c build/corem4/obj/src/m4/Core/main.d src/m4/Core/main.c src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/ModuleDefinitions/GPIO_Definitions.h src/shared/printfunc/myprint.h src/shared/ModuleDefinitions/UART_Definitions.h src/m4/Audio/Audio_Processor.h src/m4/Audio/Audio_Structs.h src/m4/Core/defines.h src/m4/Audio/Audio_Memory.h src/m4/Core/Periph_Init.h src/m4/Audio/Audio_Memory.h src/m4/Display/Audio_Display.h src/m4/Display/Func_Display.h src/m4/Timer/Timer_Module.h src/m4/States/State_Machine.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/Core/main'
-#  Last modified 2022-02-28 19:16:14.605257133
+#  Last modified 2022-03-02 23:07:25.763750563
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1420,10 +1541,10 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc'
-#  Last modified 2022-02-27 02:59:51.397210545
+#  Last modified 2022-03-02 18:42:45.293811142
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h:
@@ -1436,10 +1557,10 @@ build/corem4/obj/src/m4/Audio/Audio_Processor.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Audio/Audio_Processor'
-#  Last modified 2022-02-28 20:32:12.615239745
+#  Last modified 2022-03-02 23:07:51.863750463
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 # Not a target:
@@ -1451,18 +1572,18 @@ src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.c:
 
 src/m4/Audio/Audio_Memory.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-28 01:37:12.548688225
+#  Last modified 2022-03-02 16:25:05.243842651
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/m4/GPIO/GPIO_Module.o: src/m4/GPIO/GPIO_Module.c build/corem4/obj/src/m4/GPIO/GPIO_Module.d src/m4/GPIO/GPIO_Module.c src/m4/GPIO/GPIO_Module.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/m4/GPIO/GPIO_Module.o: src/m4/GPIO/GPIO_Module.c build/corem4/obj/src/m4/GPIO/GPIO_Module.d src/m4/GPIO/GPIO_Module.c src/m4/GPIO/GPIO_Module.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/GPIO/GPIO_Module'
-#  Last modified 2022-02-27 02:59:51.107210546
+#  Last modified 2022-03-02 18:42:44.773811144
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1471,7 +1592,7 @@ build/corem4/m4-main.uimg: bin/m4/main.bin tools/mkimage
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile_m4.mk', line 139):
+#  recipe to execute (from 'makefile_m4.mk', line 145):
 	$(info Creating uimg file)
 	@$(TOOLS)/mkimage -A arm -C none -T kernel -a $(LOADADDR) -e $(ENTRYPOINT) -d $< $@
 
@@ -1487,20 +1608,27 @@ src/m4/Audio/Audio_Structs.h:
 #  File has been updated.
 #  Successfully updated.
 
+ 
 src/m4/Core/defines.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-24 19:42:34.881324089
+#  Last modified 2022-03-02 21:47:14.503768916
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.o: src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+src/m4/Trellis/trellis_board.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.593811797
+#  File has been updated.
+#  Successfully updated.
+
+build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.o: src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx'
-#  Last modified 2022-02-27 02:59:51.577210544
+#  Last modified 2022-03-02 18:42:45.513811141
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1509,10 +1637,10 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c'
-#  Last modified 2022-02-27 02:59:51.957210543
+#  Last modified 2022-03-02 18:42:45.963811139
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 .PHONY: all clean compile_commands
@@ -1520,14 +1648,41 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d:
 #  Modification time never checked.
 #  File has not been updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.o: src/shared/HAL/Src/stm32mp1xx_hal_cortex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d src/shared/HAL/Src/stm32mp1xx_hal_cortex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/m4/Display/Audio_Display.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Display/Audio_Display'
+#  Last modified 2022-03-02 21:55:31.58376702
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
+
+# Not a target:
+src/m4/States/State_Machine.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 22:04:00.833765077
+#  File has been updated.
+#  Successfully updated.
+
+build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons'
+#  Last modified 2022-03-02 18:42:44.393811145
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
+
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.o: src/shared/HAL/Src/stm32mp1xx_hal_cortex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.d src/shared/HAL/Src/stm32mp1xx_hal_cortex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_cortex'
-#  Last modified 2022-02-27 02:59:51.307210545
+#  Last modified 2022-03-02 18:42:45.173811142
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1545,6 +1700,16 @@ linkscriptm4.ld:
 #  File has been updated.
 #  Successfully updated.
 
+build/corem4/obj/src/m4/Display/Func_Display.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Display/Func_Display'
+#  Last modified 2022-03-02 22:04:03.343765068
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
+
 src/shared/HAL/Inc/stm32mp1xx_hal_dma.h:
 #  Implicit rule search has been done.
 #  Last modified 2022-02-23 15:42:52.520102544
@@ -1557,14 +1722,20 @@ src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/m4/Audio/SAI_Module.o: src/m4/Audio/SAI_Module.c build/corem4/obj/src/m4/Audio/SAI_Module.d src/m4/Audio/SAI_Module.c src/m4/Audio/SAI_Module.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
+src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.520102544
+#  File has been updated.
+#  Successfully updated.
+
+build/corem4/obj/src/m4/Audio/SAI_Module.o: src/m4/Audio/SAI_Module.c build/corem4/obj/src/m4/Audio/SAI_Module.d src/m4/Audio/SAI_Module.c src/m4/Audio/SAI_Module.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/Audio/SAI_Module'
-#  Last modified 2022-02-27 02:59:50.937210547
+#  Last modified 2022-03-02 18:42:44.253811146
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1576,27 +1747,38 @@ src/shared/HAL/Src/stm32mp1xx_hal_msp.c:
 #  File has been updated.
 #  Successfully updated.
 
+build/corem4/obj/src/m4/States/State_Functions.o: src/m4/States/State_Functions.c build/corem4/obj/src/m4/States/State_Functions.d src/m4/States/State_Functions.c src/m4/States/State_Functions.h src/m4/Audio/Audio_Processor.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Audio/Audio_Structs.h src/m4/Core/defines.h src/m4/Audio/Audio_Memory.h src/m4/Display/Audio_Display.h src/m4/Display/Func_Display.h src/shared/printfunc/myprint.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/m4/States/State_Functions'
+#  Last modified 2022-03-02 22:41:40.603756457
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
 build/corem4/obj/src/m4/Core/Periph_Init.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Core/Periph_Init'
-#  Last modified 2022-02-27 02:59:50.807210547
+#  Last modified 2022-03-02 18:42:03.283811302
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 bin/m4/main.hex: bin/m4/main.elf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile_m4.mk', line 135):
+#  recipe to execute (from 'makefile_m4.mk', line 141):
 	@$(OBJCPY) --output-target=ihex $< $@
 	@$(SZ) $(SZOPTS) $(ELF)
 
 # Not a target:
 src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.c:
- 
 #  Implicit rule search has been done.
 #  Last modified 2022-02-23 15:42:52.530102544
 #  File has been updated.
@@ -1609,22 +1791,46 @@ src/shared/HAL/Src/stm32mp1xx_hal_dma.c:
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.530102544
+#  File has been updated.
+#  Successfully updated.
+
 build/corem4/obj/src/m4/I2C/I2C_Module.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/I2C/I2C_Module'
-#  Last modified 2022-02-27 02:59:50.747210547
+#  Last modified 2022-03-02 18:42:03.213811302
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
-# Not a target:
-src/m4/Core/main.c:
+build/corem4/obj/src/m4/Timer/Timer_Module.o: src/m4/Timer/Timer_Module.c build/corem4/obj/src/m4/Timer/Timer_Module.d src/m4/Timer/Timer_Module.c src/m4/Timer/Timer_Module.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h src/m4/Trellis/Trellis_Read_Buttons.h
+#  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
-#  Last modified 2022-02-28 19:10:35.135258428
+#  Implicit/static pattern stem: 'src/m4/Timer/Timer_Module'
+#  Last modified 2022-03-02 18:42:44.703811144
 #  File has been updated.
 #  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.o: src/shared/HAL/Src/stm32mp1xx_hal_tim.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.d src/shared/HAL/Src/stm32mp1xx_hal_tim.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_tim'
+#  Last modified 2022-03-02 18:42:46.313811138
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
 
 src/shared/printfunc/myprint.h:
 #  Implicit rule search has been done.
@@ -1636,23 +1842,29 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex'
-#  Last modified 2022-02-27 02:59:51.507210544
+#  Last modified 2022-03-02 18:42:45.433811141
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o: src/shared/HAL/Src/stm32mp1xx_hal_msp.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d src/shared/HAL/Src/stm32mp1xx_hal_msp.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o: src/shared/HAL/Src/stm32mp1xx_hal_msp.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.d src/shared/HAL/Src/stm32mp1xx_hal_msp.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_msp'
-#  Last modified 2022-02-27 02:59:51.637210544
+#  Last modified 2022-03-02 18:42:45.593811141
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+src/m4/States/State_Machine.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 21:55:28.773767031
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -1660,14 +1872,14 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o: src/shared/HAL/Src/stm
 #  Modification time never checked.
 #  File has not been updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o: src/shared/HAL/Src/stm32mp1xx_hal_gpio.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d src/shared/HAL/Src/stm32mp1xx_hal_gpio.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o: src/shared/HAL/Src/stm32mp1xx_hal_gpio.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.d src/shared/HAL/Src/stm32mp1xx_hal_gpio.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_gpio'
-#  Last modified 2022-02-27 02:59:51.247210545
+#  Last modified 2022-03-02 18:42:45.093811142
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1697,17 +1909,17 @@ build/corem4/obj/src/shared/ModuleDefinitions/syscalls.d:
 #  Last modified 2022-02-27 02:59:51.657210544
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o: src/shared/HAL/Src/stm32mp1xx_hal.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d src/shared/HAL/Src/stm32mp1xx_hal.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/ModuleDefinitions/UART_Definitions.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o: src/shared/HAL/Src/stm32mp1xx_hal.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.d src/shared/HAL/Src/stm32mp1xx_hal.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/ModuleDefinitions/UART_Definitions.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal'
-#  Last modified 2022-02-27 02:59:51.177210546
+#  Last modified 2022-03-02 18:42:45.013811143
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1715,7 +1927,7 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o: src/shared/HAL/Src/stm32mp
 # Not a target:
 src/m4/GPIO/GPIO_Module.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-24 02:21:40.366664891
+#  Last modified 2022-03-02 18:39:53.583811797
 #  File has been updated.
 #  Successfully updated.
 
@@ -1726,17 +1938,17 @@ build/corem4/obj/src/m4/Core/startup.d:
 #  File does not exist.
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx'
-#  Last modified 2022-02-27 02:59:51.567210544
+#  Last modified 2022-03-02 18:42:45.513811141
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 # Not a target:
@@ -1746,26 +1958,27 @@ src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.c:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.o: src/shared/HAL/Src/stm32mp1xx_hal_rcc.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d src/shared/HAL/Src/stm32mp1xx_hal_rcc.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.o: src/shared/HAL/Src/stm32mp1xx_hal_rcc.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.d src/shared/HAL/Src/stm32mp1xx_hal_rcc.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_rcc'
-#  Last modified 2022-02-27 02:59:51.407210545
+#  Last modified 2022-03-02 18:42:45.303811142
 #  File has been updated.
+ 
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
 
-build/corem4/obj/src/m4/Audio/Audio_Processor.o: src/m4/Audio/Audio_Processor.c build/corem4/obj/src/m4/Audio/Audio_Processor.d src/m4/Audio/Audio_Processor.c src/m4/Audio/Audio_Processor.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Audio/Audio_Structs.h src/m4/Core/defines.h src/m4/Audio/Audio_Memory.h src/m4/Core/Periph_Init.h src/shared/printfunc/myprint.h
+build/corem4/obj/src/m4/Audio/Audio_Processor.o: src/m4/Audio/Audio_Processor.c build/corem4/obj/src/m4/Audio/Audio_Processor.d src/m4/Audio/Audio_Processor.c src/m4/Audio/Audio_Processor.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Audio/Audio_Structs.h src/m4/Core/defines.h src/m4/Audio/Audio_Memory.h src/m4/Core/Periph_Init.h src/shared/printfunc/myprint.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/Audio/Audio_Processor'
-#  Last modified 2022-02-28 20:32:12.615239745
+#  Last modified 2022-03-02 23:07:51.863750463
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1777,7 +1990,7 @@ build/corem4/obj/src/shared/printfunc/myprint.o: src/shared/printfunc/myprint.c 
 #  Last modified 2022-02-27 02:59:51.647210544
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1787,7 +2000,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'makefile_m4.mk', line 145):
+#  recipe to execute (from 'makefile_m4.mk', line 151):
 	rm -rf build
 
 # Not a target:
@@ -1800,7 +2013,7 @@ src/shared/HAL/Src/stm32mp1xx_hal_cortex.c:
 # Not a target:
 src/shared/HAL/Src/stm32mp1xx_hal_sai.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-27 01:42:06.677228339
+#  Last modified 2022-03-02 22:41:36.403756473
 #  File has been updated.
 #  Successfully updated.
 
@@ -1816,13 +2029,13 @@ src/shared/HAL/Inc/stm32mp1xx_hal_def.h:
 #  File has been updated.
 #  Successfully updated.
 
-bin/m4/main.elf: build/corem4/obj/src/m4/I2C/I2C_Module.o build/corem4/obj/src/m4/Core/Periph_Init.o build/corem4/obj/src/m4/Core/main.o build/corem4/obj/src/m4/Core/startup.o build/corem4/obj/src/m4/Audio/SAI_Module.o build/corem4/obj/src/m4/Audio/Audio_Processor.o build/corem4/obj/src/m4/Audio/Audio_Memory.o build/corem4/obj/src/m4/GPIO/GPIO_Module.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.o build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o build/corem4/obj/src/shared/printfunc/myprint.o build/corem4/obj/src/shared/ModuleDefinitions/syscalls.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.o linkscriptm4.ld
+bin/m4/main.elf: build/corem4/obj/src/m4/I2C/I2C_Module.o build/corem4/obj/src/m4/Core/Periph_Init.o build/corem4/obj/src/m4/Core/main.o build/corem4/obj/src/m4/Core/startup.o build/corem4/obj/src/m4/Audio/SAI_Module.o build/corem4/obj/src/m4/Audio/Audio_Processor.o build/corem4/obj/src/m4/Audio/Audio_Memory.o build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.o build/corem4/obj/src/m4/Trellis/trellis_board.o build/corem4/obj/src/m4/States/State_Machine.o build/corem4/obj/src/m4/States/State_Functions.o build/corem4/obj/src/m4/Timer/Timer_Module.o build/corem4/obj/src/m4/GPIO/GPIO_Module.o build/corem4/obj/src/m4/Display/Audio_Display.o build/corem4/obj/src/m4/Display/Func_Display.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_gpio.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_cortex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.o build/corem4/obj/src/shared/CMSIS/Device/ST/STM32MP1xx/Source/Templates/system_stm32mp1xx.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_msp.o build/corem4/obj/src/shared/printfunc/myprint.o build/corem4/obj/src/shared/ModuleDefinitions/syscalls.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_dma.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.o build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.o linkscriptm4.ld
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has not been done.
-#  Last modified 2022-02-28 20:32:12.715239745
+#  Last modified 2022-03-02 23:07:51.913750463
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 128):
+#  recipe to execute (from 'makefile_m4.mk', line 134):
 	$(info Linking...)
 	@$(LD) $(LFLAGS) -o $@ $(OBJECTS) 
 
@@ -1837,11 +2050,52 @@ build/corem4/obj/src/m4/Audio/Audio_Memory.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Audio/Audio_Memory'
-#  Last modified 2022-02-28 01:37:35.998688135
+#  Last modified 2022-03-02 21:55:13.06376709
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
+
+build/corem4/obj/src/m4/Display/Audio_Display.o: src/m4/Display/Audio_Display.c build/corem4/obj/src/m4/Display/Audio_Display.d src/m4/Display/Audio_Display.c src/m4/Display/Audio_Display.h src/m4/Trellis/trellis_board.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Audio/Audio_Memory.h src/m4/Core/defines.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/m4/Display/Audio_Display'
+#  Last modified 2022-03-02 21:55:31.58376702
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.o: src/m4/Trellis/Trellis_Read_Buttons.c build/corem4/obj/src/m4/Trellis/Trellis_Read_Buttons.d src/m4/Trellis/Trellis_Read_Buttons.c src/m4/Trellis/Trellis_Read_Buttons.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Trellis/trellis_board.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/m4/Trellis/Trellis_Read_Buttons'
+#  Last modified 2022-03-02 18:42:44.403811145
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+build/corem4/obj/src/m4/Trellis/trellis_board.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Trellis/trellis_board'
+#  Last modified 2022-03-02 18:42:44.483811145
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
+
+# Not a target:
+src/m4/States/State_Functions.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 22:40:46.833756662
+#  File has been updated.
+#  Successfully updated.
 
 src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h:
 #  Implicit rule search has been done.
@@ -1852,19 +2106,30 @@ src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h:
 # Not a target:
 src/m4/Audio/Audio_Memory.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-28 01:36:45.298688329
+#  Last modified 2022-03-02 16:27:26.753842111
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.o: src/shared/HAL/Src/stm32mp1xx_hal_i2c.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d src/shared/HAL/Src/stm32mp1xx_hal_i2c.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/m4/Display/Func_Display.o: src/m4/Display/Func_Display.c build/corem4/obj/src/m4/Display/Func_Display.d src/m4/Display/Func_Display.c src/m4/Display/Func_Display.h src/m4/Trellis/trellis_board.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/Core/defines.h
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/m4/Display/Func_Display'
+#  Last modified 2022-03-02 22:04:03.343765068
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 124):
+	@mkdir -p $(dir $@)
+	$(info Building $< at $(OPTFLAG))
+	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
+
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.o: src/shared/HAL/Src/stm32mp1xx_hal_i2c.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c.d src/shared/HAL/Src/stm32mp1xx_hal_i2c.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_i2c'
-#  Last modified 2022-02-27 02:59:51.967210543
+#  Last modified 2022-03-02 18:42:45.973811139
 #  File has been updated.
 #  Successfully updated.
- 
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1891,11 +2156,18 @@ build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_sai'
-#  Last modified 2022-02-27 02:59:51.757210544
+#  Last modified 2022-03-02 22:41:40.703756456
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
+
+# Not a target:
+src/m4/Timer/Timer_Module.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.593811797
+#  File has been updated.
+#  Successfully updated.
 
 src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h:
 #  Implicit rule search has been done.
@@ -1903,14 +2175,24 @@ src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/m4/Core/Periph_Init.o: src/m4/Core/Periph_Init.c build/corem4/obj/src/m4/Core/Periph_Init.d src/m4/Core/Periph_Init.c src/m4/Core/Periph_Init.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/I2C/I2C_Module.h src/m4/GPIO/GPIO_Module.h src/m4/Audio/SAI_Module.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim'
+#  Last modified 2022-03-02 18:42:46.303811138
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
+
+build/corem4/obj/src/m4/Core/Periph_Init.o: src/m4/Core/Periph_Init.c build/corem4/obj/src/m4/Core/Periph_Init.d src/m4/Core/Periph_Init.c src/m4/Core/Periph_Init.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/m4/I2C/I2C_Module.h src/m4/GPIO/GPIO_Module.h src/m4/Audio/SAI_Module.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/Core/Periph_Init'
-#  Last modified 2022-02-27 02:59:50.817210547
+#  Last modified 2022-03-02 18:42:03.293811302
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1919,10 +2201,10 @@ build/corem4/obj/src/m4/Audio/SAI_Module.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/m4/Audio/SAI_Module'
-#  Last modified 2022-02-27 02:59:50.937210547
+#  Last modified 2022-03-02 18:42:44.243811146
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 # Not a target:
@@ -1945,14 +2227,32 @@ src/shared/HAL/Src/stm32mp1xx_hal_gpio.c:
 #  File has been updated.
 #  Successfully updated.
 
+ 
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_tim_ex'
+#  Last modified 2022-03-02 18:42:46.413811137
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
+
+# Not a target:
+src/shared/HAL/Src/stm32mp1xx_hal_rcc.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 15:42:52.530102544
+#  File has been updated.
+#  Successfully updated.
+
 build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex.d:
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_i2c_ex'
-#  Last modified 2022-02-27 02:59:52.027210542
+#  Last modified 2022-03-02 18:42:46.043811139
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 142):
+#  recipe to execute (from 'makefile_m4.mk', line 148):
 	
 
 # Not a target:
@@ -1962,14 +2262,14 @@ src/shared/HAL/Src/stm32mp1xx_hal.c:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/m4/I2C/I2C_Module.o: src/m4/I2C/I2C_Module.c build/corem4/obj/src/m4/I2C/I2C_Module.d src/m4/I2C/I2C_Module.c src/m4/I2C/I2C_Module.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
+build/corem4/obj/src/m4/I2C/I2C_Module.o: src/m4/I2C/I2C_Module.c build/corem4/obj/src/m4/I2C/I2C_Module.d src/m4/I2C/I2C_Module.c src/m4/I2C/I2C_Module.h src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h src/shared/printfunc/myprint.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/m4/I2C/I2C_Module'
-#  Last modified 2022-02-27 02:59:50.757210547
+#  Last modified 2022-03-02 18:42:03.223811302
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -1992,29 +2292,28 @@ src/shared/HAL/Inc/stm32mp1xx_hal_exti.h:
 #  File has been updated.
 #  Successfully updated.
 
-build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
+build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.o: src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.c build/corem4/obj/src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.d src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex.c src/shared/HAL/Inc/stm32mp1xx_hal.h src/shared/HAL/Inc/stm32mp1xx_hal_conf.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc.h src/shared/HAL/Inc/stm32mp1xx_hal_def.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp1xx.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/stm32mp157fxx_cm4.h src/shared/CMSIS/Core/Include/core_cm4.h src/shared/CMSIS/Core/Include/cmsis_version.h src/shared/CMSIS/Core/Include/cmsis_compiler.h src/shared/CMSIS/Core/Include/cmsis_gcc.h src/shared/CMSIS/Core/Include/mpu_armv7.h src/shared/CMSIS/Device/ST/STM32MP1xx/Include/system_stm32mp1xx.h src/shared/HAL/Inc/stm32mp1xx_hal_rcc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_exti.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio.h src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_dma.h src/shared/HAL/Inc/stm32mp1xx_hal_dma_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cortex.h src/shared/HAL/Inc/stm32mp1xx_hal_adc.h src/shared/HAL/Inc/stm32mp1xx_ll_adc.h src/shared/HAL/Inc/stm32mp1xx_hal_adc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_cec.h src/shared/HAL/Inc/stm32mp1xx_hal_crc.h src/shared/HAL/Inc/stm32mp1xx_hal_crc_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c.h src/shared/HAL/Inc/stm32mp1xx_hal_i2c_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_sai.h src/shared/HAL/Inc/stm32mp1xx_hal_sai_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_tim.h src/shared/HAL/Inc/stm32mp1xx_hal_tim_ex.h src/shared/HAL/Inc/stm32mp1xx_hal_uart.h src/shared/HAL/Inc/stm32mp1xx_hal_uart_ex.h
 #  Precious file (prerequisite of .PRECIOUS).
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/shared/HAL/Src/stm32mp1xx_hal_rcc_ex'
-#  Last modified 2022-02-27 02:59:51.517210544
+#  Last modified 2022-03-02 18:42:45.443811141
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
 
-# Not a target:
-src/shared/HAL/Src/stm32mp1xx_hal_rcc.c:
+src/m4/States/State_Functions.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-23 15:42:52.530102544
+#  Last modified 2022-03-02 21:58:05.213766434
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/m4/Audio/Audio_Processor.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-28 20:31:51.935239824
+#  Last modified 2022-03-02 23:07:49.123750473
 #  File has been updated.
 #  Successfully updated.
 
@@ -2031,7 +2330,7 @@ build/corem4/obj/src/shared/ModuleDefinitions/syscalls.o: src/shared/ModuleDefin
 #  Last modified 2022-02-27 02:59:51.657210544
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 118):
+#  recipe to execute (from 'makefile_m4.mk', line 124):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(CC) -c $(DEPFLAGS) $(OPTFLAG) $(CFLAGS) $< -o $@
@@ -2050,10 +2349,20 @@ build/corem4/obj/src/m4/Core/startup.o: src/m4/Core/startup.s
 #  Last modified 2022-02-27 02:59:50.887210547
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile_m4.mk', line 113):
+#  recipe to execute (from 'makefile_m4.mk', line 119):
 	@mkdir -p $(dir $@)
 	$(info Building $< at $(OPTFLAG))
 	@$(AS) $(AFLAGS) $< -o $@ 
+
+build/corem4/obj/src/m4/States/State_Machine.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'build/corem4/obj/src/m4/States/State_Machine'
+#  Last modified 2022-03-02 22:04:03.273765068
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile_m4.mk', line 148):
+	
 
 src/shared/CMSIS/Core/Include/core_cm4.h:
 #  Implicit rule search has been done.
@@ -2061,9 +2370,36 @@ src/shared/CMSIS/Core/Include/core_cm4.h:
 #  File has been updated.
 #  Successfully updated.
 
+src/m4/Timer/Timer_Module.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.593811797
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/m4/Display/Audio_Display.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.583811797
+#  File has been updated.
+#  Successfully updated.
+
 src/shared/HAL/Inc/stm32mp1xx_hal_gpio_ex.h:
 #  Implicit rule search has been done.
 #  Last modified 2022-02-23 15:42:52.520102544
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/m4/Trellis/Trellis_Read_Buttons.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 18:39:53.593811797
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/m4/Display/Func_Display.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-02 22:03:55.263765098
 #  File has been updated.
 #  Successfully updated.
 
@@ -2080,23 +2416,24 @@ tools/mkimage:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=123/1024=12%, Rehash=0, Collisions=186/1588=12%
+# Load=159/1024=16%, Rehash=0, Collisions=268/2474=11%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 2 (1) / strings = 330 / storage = 10357 B / avg = 31 B
-# current buf: size = 8162 B / used = 2219 B / count = 74 / avg = 29 B
-# other used: total = 8138 B / count = 256 / avg = 31 B
-# other free: total = 24 B / max = 24 B / min = 24 B / avg = 24 B
+# strcache buffers: 2 (0) / strings = 451 / storage = 14002 B / avg = 31 B
+# current buf: size = 8162 B / used = 5889 B / count = 209 / avg = 28 B
+# other used: total = 8113 B / count = 242 / avg = 33 B
+# other free: total = 49 B / max = 49 B / min = 49 B / avg = 49 B
 
-# strcache performance: lookups = 2299 / hit rate = 85%
+# strcache performance: lookups = 3621 / hit rate = 87%
 # hash-table stats:
-# Load=330/8192=4%, Rehash=0, Collisions=103/2299=4%
-# Finished Make data base on Tue Mar  1 15:40:20 2022
+# Load=451/8192=6%, Rehash=0, Collisions=145/3621=4%
+# Finished Make data base on Thu Mar  3 14:57:33 2022
 
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -2104,7 +2441,7 @@ tools/mkimage:
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar  1 15:40:20 2022
+# Make data base, printed on Thu Mar  3 14:57:33 2022
 
 # Variables
 
@@ -2141,7 +2478,6 @@ GNUMAKEFLAGS :=
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
- 
 VSCODE_VERBOSE_LOGGING = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
@@ -2150,13 +2486,13 @@ VSCODE_CWD = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/randy/.vscode-server/bin/f80445acd5a3dadef24aa209168452a3d97cc326/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Microchip/xc8/v2.31/bin:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+PATH = /home/randy/.vscode-server/bin/f80445acd5a3dadef24aa209168452a3d97cc326/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/Microchip/xc8/v2.31/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ba4c50a7-0b10-4979-9a3b-5eb678e5d63d.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ee0267d2-6842-4988-a800-6f79f6eaf77b.sock
 # makefile (from 'Makefile', line 3)
 BUILDDIR_M4 = build/corem4
 # default
@@ -2381,7 +2717,8 @@ m4:
 
 # strcache performance: lookups = 39 / hit rate = 33%
 # hash-table stats:
+ 
 # Load=26/8192=0%, Rehash=0, Collisions=1/39=3%
-# Finished Make data base on Tue Mar  1 15:40:20 2022
+# Finished Make data base on Thu Mar  3 14:57:33 2022
 
  

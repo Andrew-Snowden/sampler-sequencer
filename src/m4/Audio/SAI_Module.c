@@ -2,7 +2,7 @@
 #include "myprint.h"
 
 
-void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleTypeDef *hdmatx)
+void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleTypeDef *hdmatx, DMA_HandleTypeDef *hdmarx)
 {
 	
 	__HAL_RCC_SAI2_CLK_ENABLE();
@@ -10,11 +10,28 @@ void init_SAI(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleType
 	__HAL_RCC_DMAMUX_CLK_ENABLE();
 
 	SAI_Init_Master(hsaia, hsaib);
-	SAI_Init_DMA(hsaia, hdmatx);
+	SAI_Init_DMA(hsaia, hsaib, hdmatx, hdmarx);
 }
 
-void SAI_Init_DMA(SAI_HandleTypeDef *hsaia, DMA_HandleTypeDef *hdma_tx)
+void SAI_Init_DMA(SAI_HandleTypeDef *hsaia, SAI_HandleTypeDef *hsaib, DMA_HandleTypeDef *hdma_tx, DMA_HandleTypeDef *hdma_rx)
 {
+	hdma_rx->Instance					= DMA1_Stream1;
+	hdma_rx->Init.Request				= DMA_REQUEST_SAI2_B;
+	hdma_rx->Init.Direction				= DMA_PERIPH_TO_MEMORY;
+	hdma_rx->Init.PeriphInc				= DMA_PINC_DISABLE;
+	hdma_rx->Init.MemInc				= DMA_MINC_ENABLE;
+	hdma_rx->Init.PeriphDataAlignment	= DMA_PDATAALIGN_WORD;
+	hdma_rx->Init.MemDataAlignment		= DMA_MDATAALIGN_WORD;
+	hdma_rx->Init.Mode					= DMA_NORMAL;
+	hdma_rx->Init.Priority				= DMA_PRIORITY_VERY_HIGH;
+	hdma_rx->Init.FIFOMode				= DMA_FIFOMODE_DISABLE;
+	hdma_rx->Init.MemBurst				= DMA_MBURST_SINGLE;
+	hdma_rx->Init.PeriphBurst			= DMA_PBURST_SINGLE;
+
+	__HAL_LINKDMA(hsaib, hdmarx, *hdma_rx);
+
+	HAL_DMA_Init(hdma_rx);
+
 	hdma_tx->Instance 					= DMA1_Stream0;
 	hdma_tx->Init.Request 				= DMA_REQUEST_SAI2_A;
 	hdma_tx->Init.Direction 			= DMA_MEMORY_TO_PERIPH;
@@ -34,9 +51,14 @@ void SAI_Init_DMA(SAI_HandleTypeDef *hsaia, DMA_HandleTypeDef *hdma_tx)
 
 	HAL_DMA_Init(hdma_tx);
 
+	
+
 	/* DMA interrupt init */
 	HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+
+	HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
 
 	/* Peripheral interrupt init */
 	HAL_NVIC_SetPriority(SAI2_IRQn, 0, 0);

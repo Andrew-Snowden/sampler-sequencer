@@ -1593,15 +1593,12 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
     /* Process Locked */
     __HAL_LOCK(hsai);
 
-    print_char_nl('n');
-
     hsai->pBuffPtr = pData;
     hsai->XferSize = Size;
     hsai->XferCount = Size;
     hsai->ErrorCode = HAL_SAI_ERROR_NONE;
     hsai->State = HAL_SAI_STATE_BUSY_TX;
 
-    print_char_nl('n');
     /* Set the SAI Tx DMA Half transfer complete callback */
     hsai->hdmatx->XferHalfCpltCallback = SAI_DMATxHalfCplt;
 
@@ -1614,16 +1611,12 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
     /* Set the DMA Tx abort callback */
     hsai->hdmatx->XferAbortCallback = NULL;
 
-    print_char_nl('n');
-
     /* Enable the Tx DMA Stream */
     if (HAL_DMA_Start_IT(hsai->hdmatx, (uint32_t)hsai->pBuffPtr, (uint32_t)&hsai->Instance->DR, hsai->XferSize) != HAL_OK)
     {
       __HAL_UNLOCK(hsai);
       return  HAL_ERROR;
     }
-
-    print_char_nl('s');
 
     /* Enable the interrupts for error handling */
     //__HAL_SAI_ENABLE_IT(hsai, SAI_InterruptFlag(hsai, SAI_MODE_DMA));
@@ -1637,7 +1630,6 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
       /* Check for the Timeout */
       if ((HAL_GetTick() - tickstart) > SAI_LONG_TIMEOUT)
       {
-        print_char_nl('u');
         /* Update error code */
         hsai->ErrorCode |= HAL_SAI_ERROR_TIMEOUT;
 
@@ -1647,8 +1639,6 @@ HAL_StatusTypeDef HAL_SAI_Transmit_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, 
         return HAL_TIMEOUT;
       }
     }
-
-    print_char_nl('z');
 
     /* Check if the SAI is already enabled */
     if ((hsai->Instance->CR1 & SAI_xCR1_SAIEN) == 0U)
@@ -1681,6 +1671,7 @@ HAL_StatusTypeDef HAL_SAI_Receive_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, u
 
   if ((pData == NULL) || (Size == 0U))
   {
+    print_string("Receive Error\n", 14);
     return  HAL_ERROR;
   }
 
@@ -1710,12 +1701,13 @@ HAL_StatusTypeDef HAL_SAI_Receive_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, u
     /* Enable the Rx DMA Stream */
     if (HAL_DMA_Start_IT(hsai->hdmarx, (uint32_t)&hsai->Instance->DR, (uint32_t)hsai->pBuffPtr, hsai->XferSize) != HAL_OK)
     {
+      print_string("Start IT Error\n", 15);
       __HAL_UNLOCK(hsai);
       return  HAL_ERROR;
     }
 
     /* Enable the interrupts for error handling */
-    __HAL_SAI_ENABLE_IT(hsai, SAI_InterruptFlag(hsai, SAI_MODE_DMA));
+    //__HAL_SAI_ENABLE_IT(hsai, SAI_InterruptFlag(hsai, SAI_MODE_DMA));
 
     /* Enable SAI Rx DMA Request */
     hsai->Instance->CR1 |= SAI_xCR1_DMAEN;
@@ -1734,6 +1726,7 @@ HAL_StatusTypeDef HAL_SAI_Receive_DMA(SAI_HandleTypeDef *hsai, uint8_t *pData, u
   }
   else
   {
+    print_string("HAL BUSY\n", 9);
     return HAL_BUSY;
   }
 }

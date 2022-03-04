@@ -16,8 +16,8 @@ void Audio_Clip_Copy(uint8_t index_destination, uint8_t index_source)
 
     memcpy(destination->audio, source->audio, source->length_32 * sizeof(int32_t));
     destination->length_32 = source->length_32;
-    destination->start = destination->audio;
-    destination->end = destination->audio + destination->length_32;
+    destination->start = (destination->audio + (source->start - source->audio));
+    destination->end = destination->audio + (source->end - source->audio);
     destination->volume = source->volume;
     
     destination->read_ptr = destination->start;
@@ -107,14 +107,57 @@ void Audio_Clip_Set_Repeating(uint8_t index, uint8_t is_repeating)
     audio_clips[index].is_repeating = is_repeating;
 }
 
+void Audio_Clip_Toggle_Repeating(uint8_t index)
+{
+    if (audio_clips[index].is_repeating)
+    {
+        Audio_Clip_Set_Repeating(index, 0);
+    }
+    else
+    {
+        Audio_Clip_Set_Repeating(index, 1);
+    }
+}
+
 void Audio_Clip_Set_UseEffects(uint8_t index, uint8_t use_effects)
 {
     audio_clips[index].use_effects = use_effects;
 }
 
+void Audio_Clip_Set_Playthrough(uint8_t index, uint8_t play_through)
+{
+    audio_clips[index].play_through = play_through;
+}
+
 void Audio_Clip_Set_Volume(uint8_t index, float volume)
 {
     audio_clips[index].volume = volume;
+}
+
+void Audio_Clip_Adjust_Volume(uint8_t index, float value, ClipModifyDirection direction)
+{
+    switch (direction)
+    {
+        case FORWARD:
+        {
+            audio_clips[index].volume += value;
+        }
+        break;
+
+        case BACKWARD:
+        {
+            if (audio_clips[index].volume - value < 0)
+            {
+                audio_clips[index].volume = 0;
+            }
+            else
+            {
+                audio_clips[index].volume -= value;
+            }
+        }
+        break;
+    }
+    
 }
 
 void Audio_Clip_Reset_Start(uint8_t index)

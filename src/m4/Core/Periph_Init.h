@@ -12,5 +12,6 @@ SAI_HandleTypeDef *Handle_Get_SAIB();
 I2C_HandleTypeDef *Handle_Get_I2C1();
 
 DMA_HandleTypeDef *Handle_Get_DMATX();
+DMA_HandleTypeDef *Handle_Get_DMARX();
 
 #endif

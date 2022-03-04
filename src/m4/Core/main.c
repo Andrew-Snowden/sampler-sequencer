@@ -11,30 +11,11 @@
 #include "Audio_Processor.h"
 #include "Periph_Init.h"
 #include "Audio_Memory.h"
-
-
-int32_t sine_wave[128] = {	0x400000,0x4323ec,0x4645e9,0x496408,0x4c7c5c,0x4f8cfc,0x529406,0x558f9a,
-							0x587de2,0x5b5d0f,0x5e2b5c,0x60e70e,0x638e76,0x661fef,0x6899e5,0x6afad2,
-							0x6d413c,0x6f6bbd,0x717900,0x7367c0,0x7536cb,0x76e506,0x787165,0x79daf5,
-							0x7b20d7,0x7c4241,0x7d3e82,0x7e14fd,0x7ec52f,0x7f4eaa,0x7fb11a,0x7fec43,
-							0x7fffff,0x7fec43,0x7fb11a,0x7f4eaa,0x7ec52f,0x7e14fd,0x7d3e82,0x7c4241,
-							0x7b20d7,0x79daf5,0x787165,0x76e506,0x7536cb,0x7367c0,0x717900,0x6f6bbd,
-							0x6d413c,0x6afad2,0x6899e5,0x661fef,0x638e76,0x60e70e,0x5e2b5c,0x5b5d0f,
-							0x587de2,0x558f9a,0x529406,0x4f8cfc,0x4c7c5c,0x496408,0x4645e9,0x4323ec,
-							0x400000,0x3cdc13,0x39ba16,0x369bf7,0x3383a3,0x307303,0x2d6bf9,0x2a7065,
-							0x27821d,0x24a2f0,0x21d4a3,0x1f18f1,0x1c7189,0x19e010,0x17661a,0x15052d,
-							0x12bec3,0x109442,0xe86ff,0xc983f,0xac934,0x91af9,0x78e9a,0x6250a,
-							0x4df28,0x3bdbe,0x2c17d,0x1eb02,0x13ad0,0xb155,0x4ee5,0x13bc,
-							0x0,0x13bc,0x4ee5,0xb155,0x13ad0,0x1eb02,0x2c17d,0x3bdbe,
-							0x4df28,0x6250a,0x78e9a,0x91af9,0xac934,0xc983f,0xe86ff,0x109442,
-							0x12bec3,0x15052d,0x17661a,0x19e010,0x1c7189,0x1f18f1,0x21d4a3,0x24a2f0,
-							0x27821d,0x2a7065,0x2d6bf9,0x307303,0x3383a3,0x369bf7,0x39ba16,0x3cdc13
-						  };
-
-int32_t recorded_audio[960000];
-
-void *sine_wave_ptr = sine_wave;
-void *record_ptr = recorded_audio;
+#include "Audio_Display.h"
+#include "Func_Display.h"
+#include "Timer_Module.h"
+#include "State_Machine.h"
+#include "Rotary_Module.h"
 
 void init_interrupts(void);
 void _init(void){};
@@ -48,8 +29,6 @@ HAL_StatusTypeDef GetCODECid(I2C_HandleTypeDef *hi2c1, uint8_t *id);
 HAL_StatusTypeDef BootCODEC(I2C_HandleTypeDef *hi2c1);
 HAL_StatusTypeDef ConfigureCODEC(I2C_HandleTypeDef *hi2c1);
 HAL_StatusTypeDef StartCODEC(I2C_HandleTypeDef *hi2c1);
-
-HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai);
 
 
 void main()
@@ -71,7 +50,13 @@ void main()
 
 	//Initialize Interrupts
 	init_interrupts();
-	
+
+	//Initialize Trellis boards
+	Audio_Display_Init();
+	Func_Display_Init();
+
+	//Initialize Timers
+	init_Timers();
 	
 	//CODEC Configure + Start
 	BootCODEC(hi2c1);
@@ -81,67 +66,57 @@ void main()
 	//Initialize Audio Processor
 	Audio_Processor_Init();
 
-	HAL_StatusTypeDef status;
 
 	uint8_t continue_recording = 1;
-	Audio_Processor_Sample(&continue_recording, 0);
+	//Audio_Processor_Sample(&continue_recording, 0);
+
+/*
+	Audio_Processor_Sample_Start();
+
+	while(Audio_Processor_Get_Receive_Status() == RECEIVE_BUSY);
+
+	Audio_Processor_Sample_Stop(0);
 
 	print_string("First Done\n", 11);
-	
 
-	/*for (int i = 0; i < Audio_Get_Clip(0)->length_32; i++)
-	{
-		if (Audio_Get_Clip(0)->audio[i] > 0 && Audio_Get_Clip(0)->audio[i] < 300) print_char_nl('3');
-	}*/
 
 	HAL_Delay(5000);
+	Audio_Processor_Start();
+	Audio_Processor_Stop();
+	//Audio_Processor_Sample(&continue_recording, 1);
+
+	Audio_Processor_Sample_Start();
+
+	while(Audio_Processor_Get_Receive_Status() == RECEIVE_BUSY);
+
+	Audio_Processor_Sample_Stop(1);
+
+	Audio_Clip_Set_Repeating(0, 0);
+	Audio_Clip_Set_UseEffects(0, 0);
+	Audio_Clip_Set_Volume(0, 0.5f);
+	Audio_Clip_Set_Playthrough(0, 1);
 	
-	Audio_Processor_Sample(&continue_recording, 1);
 	
-	if (status != HAL_OK)
-	{
-		print_string("Not Support!\n", 13);	
-	}
-	else
-	{
-		print_string("yes\n", 4);
-		Audio_Clip_Set_Repeating(0, 1);
-		Audio_Clip_Set_UseEffects(0, 0);
-		Audio_Clip_Set_Volume(0, 0.5f);
+	//Audio_Clip_Set_Repeating(1, 1);
+	//Audio_Clip_Set_UseEffects(1, 0);
+	Audio_Clip_Set_Volume(1, 0.5f);
+
+	//Audio_Processor_Add_Clip(0);
+	//Audio_Processor_Add_Clip(1);
 		
-		Audio_Clip_Set_Repeating(1, 1);
-		Audio_Clip_Set_UseEffects(1, 0);
-		Audio_Clip_Set_Volume(1, 0.5f);
+		*/
 
-		Audio_Processor_Add_Clip(0);
-		Audio_Processor_Add_Clip(1);
-		Audio_Processor_Start();
-	}
+	Rotary_Register_Item(0, 3, MASTER_VOLUME_PARAM);
 
+	Audio_Processor_Start();
 
 	while(1)
 	{
-		Audio_Processor_Run();	//Audio Processor
+		State_Machine_Run();
 	}
-	
-}
 
-HAL_StatusTypeDef SendAudio(SAI_HandleTypeDef *hsai)
-{
-	uint8_t data[4] = {0x40, 0x00, 0x00, 0x00};
-	HAL_StatusTypeDef status;
-	status = HAL_SAI_Transmit(hsai, sine_wave_ptr, 128, HAL_MAX_DELAY);	
+	Rotary_Unregister(3);
 	
-	if (status != HAL_OK)
-	{
-		print_string("Failed audio tx\n", 16); 
-	}
-	else
-	{
-		//print_string("after SAI tx\n", 13);	
-	}
-	
-	return status;
 }
 
 HAL_StatusTypeDef BootCODEC(I2C_HandleTypeDef *hi2c1)
@@ -264,7 +239,7 @@ void SysTick_Handler(void)
 void EXTI14_IRQHandler(void)
 {
 	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
+	Rotary_Toggle_Granularity();
 }
 
 void NMI_Handler(void)
