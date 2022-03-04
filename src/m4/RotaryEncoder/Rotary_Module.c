@@ -6,10 +6,14 @@
 
 #include "Audio_Memory.h"
 #include "myprint.h"
+#include "Audio_Processor.h"
 
+#define COARSE_VALUE 16
+#define FINE_VALUE 1
 
 static volatile RotaryEncoder rotary_encoders[4];
 static volatile uint8_t entries = 0;
+
 
 static void Rotary_Callback(uint8_t rotary_number, uint8_t direction);
 
@@ -90,11 +94,11 @@ static void Rotary_Callback(uint8_t rotary_number, uint8_t direction)
             {
                 if (rotary_encoders[rotary_number].adjust == COARSE_ADJUST)
                 {
-                    Audio_Clip_Modify_Start(rotary_encoders[rotary_number].clip_index, 8, direction);
+                    Audio_Clip_Modify_Start(rotary_encoders[rotary_number].clip_index, COARSE_VALUE, direction);
                 }
                 else
                 {
-                    Audio_Clip_Modify_Start(rotary_encoders[rotary_number].clip_index, 1, direction);
+                    Audio_Clip_Modify_Start(rotary_encoders[rotary_number].clip_index, FINE_VALUE, direction);
                 }
             }
             break;
@@ -103,17 +107,26 @@ static void Rotary_Callback(uint8_t rotary_number, uint8_t direction)
             {
                 if (rotary_encoders[rotary_number].adjust == COARSE_ADJUST)
                 {
-                    Audio_Clip_Modify_End(rotary_encoders[rotary_number].clip_index, 8, direction);
+                    Audio_Clip_Modify_End(rotary_encoders[rotary_number].clip_index, COARSE_VALUE, direction);
                 }
                 else
                 {
-                    Audio_Clip_Modify_End(rotary_encoders[rotary_number].clip_index, 1, direction);
+                    Audio_Clip_Modify_End(rotary_encoders[rotary_number].clip_index, FINE_VALUE, direction);
                 }
             }
             break;
 
             case MASTER_VOLUME_PARAM:
-
+            {
+                if (rotary_encoders[rotary_number].adjust == COARSE_ADJUST)
+                {
+                    Audio_Processor_Modify_Volume(0.1f, direction);
+                }
+                else
+                {
+                    Audio_Processor_Modify_Volume(0.01f, direction);
+                }
+            }
             break;
 
             case NO_PARAM:

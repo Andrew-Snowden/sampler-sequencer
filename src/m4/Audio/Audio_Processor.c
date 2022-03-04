@@ -19,6 +19,8 @@ static volatile uint32_t receive_samples = 0;
 static volatile uint32_t receive_blocks = 0;
 static volatile uint8_t number_of_transfers = 0;
 
+static float master_volume = 1.0f;
+
 static uint8_t queued_index[6] = {25, 25, 25, 25, 25, 25};
 
 static SAI_HandleTypeDef hsaia;
@@ -83,6 +85,14 @@ void Audio_Processor_Run()
 void Audio_Processor_Master_Process()
 {
 	//Do audio processing
+	for (int i = 0; i < 512; i++)
+	{
+		mix_output_buffer[i] *= master_volume;
+
+		if (mix_output_buffer[i] > 8388607) mix_output_buffer[i] = 8388607;
+		if (mix_output_buffer[i] < -8388608) mix_output_buffer[i] = -8388608;
+	}
+
 	if(active_buffer == BUFFER_1)
 	{
 		memcpy(master_output_double_buffer, mix_output_buffer, 512 * sizeof(int32_t));		//active_buffer == BUFFER_1 after 
@@ -311,7 +321,7 @@ void Audio_Processor_Sample_Stop(uint8_t index)
 	audio_buffer->is_repeating = 0;
 	audio_buffer->use_effects = 0;
 	audio_buffer->play_through = 0;
-	audio_buffer->volume = 0.25f;
+	audio_buffer->volume = 1.0f;
 
 	for (int i = 0; i < audio_buffer->length_32; i++)
 	{
@@ -319,9 +329,30 @@ void Audio_Processor_Sample_Stop(uint8_t index)
 		{
 			audio_buffer->audio[i] |= 0xFF000000;
 		}
+
+		audio_buffer->audio[i] *= 0.25;
 	}
 
 	Audio_Clip_Copy(index, Audio_Get_Buffer_Index());
+}
+
+void Audio_Processor_Modify_Volume(float value, uint8_t direction)
+{
+	if (direction == 0)	//Down
+	{
+		if (master_volume - value < 0)
+		{
+			master_volume = 0.0f;
+		}
+		else
+		{
+			master_volume -= value;
+		}
+	}
+	else	//Up
+	{
+		master_volume += value;
+	}
 }
 
 void Audio_Processor_Resample_Single(uint8_t clip_index)

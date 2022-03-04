@@ -28,6 +28,8 @@ void Audio_Processor_Sample_Start();
 void Audio_Processor_Sample_Stop(uint8_t index);
 ReceiveStatus Audio_Processor_Get_Receive_Status();
 
+void Audio_Processor_Modify_Volume(float value, uint8_t direction);
+
 void Audio_Processor_Resample_Single(uint8_t clip_index);       //Resamples clip into itself with effects
 
 int32_t *Get_Output_Buffer();

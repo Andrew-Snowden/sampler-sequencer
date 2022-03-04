@@ -106,12 +106,16 @@ void main()
 		
 		*/
 
+	Rotary_Register_Item(0, 3, MASTER_VOLUME_PARAM);
+
 	Audio_Processor_Start();
 
 	while(1)
 	{
 		State_Machine_Run();
 	}
+
+	Rotary_Unregister(3);
 	
 }
 

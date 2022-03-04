@@ -16,8 +16,8 @@ void Audio_Clip_Copy(uint8_t index_destination, uint8_t index_source)
 
     memcpy(destination->audio, source->audio, source->length_32 * sizeof(int32_t));
     destination->length_32 = source->length_32;
-    destination->start = destination->audio;
-    destination->end = destination->audio + destination->length_32;
+    destination->start = (destination->audio + (source->start - source->audio));
+    destination->end = destination->audio + (source->end - source->audio);
     destination->volume = source->volume;
     
     destination->read_ptr = destination->start;
