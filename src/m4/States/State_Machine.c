@@ -89,7 +89,7 @@ static void Select_Mode_Function()
         Func_Display_Flash_Allocated();
         Rotary_Register_Item(state_machine.source_index, 0, START_PARAM);
         Rotary_Register_Item(state_machine.source_index, 1, END_PARAM);
-        //Rotary_Register_Item(state_machine.source_index, 2, VOLUME_PARAM);
+        Rotary_Register_Item(state_machine.source_index, 2, VOLUME_PARAM);
     }
 
 
@@ -121,6 +121,8 @@ static void Select_Mode_Function()
             {
                 state_machine.operation = SAMPLE_OPERATION;
                 state_machine.current_state = OPERATION_MODE;
+                //Func_Display_Clear();
+                Func_Display_Show_NotAllocated();
             }
             else if (is_not_allocated == 0 && selection_index == DELETE_FUNC)   //Run delete operation
             {
@@ -170,7 +172,7 @@ static void Select_Mode_Function()
 
     Rotary_Unregister(0);
     Rotary_Unregister(1);
-    //Rotary_Unregister(2);
+    Rotary_Unregister(2);
 }
 
 static void Operation_Mode_Function()
