@@ -8,7 +8,7 @@
 void init_Timers(void);
 void Init_TIM6(void);
 void Init_TIM7(void);
-void TIM2_IRQHandler(void);
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim);
+void delay_us(uint16_t us);
 
 #endif

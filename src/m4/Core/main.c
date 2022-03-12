@@ -16,6 +16,7 @@
 #include "Timer_Module.h"
 #include "State_Machine.h"
 #include "Rotary_Module.h"
+#include "IR_Module.h"
 
 void init_interrupts(void);
 void _init(void){};
@@ -57,6 +58,9 @@ void main()
 
 	//Initialize Timers
 	init_Timers();
+
+	//Initialize IR
+	IR_Init();
 	
 	//CODEC Configure + Start
 	BootCODEC(hi2c1);

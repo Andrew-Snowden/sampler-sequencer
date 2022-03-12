@@ -21,7 +21,7 @@ void init_GPIO()
 static void Enable_Clocks()
 {
 	__HAL_RCC_GPIOA_CLK_ENABLE();
-//	__HAL_RCC_GPIOB_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
 //	__HAL_RCC_GPIOC_CLK_ENABLE();
 	__HAL_RCC_GPIOD_CLK_ENABLE();
 	__HAL_RCC_GPIOE_CLK_ENABLE();
@@ -189,6 +189,12 @@ static void Misc_GPIO_Config()
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	//IR Reciever
+	GPIO_InitStruct.Pin = GPIO_PIN_13;
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 	
 	//LED Enable
 	GPIO_InitStruct.Pin 	= GPIO_PIN_13;
