@@ -54,6 +54,7 @@ void Func_Display_Show_NotAllocated(void)
 	TrellisBoard_SetLEDs(funcBoard, 0x1 << SAMPLE_FUNC);
 	TrellisBoard_SetBrightness(funcBoard, 8);
 	TrellisBoard_SendLEDs(funcBoard);
+	TrellisBoard_SetBlinking(funcBoard, 0);
 }
 
 void Func_Display_Flash_Allocated(void)
