@@ -8,7 +8,7 @@
 #include "myprint.h"
 #include <stdlib.h>
 
-#define DEBUG_PRINT_IR_COMMAND 0
+#define DEBUG_PRINT_IR_COMMAND 1
 
 static void IR_Callback(void);
 
@@ -27,11 +27,17 @@ void IR_Callback(void)
 {
     static uint32_t prevData = 0xFFFFFFFF;
     uint32_t data = 0;
+    if (DEBUG_PRINT_IR_COMMAND)
+        print_string("IRwait1\n",8);
     while (!(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13))); // Wait for 9ms pulse low
+    if (DEBUG_PRINT_IR_COMMAND)
+        print_string("IRwait2\n",8);
     while ((HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13))); // Wait for 4.5 pulse high
     for (uint8_t i = 0; i < 32; i++) {
         uint8_t count = 0;
-        while (!(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13))); // Wait for 562.5µs pulse low
+        if (DEBUG_PRINT_IR_COMMAND)
+            print_string("IRwait3\n", 8);
+        while (!(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13))); // Wait for 562.5ï¿½s pulse low
         while ((HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13))) // Read data
         {
             if (++count >= 20) // Abort if waited too long
@@ -45,6 +51,7 @@ void IR_Callback(void)
     }
     if (DEBUG_PRINT_IR_COMMAND)
     {
+        print_string("IR-",3);
         char str[9] = { '\0' };
         itoa(data, str, 16);
         print_string(str, 9);
